@@ -3,250 +3,290 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>St. THERESA OF THE CHILD JESUS-MALAVA PARISH</title>
+<title>St. Mary's Catholic Parish</title>
 <style>
-  /* Reset */
+  /* Reset some basic elements */
   *, *::before, *::after {
     box-sizing: border-box;
   }
   body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #fff; /* White background */
-    color: #3e3a39;
+    background-color: #fefcf6;
+    color: #333;
     line-height: 1.6;
   }
+  a {
+    color: #5a3e1b;
+    text-decoration: none;
+  }
+  a:hover, a:focus {
+    text-decoration: underline;
+  }
+
   header {
-    background-color: #b22222; /* Firebrick red */
-    color: #f7f1e1;
+    background-color: #6d4c41;
+    color: #f9f6f1;
     padding: 1rem 2rem;
-    text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   header h1 {
+    font-size: 1.5rem;
     margin: 0;
-    font-size: 1.8rem;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.05em;
   }
-  nav {
-    margin-top: 0.4rem;
+  nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  nav li + li {
+    margin-left: 1.5rem;
   }
   nav a {
-    color: #f7f1e1;
-    margin: 0 0.8rem;
     font-weight: 600;
-    text-decoration: none;
     font-size: 1rem;
-    transition: color 0.3s ease;
   }
-  nav a:hover,
-  nav a:focus {
-    color: #ffdb85;
-    outline: none;
+  
+  /* Hero */
+  .hero {
+    position: relative;
+    height: 300px;
+    background: url('https://images.pexels.com/photos/2440063/pexels-photo-2440063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #f0e6d2;
   }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(109, 76, 65, 0.6);
+    z-index: 0;
+  }
+  .hero h2 {
+    position: relative;
+    font-size: 2.5rem;
+    max-width: 90%;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    z-index: 1;
+  }
+
+  /* Main content container */
   main {
     max-width: 900px;
-    margin: 2rem auto 4rem auto;
-    padding: 0 1rem;
+    margin: 2rem auto;
+    padding: 0 1rem 3rem;
   }
   section {
     margin-bottom: 3rem;
   }
-  h2 {
-    font-size: 1.6rem;
-    border-bottom: 2px solid #b22222; /* Firebrick red */
+  section h3 {
+    color: #6d4c41;
+    font-size: 1.8rem;
+    border-bottom: 3px solid #bca07c;
     padding-bottom: 0.3rem;
     margin-bottom: 1rem;
     font-weight: 700;
-    color: #5a3a01;
   }
   p {
     font-size: 1.1rem;
-    color: #46423a;
   }
-  ul.schedule {
-    list-style: none;
-    padding-left: 0;
-    font-size: 1.1rem;
+  ul {
+    padding-left: 1.5rem;
   }
-  ul.schedule li {
+  li {
     margin-bottom: 0.5rem;
-  }
-  .events-list {
-    list-style: none;
-    padding-left: 0;
-  }
-  .events-list li {
-    background: #fff7e8;
-    border-left: 5px solid #b22222; /* Firebrick red */
-    margin-bottom: 1rem;
-    padding: 1rem 1.2rem;
-    border-radius: 4px;
-  }
-  address {
-    font-style: normal;
     font-size: 1.1rem;
-    color: #4b473f;
   }
+
+  /* Mass Schedule Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.1rem;
+  }
+  th, td {
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    background-color: #bca07c;
+    color: #3e2f20;
+  }
+
+  /* Contact Info */
+  .contact-info p {
+    margin: 0.3rem 0;
+  }
+
+  /* Footer */
   footer {
-    background-color: #b22222; /* Firebrick red */
-    color: #f7f1e1;
-    padding: 1rem 2rem;
+    background-color: #6d4c41;
+    color: #f9f6f1;
     text-align: center;
+    padding: 1rem 1rem;
     font-size: 0.9rem;
   }
-  /* Responsive Image Section */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 1rem;
+  footer a {
+    color: #c9b49a;
+    margin: 0 0.3rem;
+    font-weight: 600;
   }
-  .gallery img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(178,34,34,0.2); /* Firebrick red shadow */
-    object-fit: cover;
-    height: 180px;
-  }
-  /* Image slider container */
-  #image-slider {
-    max-width: 900px;
-    margin: 1.5rem auto 3rem auto;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  }
-  #image-slider img {
-    width: 100%;
-    display: block;
-    border-radius: 10px;
-  }
-  /* Responsive Layout */
-  @media (max-width: 600px) {
-    header h1 {
-      font-size: 1.4rem;
+
+  /* Responsive Nav Menu Toggle for small screens */
+  @media (max-width:600px) {
+    header .container {
+      flex-wrap: wrap;
+    }
+    nav ul {
+      flex-direction: column;
+      width: 100%;
+      display: none;
+      margin-top: 0.5rem;
+    }
+    nav ul.show {
+      display: flex;
+    }
+    nav li + li {
+      margin-left: 0;
+      margin-top: 0.75rem;
+    }
+    .menu-toggle {
+      display: block;
+      cursor: pointer;
+      background-color: #5a3e1b;
+      border: none;
+      color: #f9f6f1;
+      font-size: 1.3rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 3px;
     }
     nav a {
-      margin: 0 0.5rem;
-      font-size: 0.9rem;
-    }
-    main {
-      margin: 1.5rem 1rem 3rem 1rem;
-    }
-    #image-slider {
-      max-width: 100%;
-      margin: 1rem auto 2rem auto;
+      font-size: 1.2rem;
     }
   }
 </style>
 </head>
 <body>
 <header>
-  <h1>St. THERESA OF THE CHILD JESUS<br />MALAVA PARISH</h1>
-  <nav aria-label="Primary navigation">
-    <a href="#about" tabindex="0">About</a>
-    <a href="#mass-times" tabindex="0">Mass Times</a>
-    <a href="#events" tabindex="0">Events</a>
-    <a href="#contact" tabindex="0">Contact</a>
-    <a href="#gallery" tabindex="0">Gallery</a>
-  </nav>
+  <div class="container">
+    <h1>St. Mary's Catholic Parish</h1>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <nav>
+      <ul>
+        <li><a href="#welcome">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#mass-schedule">Mass Schedule</a></li>
+        <li><a href="#ministries">Ministries</a></li>
+        <li><a href="#events-announcements">Events &amp; Announcements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
-<!-- Image Slider Before About Section -->
-<div id="image-slider" aria-label="Slideshow of church images">
-  <img src="img/chapel 1" src="img/chapel2" />
-</div>
+
+<section class="hero" id="welcome" role="banner">
+  <h2>Welcome to St. Mary's Catholic Parish</h2>
+</section>
+
 <main>
-  <section id="about" tabindex="0">
-    <h2>About St. Theresa Parish</h2>
-    <p>
-      Welcome to St. Theresa of the Child Jesus, Malava Parish! Our parish community is dedicated to faith,
-      love, and service through the teachings of the Catholic Church. We strive to grow spiritually together by
-      worship, prayer, and outreach to our neighborhood.
-    </p>
+  <section id="about" aria-labelledby="about-heading">
+    <h3 id="about-heading">About Us</h3>
+    <p>Founded in 1905, St. Mary's Catholic Parish has faithfully served our community for over a century. Our mission is to foster a welcoming and nurturing environment where faith, hope, and love grow.</p>
+    <p>We invite you to join us in worship, community service, and fellowship to live the teachings of Christ in daily life.</p>
   </section>
-  <section id="mass-times" tabindex="0">
-    <h2>Mass Times</h2>
-    <ul class="schedule" aria-label="Mass schedule">
-      <li><strong>Sunday:</strong> 8:00 AM, 10:30 AM, 5:00 PM</li>
-      <li><strong>Monday - Friday:</strong> 6:30 AM, 5:30 PM</li>
-      <li><strong>Saturday:</strong> 6:30 AM, 6:00 PM (Sunday Vigil)</li>
-      <li><strong>Holy Days:</strong> As Announced</li>
+
+  <section id="mass-schedule" aria-labelledby="mass-heading">
+    <h3 id="mass-heading">Mass Schedule</h3>
+    <table role="table" aria-describedby="mass-info">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Time</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Sunday</td><td>8:00 AM, 10:30 AM, 6:00 PM</td><td>Main Church</td></tr>
+        <tr><td>Saturday</td><td>5:00 PM</td><td>Main Church</td></tr>
+        <tr><td>Weekdays (Mon-Fri)</td><td>7:00 AM, 12:15 PM</td><td>Main Chapel</td></tr>
+      </tbody>
+    </table>
+    <p id="mass-info" class="visually-hidden">Mass times and locations</p>
+  </section>
+
+  <section id="ministries" aria-labelledby="ministries-heading">
+    <h3 id="ministries-heading">Our Ministries</h3>
+    <ul>
+      <li><strong>Youth Ministry:</strong> Engaging youth through faith and community.</li>
+      <li><strong>Liturgy Committee:</strong> Supporting our worship services.</li>
+      <li><strong>Charity Outreach:</strong> Serving those in need locally.</li>
+      <li><strong>Prayer Groups:</strong> United in prayer and spiritual growth.</li>
     </ul>
   </section>
-  <section id="events" tabindex="0">
-    <h2>Upcoming Events &amp; Announcements</h2>
-    <ul class="events-list" aria-live="polite">
-      <li><strong>July 22:</strong> Feast Day Celebration of St. Theresa - Special Mass at 10:30 AM followed by community luncheon.</li>
-      <li><strong>August 1-7:</strong> Parish Mission Week - Join us for daily talks and fellowship.</li>
-      <li><strong>Every Friday:</strong> Youth Group Meeting at 7:00 PM in the Parish Hall.</li>
+
+  <section id="events-announcements" aria-labelledby="events-heading">
+    <h3 id="events-heading">Upcoming Events &amp; Announcements</h3>
+    <ul>
+      <li><strong>April 7:</strong> Lenten Penance Service at 6:30 PM in the Main Church.</li>
+      <li><strong>April 14:</strong> Youth Ministry Retreat - Registration open until April 1.</li>
+      <li><strong>Announcement:</strong> Volunteers needed for the Charity Outreach food drive on April 20.</li>
+      <li><strong>Announcement:</strong> Parish website now includes online donation options.</li>
     </ul>
   </section>
-  <section id="contact" tabindex="0">
-    <h2>Contact &amp; Location</h2>
-    <address>
-      St. Theresa of the Child Jesus<br />
-      Malava Parish<br />
-      P.O. Box 1234<br />
-      Malava, Kenya<br />
-      <br />
-      Phone: <a href="tel:+254700000000" aria-label="Call church phone number">+254 700 000 000</a><br />
-      Email: <a href="mailto:info@sttheresamalava.org" aria-label="Email church">info@sttheresamalava.org</a><br />
+
+  <section id="contact" aria-labelledby="contact-heading">
+    <h3 id="contact-heading">Contact Us</h3>
+    <address class="contact-info">
+      <p>123 Church Avenue</p>
+      <p>Hometown, State 45678</p>
+      <p>Phone: <a href="tel:+1234567890">(123) 456-7890</a></p>
+      <p>Email: <a href="mailto:info@stmaryparish.org">info@stmaryparish.org</a></p>
     </address>
-    <div style="margin-top:1rem;">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19828.948049328636!2d34.928410844331134!3d-0.2074669681336793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1780a0f1c5331d71%3A0x97b7bcb8e47e8585!2sMalava%2C%20Kenya!5e0!3m2!1sen!2sus!4v1687113810994!5m2!1sen!2sus"
-        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" title="Map showing Malava location"></iframe>
-    </div>
-  </section>
-  <section id="gallery" tabindex="0">
-    <h2>Gallery</h2>
-    <div class="gallery" aria-label="Gallery of church and parish photos">
-      <img src="https://images.pexels.com/photos/2532346/pexels-photo-2532346.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=180" alt="Church interior with stained glass windows" loading="lazy" />
-      <img src="https://images.pexels.com/photos/2696306/pexels-photo-2696306.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=180" alt="Hands clasped in prayer with Bible" loading="lazy" />
-      <img src="https://images.pexels.com/photos/1599795/pexels-photo-1599795.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=180" alt="Church bell tower against blue sky" loading="lazy" />
-      <img src="https://images.pexels.com/photos/1819644/pexels-photo-1819644.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=180" alt="Candles lit in church sanctuary" loading="lazy" />
-    </div>
   </section>
 </main>
+
 <footer>
-  &copy; 2024 St. Theresa of the Child Jesus, Malava Parish - All Rights Reserved
+  &copy; 2024 St. Mary's Catholic Parish. All rights reserved. 
+  <br />
+  <a href="#" aria-label="Facebook">Facebook</a> |
+  <a href="#" aria-label="Twitter">Twitter</a> |
+  <a href="#" aria-label="Instagram">Instagram</a>
 </footer>
+
 <script>
-  const sliderImages = [
-    {
-      src: "img/church 1",
-      alt: "Church interior with stained glass windows"
-    },
-    {
-      src: "img/church 2",
-      alt: "Hands clasped in prayer with Bible"
-    },
-    {
-      src: "church 4",
-      alt: "Church bell tower against blue sky"
-    },
-    {
-      src: "church 5",
-      alt: "Candles lit in church sanctuary"
-    }
-  ];
+  // Toggle menu on mobile
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navUl = document.querySelector('nav ul');
+  menuToggle.addEventListener('click', () => {
+    navUl.classList.toggle('show');
+  });
 
-  let currentIndex = 0;
-  const imageElement = document.querySelector('#image-slider img');
-
-  function changeImage() {
-    currentIndex = (currentIndex + 1) % sliderImages.length;
-    imageElement.src = sliderImages[currentIndex].src;
-    imageElement.alt = sliderImages[currentIndex].alt;
-  }
-
-  setInterval(changeImage, 5000); // Change image every 5 seconds
+  // Close mobile menu on link click
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      navUl.classList.remove('show');
+    });
+  });
 </script>
+
 </body>
 </html>
-
-```
-
