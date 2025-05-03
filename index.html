@@ -1,245 +1,252 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>St. Therese of Lisieux - Malava Parish</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f7f9fc;
-      color: #333;
-    }
-    header {
-      background-color: #5b3e91;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>St. Theresa of the Child Jesus - Malava Parish</title>
+<style>
+  /* Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff; /* White background */
+    color: #3e3a39;
+    line-height: 1.6;
+  }
+  header {
+    background-color: #b22222; /* Firebrick red */
+    color: #f7f1e1;
+    padding: 1rem 2rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  nav {
+    margin-top: 0.4rem;
+  }
+  nav a {
+    color: #f7f1e1;
+    margin: 0 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  nav a:hover,
+  nav a:focus {
+    color: #ffdb85;
+    outline: none;
+  }
+  main {
+    max-width: 900px;
+    margin: 2rem auto 4rem auto;
+    padding: 0 1rem;
+  }
+  section {
+    margin-bottom: 3rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+    border-bottom: 2px solid #b22222; /* Firebrick red */
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #5a3a01;
+  }
+  p {
+    font-size: 1.1rem;
+    color: #46423a;
+  }
+  ul.schedule {
+    list-style: none;
+    padding-left: 0;
+    font-size: 1.1rem;
+  }
+  ul.schedule li {
+    margin-bottom: 0.5rem;
+  }
+  .events-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .events-list li {
+    background: #fff7e8;
+    border-left: 5px solid #b22222; /* Firebrick red */
+    margin-bottom: 1rem;
+    padding: 1rem 1.2rem;
+    border-radius: 4px;
+  }
+  address {
+    font-style: normal;
+    font-size: 1.1rem;
+    color: #4b473f;
+  }
+  footer {
+    background-color: #b22222; /* Firebrick red */
+    color: #f7f1e1;
+    padding: 1rem 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  /* Responsive Image Section */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 1rem;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(178,34,34,0.2); /* Firebrick red shadow */
+    object-fit: cover;
+    height: 180px;
+  }
+  /* Image slider container */
+  #image-slider {
+    max-width: 900px;
+    margin: 1.5rem auto 3rem auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+  #image-slider img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+  }
+  /* Responsive Layout */
+  @media (max-width: 600px) {
     header h1 {
-      margin: 0;
-      font-size: 1.8rem;
+      font-size: 1.4rem;
     }
     nav a {
-      color: white;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .hero {
-      background: url('https://source.unsplash.com/1600x600/?church,cross') no-repeat center center/cover;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-      font-size: 2.5rem;
-    }
-    .section {
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .section h2 {
-      color: #5b3e91;
-    }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .card {
-      background: white;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      border-radius: 10px;
-      padding: 1.5rem;
-      width: 300px;
-    }
-    footer {
-      background: #5b3e91;
-      color: white;
-      padding: 1.5rem 2rem;
-      text-align: center;
-    }
-    .social-icons a {
-      color: white;
       margin: 0 0.5rem;
-      font-size: 1.2rem;
+      font-size: 0.9rem;
     }
-  </style>
+    main {
+      margin: 1.5rem 1rem 3rem 1rem;
+    }
+    #image-slider {
+      max-width: 100%;
+      margin: 1rem auto 2rem auto;
+    }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>St. Therese - Malava Parish</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#ministries">Ministries</a>
-      <a href="#events">Events</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>  <div class="hero">
-    Welcome to Our Parish Family
-  </div>  <section class="section" id="about">
-    <h2>About Us</h2>
-    <p>St. Therese of Lisieux Parish, Malava is a vibrant Catholic community rooted in the Gospel of Christ and the love of the Little Flower.</p>
-  </section>  <section class="section" id="ministries">
-    <h2>Our Ministries</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Youth Ministry</h3>
-        <p>Empowering young Catholics through fellowship, formation, and fun.</p>
-      </div>
-      <div class="card">
-        <h3>Catechists</h3>
-        <p>Sharing the Word of God with the faithful through teaching and witness.</p>
-      </div>
-      <div class="card">
-        <h3>Choir</h3>
-        <p>Leading the parish in liturgical praise with joyful music and voices.</p>
-      </div>
+<header>
+  <h1>St. Theresa of the Child Jesus<br />Malava Parish</h1>
+  <nav aria-label="Primary navigation">
+    <a href="#about" tabindex="0">About</a>
+    <a href="#mass-times" tabindex="0">Mass Times</a>
+    <a href="#events" tabindex="0">Events</a>
+    <a href="#contact" tabindex="0">Contact</a>
+    <a href="#gallery" tabindex="0">Gallery</a>
+  </nav>
+</header>
+<!-- Image Slider Before About Section -->
+<div id="image-slider" aria-label="Slideshow of church images">
+  <img src="https://images.pexels.com/photos/2532346/pexels-photo-2532346.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=500" alt="Church interior with stained glass windows" />
+</div>
+<main>
+  <section id="about" tabindex="0">
+    <h2>About St. Theresa Parish</h2>
+    <p>
+      Welcome to St. Theresa of the Child Jesus, Malava Parish! Our parish community is dedicated to faith,
+      love, and service through the teachings of the Catholic Church. We strive to grow spiritually together by
+      worship, prayer, and outreach to our neighborhood.
+    </p>
+  </section>
+  <section id="mass-times" tabindex="0">
+    <h2>Mass Times</h2>
+    <ul class="schedule" aria-label="Mass schedule">
+      <li><strong>Sunday:</strong> 8:00 AM, 10:30 AM, 5:00 PM</li>
+      <li><strong>Monday - Friday:</strong> 6:30 AM, 5:30 PM</li>
+      <li><strong>Saturday:</strong> 6:30 AM, 6:00 PM (Sunday Vigil)</li>
+      <li><strong>Holy Days:</strong> As Announced</li>
+    </ul>
+  </section>
+  <section id="events" tabindex="0">
+    <h2>Upcoming Events &amp; Announcements</h2>
+    <ul class="events-list" aria-live="polite">
+      <li><strong>July 22:</strong> Feast Day Celebration of St. Theresa - Special Mass at 10:30 AM followed by community luncheon.</li>
+      <li><strong>August 1-7:</strong> Parish Mission Week - Join us for daily talks and fellowship.</li>
+      <li><strong>Every Friday:</strong> Youth Group Meeting at 7:00 PM in the Parish Hall.</li>
+    </ul>
+  </section>
+  <section id="contact" tabindex="0">
+    <h2>Contact &amp; Location</h2>
+    <address>
+      St. Theresa of the Child Jesus<br />
+      Malava Parish<br />
+      P.O. Box 1234<br />
+      Malava, Kenya<br />
+      <br />
+      Phone: <a href="tel:+254700000000" aria-label="Call church phone number">+254 700 000 000</a><br />
+      Email: <a href="mailto:info@sttheresamalava.org" aria-label="Email church">info@sttheresamalava.org</a><br />
+    </address>
+    <div style="margin-top:1rem;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19828.948049328636!2d34.928410844331134!3d-0.2074669681336793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1780a0f1c5331d71%3A0x97b7bcb8e47e8585!2sMalava%2C%20Kenya!5e0!3m2!1sen!2sus!4v1687113810994!5m2!1sen!2sus"
+        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" title="Map showing Malava location"></iframe>
     </div>
-  </section>  <section class="section" id="events">
-    <h2>Upcoming Events</h2>
-    <p>Join us for Mass, parish feasts, and community outreach events. More coming soon!</p>
-  </section>  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: sttheresemalava@gmail.com | Phone: +254 712 345678</p>
-  </section>  <footer>
-    <p>&copy; 2025 St. Therese of Lisieux Parish, Malava. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
+  </section>
+  <section id="gallery" tabindex="0">
+    <h2>Gallery</h2>
+    <div class="gallery" aria-label="Gallery of church and parish photos">
+      <img src="https://images.pexels.com/photos/2532346/pexels-photo-2532346.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=180" alt="Church interior with stained glass windows" loading="lazy" />
+      <img src="https://images.pexels.com/photos/2696306/pexels-photo-2696306.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=180" alt="Hands clasped in prayer with Bible" loading="lazy" />
+      <img src="https://images.pexels.com/photos/1599795/pexels-photo-1599795.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=180" alt="Church bell tower against blue sky" loading="lazy" />
+      <img src="https://images.pexels.com/photos/1819644/pexels-photo-1819644.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=180" alt="Candles lit in church sanctuary" loading="lazy" />
     </div>
-  </footer></body>
-</html><!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>St. Therese of Lisieux - Malava Parish</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f7f9fc;
-      color: #333;
+  </section>
+</main>
+<footer>
+  &copy; 2024 St. Theresa of the Child Jesus, Malava Parish - All Rights Reserved
+</footer>
+<script>
+  const sliderImages = [
+    {
+      src: "https://images.pexels.com/photos/2532346/pexels-photo-2532346.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=500",
+      alt: "Church interior with stained glass windows"
+    },
+    {
+      src: "https://images.pexels.com/photos/2696306/pexels-photo-2696306.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=500",
+      alt: "Hands clasped in prayer with Bible"
+    },
+    {
+      src: "https://images.pexels.com/photos/1599795/pexels-photo-1599795.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=500",
+      alt: "Church bell tower against blue sky"
+    },
+    {
+      src: "https://images.pexels.com/photos/1819644/pexels-photo-1819644.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=500",
+      alt: "Candles lit in church sanctuary"
     }
-    header {
-      background-color: #5b3e91;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-    nav a {
-      color: white;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .hero {
-      background: url('https://source.unsplash.com/1600x600/?church,cross') no-repeat center center/cover;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-      font-size: 2.5rem;
-    }
-    .section {
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .section h2 {
-      color: #5b3e91;
-    }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .card {
-      background: white;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      border-radius: 10px;
-      padding: 1.5rem;
-      width: 300px;
-    }
-    footer {
-      background: #5b3e91;
-      color: white;
-      padding: 1.5rem 2rem;
-      text-align: center;
-    }
-    .social-icons a {
-      color: white;
-      margin: 0 0.5rem;
-      font-size: 1.2rem;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>St. Therese - Malava Parish</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#ministries">Ministries</a>
-      <a href="#events">Events</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>  <div class="hero">
-    Welcome to Our Parish Family
-  </div>  <section class="section" id="about">
-    <h2>About Us</h2>
-    <p>St. Therese of Lisieux Parish, Malava is a vibrant Catholic community rooted in the Gospel of Christ and the love of the Little Flower.</p>
-  </section>  <section class="section" id="ministries">
-    <h2>Our Ministries</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Youth Ministry</h3>
-        <p>Empowering young Catholics through fellowship, formation, and fun.</p>
-      </div>
-      <div class="card">
-        <h3>Catechists</h3>
-        <p>Sharing the Word of God with the faithful through teaching and witness.</p>
-      </div>
-      <div class="card">
-        <h3>Choir</h3>
-        <p>Leading the parish in liturgical praise with joyful music and voices.</p>
-      </div>
-    </div>
-  </section>  <section class="section" id="events">
-    <h2>Upcoming Events</h2>
-    <p>Join us for Mass, parish feasts, and community outreach events. More coming soon!</p>
-  </section>  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: sttheresemalava@gmail.com | Phone: +254 712 345678</p>
-  </section>  <footer>
-    <p>&copy; 2025 St. Therese of Lisieux Parish, Malava. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-  </footer></body>
+  ];
+
+  let currentIndex = 0;
+  const imageElement = document.querySelector('#image-slider img');
+
+  function changeImage() {
+    currentIndex = (currentIndex + 1) % sliderImages.length;
+    imageElement.src = sliderImages[currentIndex].src;
+    imageElement.alt = sliderImages[currentIndex].alt;
+  }
+
+  setInterval(changeImage, 5000); // Change image every 5 seconds
+</script>
+</body>
 </html>
+
+```
+
