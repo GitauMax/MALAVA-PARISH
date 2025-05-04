@@ -35,13 +35,24 @@
 
         .logo {
             overflow: hidden;
-            max-width: 70%;
+            max-width: 60%;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 30px;
+            max-width: 30px;
+            object-fit: contain;
+            margin-right: 0.5rem;
+            vertical-align: middle;
         }
 
         .logo h1 {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             display: inline-block;
             white-space: nowrap;
+            text-transform: uppercase;
         }
 
         .marquee {
@@ -462,11 +473,16 @@
             }
 
             .logo {
-                max-width: 60%;
+                max-width: 50%;
+            }
+
+            .logo-img {
+                height: 24px;
+                max-width: 24px;
             }
 
             .logo h1 {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
             }
 
             .marquee {
@@ -551,11 +567,16 @@
 
         @media (max-width: 480px) {
             .logo {
-                max-width: 50%;
+                max-width: 40%;
+            }
+
+            .logo-img {
+                height: 20px;
+                max-width: 20px;
             }
 
             .logo h1 {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             .marquee {
@@ -568,7 +589,8 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <h1><span class="marquee">St. Therese of Lisieux Malava Catholic Parish</span></h1>
+            <img src="img/cross-icon.png" alt="Parish Logo" class="logo-img">
+            <h1><span class="marquee">ST. THERESE OF LISIEUX MALAVA CATHOLIC PARISH</span></h1>
         </div>
         <nav>
             <button class="hamburger" aria-label="Toggle menu">☰</button>
@@ -610,7 +632,7 @@
             <!-- TODO: Replace 'Fr. John Smith' with actual priest name and update history -->
         </div>
         <aside>
-            <img src="img/priest.jpg" alt="Fr. John Smith, Parish Priest" loading="lazy">
+            <img src="img/priest.jpg" alt="Fr. VINCENT SANGA, Parish Priest" loading="lazy">
             <!-- TODO: Replace with actual priest image and update alt text -->
         </aside>
     </section>
