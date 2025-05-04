@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>St. Therese of Lisieux Malava Catholic Parish</title>
-    <link rel="icon" href="cross-icon.png"> <!-- Add a cross icon image in the same folder -->
+    <link rel="icon" href="img/cross-icon.png"> <!-- Cross icon in img folder -->
     <style>
         /* Reset default styles */
         * {
@@ -33,12 +33,35 @@
             z-index: 100;
         }
 
+        .logo {
+            overflow: hidden;
+            max-width: 70%;
+        }
+
         .logo h1 {
             font-size: 1.4rem;
+            display: inline-block;
             white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 70%;
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: marquee 15s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .marquee {
+                animation: none;
+            }
         }
 
         nav {
@@ -438,9 +461,16 @@
                 padding: 0.8rem;
             }
 
+            .logo {
+                max-width: 60%;
+            }
+
             .logo h1 {
                 font-size: 1.1rem;
-                max-width: 60%;
+            }
+
+            .marquee {
+                animation-duration: 20s; /* Slower for mobile */
             }
 
             .hamburger {
@@ -520,9 +550,16 @@
         }
 
         @media (max-width: 480px) {
+            .logo {
+                max-width: 50%;
+            }
+
             .logo h1 {
                 font-size: 1rem;
-                max-width: 50%;
+            }
+
+            .marquee {
+                animation-duration: 25s; /* Even slower for small screens */
             }
         }
     </style>
@@ -531,7 +568,7 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <h1>St. Theresa Malava Parish</h1>
+            <h1><span class="marquee">St. Therese of Lisieux Malava Catholic Parish</span></h1>
         </div>
         <nav>
             <button class="hamburger" aria-label="Toggle menu">☰</button>
@@ -556,11 +593,11 @@
     <!-- Welcome Section with Slideshow -->
     <section id="home" class="welcome">
         <div class="slideshow">
-            <div style="background-image: url('https://images.unsplash.com/photo-1505058707965-09a4469a87e4');" class="active"></div>
-            <div style="background-image: url('https://images.unsplash.com/photo-1497366754035-f50d2cf4c36e');"></div>
-            <div style="background-image: url('https://images.unsplash.com/photo-1497366413357-209801c5222e');"></div>
+            <div style="background-image: url('img/church-bg1.jpg');" class="active"></div>
+            <div style="background-image: url('img/church-bg2.jpg');"></div>
+            <div style="background-image: url('img/church-bg3.jpg');"></div>
         </div>
-        <h2>Welcome to MALAVA PARISH</h2>
+        <h2>Welcome to St. Therese of Lisieux</h2>
         <p>Join our vibrant Catholic community in Malava, Kenya, as we grow in faith, worship, and service. All are welcome to celebrate the love of Christ with us.</p>
         <a href="#cards" class="btn">View Mass Times</a>
     </section>
@@ -573,7 +610,7 @@
             <!-- TODO: Replace 'Fr. John Smith' with actual priest name and update history -->
         </div>
         <aside>
-            <img src="https://images.unsplash.com/photo-1592966146151-4b93fd0a4c94" alt="Fr. John Smith, Parish Priest" loading="lazy">
+            <img src="img/priest.jpg" alt="Fr. John Smith, Parish Priest" loading="lazy">
             <!-- TODO: Replace with actual priest image and update alt text -->
         </aside>
     </section>
@@ -648,23 +685,23 @@
         <h2>Parish Gallery</h2>
         <div class="gallery-container">
             <div class="gallery-track">
-                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');"></div>
-                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba');"></div>
-                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0');"></div>
-                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1498837167922-139d2420ea0a');"></div>
+                <div class="gallery-item" style="background-image: url('img/gallery1.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('img/gallery2.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('img/gallery3.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('img/gallery4.jpg');"></div>
             </div>
         </div>
         <div class="gallery-nav">
             <button class="gallery-prev">❮ Prev</button>
             <button class="gallery-next">Next ❯</button>
         </div>
-        <!-- TODO: Replace with actual parish images -->
+        <!-- TODO: Ensure gallery images are parish-specific -->
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
-        <form id="contact-form" action="https://formspree.io/f/xwpopylo" method="POST">
+        <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email</label>
