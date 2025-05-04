@@ -132,20 +132,32 @@
     font-weight: 600;
   }
 
-  .box-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .box-item {
+  .floating-box {
     background: #e9f0fc;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    box-shadow: 0 2px 6px rgba(11, 74, 132, 0.15);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(11, 74, 132, 0.1);
+    margin-bottom: 1.5rem;
   }
 
-  .box-item strong {
+  .floating-box h4 {
+    color: #0b4a84;
+    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+  }
+
+  .floating-box .box-item {
+    background: #fff;
+    border-left: 5px solid #0b4a84;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(11, 74, 132, 0.1);
+  }
+
+  .floating-box .box-item strong {
     color: #0b4a84;
   }
 
@@ -221,7 +233,7 @@
 <body>
 <header>
   <h1>ST. THERESA MALAVA CATHOLIC PARISH</h1>
-  <nav>
+  <nav aria-label="Main Navigation">
     <a href="#about">About</a>
     <a href="#services">Mass Times</a>
     <a href="#events">Events</a>
@@ -231,7 +243,7 @@
 
 <main>
   <section class="hero">
-    <img src="img/church 1.jpg" alt="Church interior with stained glass windows"/>
+    <img src="img/church 1.jpg" alt="Church interior with stained glass windows" loading="lazy"/>
     <div class="hero-text">
       <h2>Welcome to St. Theresa Malava Catholic Parish</h2>
       <p>A community of faith, worship, and love</p>
@@ -242,21 +254,21 @@
     <h3>About Us</h3>
     <p>St. Theresa Malava Catholic Parish is a welcoming community rooted in faith and service. We strive to nurture our parishioners spiritually through worship, education, and fellowship.</p>
     <div class="about-img-container">
-      <img src="img/chapel 1.jpg" alt="Church building exterior" />
+      <img src="img/chapel 1.jpg" alt="Church building exterior" loading="lazy"/>
       <div class="about-img-caption">St. Theresa Malava Catholic Church</div>
     </div>
   </section>
 
   <section id="services">
-    <h3>Mass Times</h3>
-    <div class="box-list">
+    <div class="floating-box">
+      <h4>Mass Times</h4>
       <div class="box-item">Sunday Mass: 7:00 AM &amp; 10:00 AM</div>
       <div class="box-item">Weekday Mass: Monday to Friday - 6:30 AM</div>
       <div class="box-item">Sacraments &amp; Confessions: Saturday - 4:00 PM to 5:00 PM</div>
       <div class="box-item">Adoration: Fridays - 7:00 PM to 8:00 PM</div>
     </div>
-    <h3 style="margin-top:1rem;">Office Hours</h3>
-    <div class="box-list">
+    <div class="floating-box">
+      <h4>Office Hours</h4>
       <div class="box-item">Monday to Friday: 8:00 AM - 4:00 PM</div>
       <div class="box-item">Saturday: 9:00 AM - 12:00 PM</div>
       <div class="box-item">Sunday: Closed</div>
@@ -264,8 +276,8 @@
   </section>
 
   <section id="events">
-    <h3>Upcoming Events</h3>
-    <div class="box-list">
+    <div class="floating-box">
+      <h4>Upcoming Events</h4>
       <div class="box-item"><strong>Sunday School Catechism:</strong> Every Sunday at 9:00 AM</div>
       <div class="box-item"><strong>Annual Parish Feast:</strong> August 15, 2024</div>
       <div class="box-item"><strong>Community Outreach Drive:</strong> July 10–12, 2024</div>
@@ -280,13 +292,13 @@
     <p><strong>Email:</strong> info@sttheresamalava.org</p>
     <form class="contact-form" id="contactForm">
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" placeholder="Your full name" required />
+      <input type="text" id="name" name="name" placeholder="Your full name" required aria-required="true"/>
 
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+      <input type="email" id="email" name="email" placeholder="your.email@example.com" required aria-required="true"/>
 
       <label for="message">Message:</label>
-      <textarea id="message" name="message" placeholder="Your message" rows="4" required></textarea>
+      <textarea id="message" name="message" placeholder="Your message" rows="4" required aria-required="true"></textarea>
 
       <button type="submit">Send</button>
     </form>
