@@ -79,7 +79,7 @@
             padding: 5rem 2rem;
             background-color: rgba(0, 0, 0, 0.5);
             background-blend-mode: overlay;
-            height: 400px; /* Adjust as needed */
+            height: 400px;
         }
 
         .welcome .slideshow {
@@ -128,16 +128,68 @@
             background-color: #d4a353;
         }
 
-        /* About Section */
+        /* About Section with Aside */
         .about {
             padding: 3rem 2rem;
-            text-align: center;
             background-color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
         }
 
-        .about h2 {
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-content h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
+        }
+
+        .about aside {
+            flex: 0 0 250px;
+            text-align: center;
+        }
+
+        .about aside img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e0b774;
+        }
+
+        /* Daily Mass Readings Section */
+        .readings {
+            padding: 3rem 2rem;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .readings h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .readings .reading-item {
+            margin: 1rem 0;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .readings a {
+            color: #2c3e50;
+            text-decoration: underline;
+        }
+
+        .readings a:hover {
+            color: #e0b774;
         }
 
         /* Cards Section (Mass Times, Events, Office Hours) */
@@ -193,6 +245,55 @@
         .event h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 3rem 2rem;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .gallery h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .gallery-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .gallery-item {
+            flex: 0 0 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-nav {
+            margin-top: 1rem;
+        }
+
+        .gallery-nav button {
+            background-color: #2c3e50;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .gallery-nav button:hover {
+            background-color: #e0b774;
         }
 
         /* Contact Section */
@@ -298,8 +399,21 @@
                 height: 300px;
             }
 
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about aside {
+                flex: 0 0 auto;
+            }
+
             .cards {
                 grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 300px;
             }
         }
     </style>
@@ -315,7 +429,9 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#readings">Readings</a></li>
                 <li><a href="#cards">Mass & Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -333,10 +449,33 @@
         <a href="#cards" class="btn">View Mass Times</a>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section with Aside -->
     <section id="about" class="about">
-        <h2>About Our Parish</h2>
-        <p>St. Mary's Catholic Parish, founded in 1950, is a welcoming community dedicated to spreading the Gospel through worship, education, and charity. Our parish serves families, youth, and seniors through various ministries and outreach programs.</p>
+        <div class="about-content">
+            <h2>About Our Parish</h2>
+            <p>St. Mary's Catholic Parish, founded in 1950, is a welcoming community dedicated to spreading the Gospel through worship, education, and charity. Led by our beloved pastor, Fr. John Smith, we serve families, youth, and seniors through various ministries and outreach programs.</p>
+        </div>
+        <aside>
+            <img src="priest.jpg" alt="Fr. John Smith, Parish Priest">
+        </aside>
+    </section>
+
+    <!-- Daily Mass Readings Section -->
+    <section id="readings" class="readings">
+        <h2>Daily Mass Readings</h2>
+        <div class="reading-item">
+            <h3>First Reading</h3>
+            <p>Isaiah 55:6-9 - Seek the Lord while he may be found...</p>
+        </div>
+        <div class="reading-item">
+            <h3>Responsorial Psalm</h3>
+            <p>Psalm 145 - The Lord is near to all who call upon him...</p>
+        </div>
+        <div class="reading-item">
+            <h3>Gospel</h3>
+            <p>Matthew 20:1-16 - The parable of the workers in the vineyard...</p>
+        </div>
+        <p>View full readings for today at <a href="https://bible.usccb.org/daily-bible-reading" target="_blank">USCCB Daily Readings</a>.</p>
     </section>
 
     <!-- Cards Section (Mass Times, Events, Office Hours) -->
@@ -349,52 +488,4 @@
                 <li><strong>Weekday:</strong> 7:30 AM (Monday–Friday)</li>
                 <li><strong>Saturday Vigil:</strong> 5:00 PM</li>
                 <li><strong>Confession:</strong> Saturday 3:30–4:30 PM or by appointment</li>
-                <li><strong>Adoration:</strong> First Friday 6:00 PM</li>
-            </ul>
-        </div>
-
-        <!-- Upcoming Events Card -->
-        <div class="card events">
-            <h2>Upcoming Events</h2>
-            <div class="event-list">
-                <div class="event">
-                    <h3>Parish Picnic</h3>
-                    <p><strong>Date:</strong> June 15, 2025</p>
-                    <p>Join us for a day of fellowship, food, and fun!</p>
-                </div>
-                <div class="event">
-                    <h3>Bible Study</h3>
-                    <p><strong>Date:</strong> Every Wednesday at 7:00 PM</p>
-                    <p>Deepen your faith with our weekly group.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Office Hours Card -->
-        <div class="card office-hours">
-            <h2>Office Hours</h2>
-            <ul>
-                <li><strong>Monday–Friday:</strong> 9:00 AM–4:00 PM</li>
-                <li><strong>Saturday:</strong> 10:00 AM–2:00 PM</li>
-                <li><strong>Sunday:</strong> Closed</li>
-                <li><strong>Contact:</strong> (555) 123-4567</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <
+                <li><strong>Ad
