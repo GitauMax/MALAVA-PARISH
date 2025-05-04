@@ -1,275 +1,153 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>St. Theresa Malava Catholic Parish</title>
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9f9f9;
-      color: #333;
-    }
-    a {
-      color: #0b4a84;
-      text-decoration: none;
-    }
-    a:hover, a:focus {
-      text-decoration: underline;
-    }
-    header {
-      background: #0b4a84;
-      padding: 1rem;
-      text-align: center;
-      color: white;
-    }
-    header h1 {
-      font-size: 1.8rem;
-      margin: 0;
-      letter-spacing: 2px;
-    }
-    nav {
-      margin-top: 0.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      font-size: 0.95rem;
-    }
-    nav a {
-      color: white;
-      font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-    nav a:hover, nav a:focus {
-      background-color: #0e639c;
-    }
-    main {
-      padding: 1rem;
-      background: #fff;
-    }
-    .hero {
-      position: relative;
-      text-align: center;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 1.5rem;
-    }
-    .slideshow {
-      position: relative;
-      width: 100%;
-      height: auto;
-    }
-    .slideshow img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .slideshow img.active {
-      opacity: 1;
-      z-index: 1;
-    }
-    .hero .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #f0ead8;
-      text-shadow: 0 0 8px rgba(0,0,0,0.6);
-      padding: 0 1rem;
-      z-index: 2;
-    }
-    .hero .hero-text h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.3rem;
-    }
-    .hero .hero-text p {
-      font-size: 1rem;
-    }
-    section {
-      margin-bottom: 2rem;
-    }
-    section h3 {
-      font-size: 1.2rem;
-      color: #0b4a84;
-      margin-bottom: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    p {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-    .about-img-container {
-      text-align: center;
-      margin: 1rem 0;
-    }
-    .about-img-container img {
-      max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 3px 8px rgba(11, 74, 132, 0.3);
-    }
-    .about-img-caption {
-      font-size: 0.85rem;
-      color: #0b4a84;
-      margin-top: 0.3rem;
-      font-weight: 600;
-    }
-    .box-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .box-item {
-      background: #e9f0fc;
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      box-shadow: 0 2px 6px rgba(11, 74, 132, 0.15);
-      flex: 1 1 calc(50% - 1rem);
-    }
-    .box-item strong {
-      color: #0b4a84;
-    }
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-    }
-    .contact-form label {
-      margin-bottom: 0.25rem;
-      font-weight: 600;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      font-family: inherit;
-      font-size: 1rem;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      resize: vertical;
-    }
-    .contact-form button {
-      background-color: #0b4a84;
-      color: white;
-      padding: 0.6rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .contact-form button:hover,
-    .contact-form button:focus {
-      background-color: #07335a;
-    }
-    footer {
-      background-color: #0b4a84;
-      color: #ddd;
-      text-align: center;
-      font-size: 0.85rem;
-      padding: 1rem;
-    }
-    /* Responsive Typography and Layout */
-    @media (min-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      nav {
-        font-size: 1rem;
-      }
-      .hero .hero-text h2 {
-        font-size: 2rem;
-      }
-      .hero .hero-text p {
-        font-size: 1.2rem;
-      }
-    }
-    @media (min-width: 900px) {
-      main {
-        max-width: 900px;
-        margin: auto;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>St. Theresa Malava Catholic Parish</title>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+  }a { color: #0b4a84; text-decoration: none; }
+
+a:hover, a:focus { text-decoration: underline; }
+
+header { background: #0b4a84; padding: 1rem; text-align: center; color: white; }
+
+header h1 { font-size: 1.8rem; margin: 0; letter-spacing: 2px; }
+
+nav { margin-top: 0.5rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; font-size: 0.95rem; }
+
+nav a { color: white; font-weight: 600; padding: 6px 12px; border-radius: 4px; transition: background-color 0.3s ease; }
+
+nav a:hover, nav a:focus { background-color: #0e639c; }
+
+main { padding: 1rem; background: #fff; }
+
+.hero { position: relative; height: 300px; overflow: hidden; margin-bottom: 1.5rem; border-radius: 10px; }
+
+.hero img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out; }
+
+.hero img.active { opacity: 1; }
+
+.hero .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #f0ead8; text-align: center; text-shadow: 0 0 8px rgba(0,0,0,0.6); padding: 0 1rem; }
+
+.hero .hero-text h2 { font-size: 1.8rem; margin-bottom: 0.3rem; }
+
+.hero .hero-text p { font-size: 1rem; }
+
+section { margin-bottom: 2rem; }
+
+section h3 { font-size: 1.2rem; color: #0b4a84; margin-bottom: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+
+.floating-box { background: #e9f0fc; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(11, 74, 132, 0.2); margin-bottom: 1rem; }
+
+.box-list { display: flex; flex-direction: column; gap: 1rem; }
+
+.box-item { background: #f0f8ff; border-left: 4px solid #0b4a84; padding: 0.75rem 1rem; border-radius: 6px; box-shadow: 0 2px 6px rgba(11, 74, 132, 0.1); }
+
+.contact-form label { margin-bottom: 0.25rem; font-weight: 600; }
+
+.contact-form input, .contact-form textarea { font-family: inherit; font-size: 1rem; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 5px; width: 100%; }
+
+.contact-form button { background-color: #0b4a84; color: white; padding: 0.6rem; font-weight: 700; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease; }
+
+.contact-form button:hover { background-color: #07335a; }
+
+footer { background-color: #0b4a84; color: #ddd; text-align: center; font-size: 0.85rem; padding: 1rem; }
+
+@media (min-width: 600px) { .hero .hero-text h2 { font-size: 2rem; } .hero .hero-text p { font-size: 1.2rem; } }
+
+@media (min-width: 900px) { main { max-width: 900px; margin: auto; } } </style>
+
 </head>
 <body>
-  <header>
-    <h1>ST. THERESA MALAVA CATHOLIC PARISH</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Mass Times</a>
-      <a href="#events">Events</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="slideshow">
-        <img src="img/church 1.webp" class="active" alt="Church interior with stained glass windows" loading="lazy" />
-        <img src="img/church 2.webp" alt="Parish community gathering" loading="lazy" />
-        <img src="img/church 3.webp" alt="Church exterior view" loading="lazy" />
-      </div>
-      <div class="hero-text">
-        <h2>Welcome to St. Theresa Malava Catholic Parish</h2>
-        <p>A community of faith, worship, and love</p>
-        <div style="margin-top: 1rem;">
-          <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; max-width:100%;">
-            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE?autoplay=1&mute=1" 
-                    frameborder="0" allow="autoplay; encrypted-media" 
-                    allowfullscreen 
-                    style="position:absolute; top:0; left:0; width:100%; height:100%;">
-            </iframe>
-          </div>
+<header>
+  <h1>ST. THERESA MALAVA CATHOLIC PARISH</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Mass Times</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header><main>
+  <section class="hero">
+    <img src="img/slide1.webp" class="active" alt="Church slideshow 1" loading="lazy">
+    <img src="img/slide2.webp" alt="Church slideshow 2" loading="lazy">
+    <img src="img/slide3.webp" alt="Church slideshow 3" loading="lazy">
+    <div class="hero-text">
+      <h2>Welcome to St. Theresa Malava Catholic Parish</h2>
+      <p>A community of faith, worship, and love</p>
+      <div style="margin-top: 1rem;">
+        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; max-width:100%;">
+          <iframe src="https://www.youtube.com/embed/y6LFvP0Sk80" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
         </div>
       </div>
-    </section>
-
-    <section id="about">
-      <h3>About Us</h3>
+    </div>
+  </section>  <section id="about">
+    <h3>About Us</h3>
+    <div class="floating-box">
       <p>St. Theresa Malava Catholic Parish is a welcoming community rooted in faith and service. We strive to nurture our parishioners spiritually through worship, education, and fellowship.</p>
-      <div class="about-img-container">
-        <img src="img/chapel1.webp" alt="Church building exterior" loading="lazy" />
-        <div class="about-img-caption">St. Theresa Malava Catholic Church</div>
-      </div>
-    </section>
-
-    <section id="services">
-      <h3>Mass Times</h3>
+    </div>
+  </section>  <section id="services">
+    <h3>Mass Times</h3>
+    <div class="floating-box">
       <div class="box-list">
-        <div class="box-item">Sunday Mass: 7:00 AM &amp; 10:00 AM</div>
+        <div class="box-item">Sunday Mass: 7:00 AM & 10:00 AM</div>
         <div class="box-item">Weekday Mass: Monday to Friday - 6:30 AM</div>
-        <div class="box-item">Sacraments &amp; Confessions: Saturday - 4:00 PM to 5:00 PM</div>
+        <div class="box-item">Sacraments & Confessions: Saturday - 4:00 PM to 5:00 PM</div>
         <div class="box-item">Adoration: Fridays - 7:00 PM to 8:00 PM</div>
       </div>
-      <h3 style="margin-top:1rem;">Office Hours</h3>
-      <div class="box-list">
-        <div class="box-item">Monday to Friday: 8:00 AM - 4:00 PM</div>
-        <div class="box-item">Saturday: 9:00 AM - 12:00 PM</div>
-        <div class="box-item">Sunday: Closed</div>
-      </div>
-    </section>
-
-    <section id="events">
-      <h3>Upcoming Events</h3>
+    </div>
+  </section>  <section id="events">
+    <h3>Upcoming Events</h3>
+    <div class="floating-box">
       <div class="box-list">
         <div class="box-item"><strong>Sunday School Catechism:</strong> Every Sunday at 9:00 AM</div>
-        <div class="box-item"><strong>Annual Parish Feast:</strong> August 15, 2025</div>
-        <div class="box-item"><strong>Community Outreach Drive:</strong> July 10–12, 2025</div>
+        <div class="box-item"><strong>Annual Parish Feast:</strong> August 15, 2024</div>
+        <div class="box-item"><strong>Community Outreach Drive:</strong> July 10–12, 2024</div>
         <div class="box-item"><strong>Bible Study Group:</strong> Wednesdays at 7:00 PM</div>
       </div>
-    </section>
+    </div>
+  </section>  <section id="contact">
+    <h3>Contact Us</h3>
+    <p><strong>Address:</strong> P.O. Box 1234, Malava, Kenya</p>
+    <p><strong>Phone:</strong> +254 700 000000</p>
+    <p><strong>Email:</strong> info@sttheresamalava.org</p>
+    <form class="contact-form" id="contactForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required /><label for="email">Email:</label>
+  <input type="email" id="email" name="email" required />
 
-    <section id="contact">
-      <h3>Contact Us</0
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" rows="4" required></textarea>
+
+  <button type="submit">Send</button>
+</form>
+<p id="formResponse" style="color:green; margin-top:0.5rem;"></p>
+
+  </section>
+</main><footer>
+  &copy; 2024 St. Theresa Malava Catholic Parish. All rights reserved.
+</footer><script>
+  const slides = document.querySelectorAll('.hero img');
+  let current = 0;
+
+  function nextSlide() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }
+  setInterval(nextSlide, 4000);
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('formResponse').textContent = 'Thank you for contacting us. We will get back to you shortly.';
+    this.reset();
+  });
+</script></body>
+</html>
