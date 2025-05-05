@@ -170,6 +170,8 @@
             border-radius: 5px;
             font-weight: bold;
             transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
+            margin: 0.5rem;
         }
         .btn:hover {
             background-color: #d4a353;
@@ -288,38 +290,6 @@
         .event h3 {
             font-size: 1.4rem;
             margin-bottom: 0.5rem;
-        }
-        .gallery {
-            padding: 3rem 2rem;
-            background-color: #fff;
-            text-align: center;
-        }
-        .gallery h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .gallery .slideshow {
-            position: absolute;
-            max-width: 800px;
-            margin: 0 auto;
-            height: 45vh;
-            aspect-ratio: 9/12;
-            background-color: #2c3e50;
-        }
-        .gallery .slideshow img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            display: none;
-        }
-        .gallery .slideshow img.active {
-            opacity: 1;
-            display: block;
         }
         .contact {
             padding: 3rem 2rem;
@@ -454,9 +424,6 @@
             .cards { grid-template-columns: 1fr; padding: 2rem 1.5rem; gap: 1rem; }
             .card { padding: 1.2rem; }
             .card h2 { font-size: 1.6rem; }
-            .gallery { padding: 2rem 1.5rem; }
-            .gallery h2 { font-size: 1.8rem; }
-            .gallery .slideshow { height: 35vh; }
             .contact { padding: 2rem 1.5rem; }
             .contact h2 { font-size: 1.8rem; }
             #contact-form { padding: 1.5rem; }
@@ -478,7 +445,6 @@
             .about aside img { max-width: 300px; }
             .readings { padding: 1.5rem 1rem; }
             .cards { padding: 1.5rem 1rem; }
-            .gallery { padding: 1.5rem 1rem; }
             .contact { padding: 1.5rem 1rem; }
             #contact-form { padding: 1rem; }
         }
@@ -504,20 +470,21 @@
                         <li><a href="#office-hours">Office Hours</a></li>
                     </ul>
                 </li>
-                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
     <section id="home" class="welcome">
         <div class="slideshow">
-            <img src="img/church 1.jpg" alt="Church Image 1" class="active" loading="lazy">
-            <img src="img/church 2.jpg" alt="Church Image 2" loading="lazy">
-            <img src="img/church 3.jpg" alt="Church Image 3" loading="lazy">
+            <img src="img/church-bg1.jpg" alt="Church Image 1" class="active" loading="lazy">
+            <img src="img/church-bg2.jpg" alt="Church Image 2" loading="lazy">
+            <img src="img/church-bg3.jpg" alt="Church Image 3" loading="lazy">
         </div>
         <h2>Welcome to St. Therese of Lisieux</h2>
         <p>Join our vibrant Catholic community in Malava, Kenya, as we grow in faith, worship, and service. All are welcome to celebrate the love of Christ with us.</p>
         <a href="#cards" class="btn">View Mass Times</a>
+        <a href="gallery.html" class="btn">View Gallery</a>
     </section>
     <section id="about" class="about">
         <div class="about-content">
@@ -527,7 +494,7 @@
         </div>
         <aside>
             <figure>
-                <img src="img/groto 1.jpg" alt="Fr. John Smith, Parish Priest" loading="lazy">
+                <img src="img/priest.jpg" alt="Fr. John Smith, Parish Priest" loading="lazy">
                 <figcaption>Fr. John Smith</figcaption>
             </figure>
             <!-- TODO: Replace with actual priest image and name in figcaption -->
@@ -588,16 +555,6 @@
             </ul>
             <!-- TODO: Update with actual office hours -->
         </div>
-    </section>
-    <section id="gallery" class="gallery">
-        <h2>Parish Gallery</h2>
-        <div class="slideshow">
-            <img src="img/groto 1.jpg" alt="Gallery Image 1" class="active" loading="lazy">
-            <img src="img/groto 2.jpg" alt="Gallery Image 2" loading="lazy">
-            <img src="img/groto 3.jpg" alt="Gallery Image 3" loading="lazy">
-            <img src="img/groto 4.jpg" alt="Gallery Image 4" loading="lazy">
-        </div>
-        <!-- TODO: Ensure gallery images are parish-specific -->
     </section>
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
@@ -683,39 +640,11 @@
         showWelcomeSlide(currentWelcomeSlide);
         startWelcomeSlideshow();
 
-        const gallerySlides = document.querySelectorAll('.gallery .slideshow img');
-        let currentGallerySlide = 0;
-        let galleryInterval;
-
-        function showGallerySlide(index) {
-            gallerySlides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-        }
-
-        function nextGallerySlide() {
-            currentGallerySlide = (currentGallerySlide + 1) % gallerySlides.length;
-            showGallerySlide(currentGallerySlide);
-        }
-
-        function startGallerySlideshow() {
-            galleryInterval = setInterval(nextGallerySlide, 5000);
-        }
-
-        function stopGallerySlideshow() {
-            clearInterval(galleryInterval);
-        }
-
-        showGallerySlide(currentGallerySlide);
-        startGallerySlideshow();
-
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
                 stopWelcomeSlideshow();
-                stopGallerySlideshow();
             } else {
                 startWelcomeSlideshow();
-                startGallerySlideshow();
             }
         });
 
