@@ -2,17 +2,34 @@
     {
         "title": "Parish Picnic",
         "start": "2025-06-15",
-        "description": "Join us for a day of fellowship, food, and fun!"
+        "description": "Annual parish picnic with food, games, and fellowship at the church grounds."
     },
     {
         "title": "Bible Study",
         "start": "2025-05-07T19:00:00",
         "end": "2025-05-07T20:00:00",
-        "description": "Deepen your faith with our weekly group.",
+        "description": "Weekly Bible study group to deepen your faith.",
         "rrule": {
             "freq": "weekly",
             "byweekday": ["we"],
             "dtstart": "2025-05-07T19:00:00"
+        }
+    },
+    {
+        "title": "Christmas Mass",
+        "start": "2025-12-25T00:00:00",
+        "end": "2025-12-25T01:00:00",
+        "description": "Midnight Mass to celebrate the birth of Christ."
+    },
+    {
+        "title": "Youth Ministry Meeting",
+        "start": "2025-05-10T15:00:00",
+        "end": "2025-05-10T16:30:00",
+        "description": "Monthly meeting for youth to plan activities and grow in faith.",
+        "rrule": {
+            "freq": "monthly",
+            "bymonthday": [10],
+            "dtstart": "2025-05-10T15:00:00"
         }
     }
 ]
