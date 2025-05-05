@@ -322,28 +322,21 @@
             margin: 0.5rem 0;
             font-size: 1rem;
         }
-        #calendar {
-            max-width: 600px;
-            margin: 0 auto;
-            font-family: 'Georgia', serif;
+        .events ul {
+            list-style: none;
+            padding: 0;
         }
-        .fc-button {
-            background-color: #e0b774 !important;
-            color: #2c3e50 !important;
-            border: none !important;
-            border-radius: 5px !important;
+        .events li {
+            margin: 1rem 0;
+            font-size: 1.1rem;
         }
-        .fc-button:hover {
-            background-color: #d4a353 !important;
+        .events li strong {
+            color: #2c3e50;
+            font-weight: bold;
         }
-        .fc-event {
-            background-color: #2c3e50;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-        }
-        .fc-daygrid-event-dot {
-            border-color: #e0b774;
+        .events .event-date {
+            color: #555;
+            font-size: 0.95rem;
         }
         .contact {
             padding: 3rem 2rem;
@@ -644,9 +637,9 @@
     </header>
     <section id="home" class="welcome">
         <div class="slideshow">
-            <img src="img/church 1.jpg" alt="Church Image 1" class="active" loading="lazy" width="1920" height="1080">
-            <img src="img/church 2.jpg" alt="Church Image 2" loading="lazy" width="1920" height="1080">
-            <img src="img/church 3.jpg" alt="Church Image 3" loading="lazy" width="1920" height="1080">
+            <img src="img/church1.jpg" alt="Church Image 1" class="active" loading="lazy" width="1920" height="1080">
+            <img src="img/church2.jpg" alt="Church Image 2" loading="lazy" width="1920" height="1080">
+            <img src="img/church3.jpg" alt="Church Image 3" loading="lazy" width="1920" height="1080">
         </div>
         <h2>Welcome to St. Therese of Lisieux</h2>
         <p>Join our vibrant Catholic community in Malava, Kenya, as we grow in faith, worship, and service. All are welcome to celebrate the love of Christ with us.</p>
@@ -667,7 +660,7 @@
         </div>
         <aside>
             <figure>
-                <img src="img/groto 1.jpg" alt="Fr. Vincent Sanga, Parish Priest" loading="lazy" width="400" height="533">
+                <img src="img/groto1.jpg" alt="Fr. Vincent Sanga, Parish Priest" loading="lazy" width="400" height="533">
                 <figcaption>Fr. Vincent Sanga</figcaption>
             </figure>
         </aside>
@@ -693,7 +686,9 @@
         </div>
         <div id="events" class="card events">
             <h2>Upcoming Events</h2>
-            <div id="calendar"></div>
+            <ul id="events-list" aria-live="polite">
+                <li>Loading events...</li>
+            </ul>
         </div>
         <div id="office-hours" class="card office-hours">
             <h2>Office Hours</h2>
@@ -724,7 +719,6 @@
         <p><strong>Support Our Parish:</strong> <a href="https://paypal.me/sttheresemalava" target="_blank" class="btn">Donate via PayPal</a></p>
         <p>© 2025 St. Therese of Lisieux Malava Catholic Parish. All rights reserved.</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
     <script>
         // Navigation and Dropdown
         const hamburger = document.querySelector('.hamburger');
@@ -778,7 +772,7 @@
         function nextWelcomeSlide() {
             currentWelcomeSlide = (currentWelcomeSlide + 1) % welcomeSlides.length;
             showWelcomeSlide(currentWelcomeSlide);
-        }
+    }
 
         function startWelcomeSlideshow() {
             welcomeInterval = setInterval(nextWelcomeSlide, 5000);
@@ -886,37 +880,51 @@
             }
         }
 
-        // Initialize FullCalendar
-        async function initCalendar() {
-            const calendarEl = document.getElementById('calendar');
-            if (!calendarEl) return;
+        // Fetch and Display Events
+        async function fetchEvents() {
+            const eventsList = document.getElementById('events-list');
             try {
                 const response = await fetch('/img/events.json');
                 if (!response.ok) throw new Error('Failed to fetch events');
                 const events = await response.json();
-                const calendar = new FullCalendar.Calendar(calendarEl, {
-                    initialView: 'dayGridMonth',
-                    events: events,
-                    eventClick: function(info) {
-                        alert(`${info.event.title}\n${info.event.start.toLocaleString()}\n${info.event.extendedProps.description || ''}`);
-                    },
-                    height: 'auto',
-                    headerToolbar: {
-                        left: 'prev,next',
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek'
+                eventsList.innerHTML = '';
+                // Sort events by start date
+                events.sort((a, b) => new Date(a.start) - new Date(b.start));
+                events.forEach(event => {
+                    const startDate = new Date(event.start);
+                    const endDate = event.end ? new Date(event.end) : null;
+                    // Format date and time
+                    const dateOptions = { day: 'numeric', month: 'long', year: 'numeric' };
+                    const timeOptions = { hour: 'numeric', minute: '2-digit', hour12: true };
+                    const dateStr = startDate.toLocaleDateString('en-US', dateOptions);
+                    let timeStr = '';
+                    if (startDate.getHours() !== 0 || startDate.getMinutes() !== 0) {
+                        timeStr = `${startDate.toLocaleTimeString('en-US', timeOptions)}`;
+                        if (endDate) {
+                            timeStr += `–${endDate.toLocaleTimeString('en-US', timeOptions)}`;
+                        }
+                    } else {
+                        timeStr = 'All Day';
                     }
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <strong>${event.title}</strong><br>
+                        <span class="event-date">${dateStr}, ${timeStr}</span>
+                    `;
+                    eventsList.appendChild(li);
                 });
-                calendar.render();
+                if (events.length === 0) {
+                    eventsList.innerHTML = '<li>No upcoming events.</li>';
+                }
             } catch (error) {
-                console.error('Error loading calendar:', error);
-                calendarEl.innerHTML = '<p>Sorry, we couldn’t load the events calendar. Please try again later.</p>';
+                console.error('Error loading events:', error);
+                eventsList.innerHTML = '<li>Sorry, we couldn’t load the events. Please try again later.</li>';
             }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             fetchReadings();
-            initCalendar();
+            fetchEvents();
         });
     </script>
 </body>
