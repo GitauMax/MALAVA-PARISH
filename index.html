@@ -36,16 +36,17 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            min-height: 80px;
         }
         .logo {
-            overflow: hidden;
-            max-width: 60%;
+            max-width: 50%;
             display: flex;
             align-items: center;
+            overflow: hidden;
         }
         .logo-img {
             height: 60px;
-            max-width: 60px;
+            max-width: 100px;
             object-fit: contain;
             margin-right: 0.5rem;
             vertical-align: middle;
@@ -376,12 +377,26 @@
             color: #d4a353;
         }
         @media (max-width: 768px) {
-            header { padding: 0.8rem; }
-            .logo { max-width: 50%; }
-            .logo-img { height: 24px; max-width: 24px; }
-            .logo h1 { font-size: 1.2rem; }
-            .marquee { animation-duration: 20s; }
-            .hamburger { display: block; }
+            header {
+                padding: 0.8rem;
+                min-height: 60px;
+            }
+            .logo {
+                max-width: 40%;
+            }
+            .logo-img {
+                height: 40px;
+                max-width: 80px;
+            }
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+            .marquee {
+                animation-duration: 20s;
+            }
+            .hamburger {
+                display: block;
+            }
             nav ul {
                 display: none;
                 flex-direction: column;
@@ -393,67 +408,149 @@
                 padding: 1rem;
                 text-align: center;
             }
-            nav ul.active { display: flex; }
-            nav ul li { margin: 0.5rem 0; }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                margin: 0.5rem 0;
+            }
             .dropdown-content {
                 position: static;
                 box-shadow: none;
                 background-color: #34495e;
                 padding: 1rem 1rem 1rem 2rem;
             }
-            .dropdown:hover .dropdown-content { display: none; }
-            .welcome { height: 40vh; padding: 3rem 1.5rem; }
-            .welcome h2 { font-size: 2rem; }
-            .welcome p { font-size: 1rem; }
+            .dropdown:hover .dropdown-content {
+                display: none;
+            }
+            .welcome {
+                height: 40vh;
+                padding: 3rem 1.5rem;
+            }
+            .welcome h2 {
+                font-size: 2rem;
+            }
+            .welcome p {
+                font-size: 1rem;
+            }
             .about {
                 flex-direction: column;
                 justify-content: center;
                 text-align: center;
                 padding: 2rem 1.5rem;
             }
-            .about-content { text-align: center; }
-            .about aside { flex: 0 0 auto; max-width: 350px; }
+            .about-content {
+                text-align: center;
+            }
+            .about aside {
+                flex: 0 0 auto;
+                max-width: 350px;
+            }
             .about aside figure {
                 padding: 0.8rem;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             }
-            .about aside img { max-width: 350px; }
-            .about aside figcaption { font-size: 1rem; }
-            .readings { padding: 2rem 1.5rem; }
-            .readings h2 { font-size: 1.8rem; }
-            .cards { grid-template-columns: 1fr; padding: 2rem 1.5rem; gap: 1rem; }
-            .card { padding: 1.2rem; }
-            .card h2 { font-size: 1.6rem; }
-            .contact { padding: 2rem 1.5rem; }
-            .contact h2 { font-size: 1.8rem; }
-            #contact-form { padding: 1.5rem; }
-            #contact-form input, #contact-form textarea { padding: 0.8rem; font-size: 0.9rem; }
-            #contact-form button { padding: 0.8rem; font-size: 1rem; }
-            footer { padding: 1.5rem; font-size: 0.9rem; }
+            .about aside img {
+                max-width: 350px;
+            }
+            .about aside figcaption {
+                font-size: 1rem;
+            }
+            .readings {
+                padding: 2rem 1.5rem;
+            }
+            .readings h2 {
+                font-size: 1.8rem;
+            }
+            .cards {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.5rem;
+                gap: 1rem;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+            .card h2 {
+                font-size: 1.6rem;
+            }
+            .contact {
+                padding: 2rem 1.5rem;
+            }
+            .contact h2 {
+                font-size: 1.8rem;
+            }
+            #contact-form {
+                padding: 1.5rem;
+            }
+            #contact-form input,
+            #contact-form textarea {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+            #contact-form button {
+                padding: 0.8rem;
+                font-size: 1rem;
+            }
+            footer {
+                padding: 1.5rem;
+                font-size: 0.9rem;
+            }
         }
         @media (max-width: 480px) {
-            .logo { max-width: 40%; }
-            .logo-img { height: 20px; max-width: 20px; }
-            .logo h1 { font-size: 1rem; }
-            .marquee { animation-duration: 25s; }
-            .welcome { height: 30vh; padding: 2.5rem 1rem; }
-            .welcome h2 { font-size: 1.8rem; }
-            .welcome p { font-size: 0.9rem; }
-            .about { padding: 1.5rem 1rem; }
-            .about-content h2 { font-size: 1.8rem; }
-            .about aside figure { padding: 0.6rem; }
-            .about aside img { max-width: 300px; }
-            .readings { padding: 1.5rem 1rem; }
-            .cards { padding: 1.5rem 1rem; }
-            .contact { padding: 1.5rem 1rem; }
-            #contact-form { padding: 1rem; }
+            .logo {
+                max-width: 35%;
+            }
+            .logo-img {
+                height: 30px;
+                max-width: 60px;
+            }
+            .logo h1 {
+                font-size: 1rem;
+            }
+            .marquee {
+                animation-duration: 25s;
+            }
+            .welcome {
+                height: 30vh;
+                padding: 2.5rem 1rem;
+            }
+            .welcome h2 {
+                font-size: 1.8rem;
+            }
+            .welcome p {
+                font-size: 0.9rem;
+            }
+            .about {
+                padding: 1.5rem 1rem;
+            }
+            .about-content h2 {
+                font-size: 1.8rem;
+            }
+            .about aside figure {
+                padding: 0.6rem;
+            }
+            .about aside img {
+                max-width: 300px;
+            }
+            .readings {
+                padding: 1.5rem 1rem;
+            }
+            .cards {
+                padding: 1.5rem 1rem;
+            }
+            .contact {
+                padding: 1.5rem 1rem;
+            }
+            #contact-form {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="img/logos.png" alt="Parish Logo" class="logo-img">
+            <img src="img/logos.png" alt="St. Therese of Lisieux Parish Logo" class="logo-img">
             <h1><span class="marquee">ST. THERESE OF LISIEUX MALAVA CATHOLIC PARISH</span></h1>
         </div>
         <nav>
@@ -465,9 +562,9 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Mass & Events</a>
                     <ul class="dropdown-content" role="menu">
-                        <li><a href="#mass-times">Mass Times</a></li>
-                        <li><a href="#events">Events</a></li>
-                        <li><a href="#office-hours">Office Hours</a></li>
+                        <li><a href="#mass-times" role="menuitem">Mass Times</a></li>
+                        <li><a href="#events" role="menuitem">Events</a></li>
+                        <li><a href="#office-hours" role="menuitem">Office Hours</a></li>
                     </ul>
                 </li>
                 <li><a href="gallery.html">Gallery</a></li>
@@ -477,12 +574,13 @@
     </header>
     <section id="home" class="welcome">
         <div class="slideshow">
-            <img src="img/church 1.jpg" alt="Church Image 1" class="active" loading="lazy">
-            <img src="img/church 2.jpg" alt="Church Image 2" loading="lazy">
-            <img src="img/church 3.jpg" alt="Church Image 3" loading="lazy">
+            <img src="img/church 1.jpg" alt="Church Image 1" class="active" loading="lazy" width="1920" height="1080">
+            <img src="img/church 2.jpg" alt="Church Image 2" loading="lazy" width="1920" height="1080">
+            <img src="img/church 3.jpg" alt="Church Image 3" loading="lazy" width="1920" height="1080">
         </div>
         <h2>Welcome to St. Therese of Lisieux</h2>
         <p>Join our vibrant Catholic community in Malava, Kenya, as we grow in faith, worship, and service. All are welcome to celebrate the love of Christ with us.</p>
+       awaii
         <a href="#cards" class="btn">View Mass Times</a>
         <a href="gallery.html" class="btn">View Gallery</a>
     </section>
@@ -490,32 +588,21 @@
         <div class="about-content">
             <h2>About Our Parish</h2>
             <p>St. Therese of Lisieux Malava Catholic Parish, founded in 1950, is a welcoming community dedicated to spreading the Gospel through worship, education, and charity. Led by our beloved priest, Fr. Vincent Sanga, we serve families, youth, and seniors through various ministries and outreach programs.</p>
-            <!-- TODO: Replace 'Fr. John Smith' with actual priest name and update history -->
         </div>
         <aside>
             <figure>
-                <img src="img/groto 1.jpg" alt="Fr. John Smith, Parish Priest" loading="lazy">
+                <img src="img/groto 1.jpg" alt="Fr. Vincent Sanga, Parish Priest" loading="lazy" width="400" height="533">
                 <figcaption>Fr. Vincent Sanga</figcaption>
             </figure>
-            <!-- TODO: Replace with actual priest image and name in figcaption -->
         </aside>
     </section>
     <section id="readings" class="readings">
         <h2>Daily Mass Readings</h2>
-        <div class="reading-item">
-            <h3>First Reading</h3>
-            <p>Isaiah 55:6-9 - Seek the Lord while he may be found...</p>
+        <div id="readings-container" aria-live="polite">
+            <p>Loading readings...</p>
         </div>
-        <div class="reading-item">
-            <h3>Responsorial Psalm</h3>
-            <p>Psalm 145 - The Lord is near to all who call upon him...</p>
-        </div>
-        <div class="reading-item">
-            <h3>Gospel</h3>
-            <p>Matthew 20:1-16 - The parable of the workers in the vineyard...</p>
-        </div>
-        <p>View full readings for today at <a href="https://bible.usccb.org/daily-bible-reading" target="_blank">USCCB Daily Readings</a>.</p>
-        <!-- TODO: Update with actual daily readings or integrate API -->
+        <p>View full readings for today at <a href="https://www.ewtn.com/daily-readings" target="_blank" aria-label="Visit EWTN for full daily readings">EWTN Daily Readings</a>.</p>
+        <p>Issues with readings? <a href="#contact">Let us know</a>.</p>
     </section>
     <section id="cards" class="cards">
         <div id="mass-times" class="card mass-times">
@@ -527,7 +614,6 @@
                 <li><strong>Confession:</strong> Saturday 3:30–4:30 PM or by appointment</li>
                 <li><strong>Adoration:</strong> First Friday 6:00 PM</li>
             </ul>
-            <!-- TODO: Update with actual Mass times -->
         </div>
         <div id="events" class="card events">
             <h2>Upcoming Events</h2>
@@ -543,7 +629,6 @@
                     <p>Deepen your faith with our weekly group.</p>
                 </div>
             </div>
-            <!-- TODO: Update with actual events -->
         </div>
         <div id="office-hours" class="card office-hours">
             <h2>Office Hours</h2>
@@ -553,13 +638,11 @@
                 <li><strong>Sunday:</strong> Closed</li>
                 <li><strong>Contact:</strong> 0715959430</li>
             </ul>
-            <!-- TODO: Update with actual office hours -->
         </div>
     </section>
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
         <form id="contact-form" action="https://formspree.io/f/xxxxxxxx" method="POST">
-            <!-- TODO: Replace 'xxxxxxxx' with your actual Formspree form ID -->
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email</label>
@@ -574,9 +657,9 @@
         <p>Malava, Kenya | 0715959430 | malavaparish@gmail.com</p>
         <p><a href="#">Facebook</a> | <a href="#">Instagram</a></p>
         <p>© 2025 St. Therese of Lisieux Malava Catholic Parish. All rights reserved.</p>
-        <!-- TODO: Replace social media links with actual URLs -->
     </footer>
     <script>
+        // Navigation and Dropdown
         const hamburger = document.querySelector('.hamburger');
         const navUl = document.querySelector('nav ul');
         const dropdownToggle = document.querySelector('.dropdown-toggle');
@@ -614,6 +697,7 @@
             });
         });
 
+        // Slideshow
         const welcomeSlides = document.querySelectorAll('.welcome .slideshow img');
         let currentWelcomeSlide = 0;
         let welcomeInterval;
@@ -648,6 +732,7 @@
             }
         });
 
+        // Contact Form Submission
         document.getElementById('contact-form').addEventListener('submit', async function (e) {
             e.preventDefault();
             const form = e.target;
@@ -665,7 +750,7 @@
                     form.reset();
                     const successMessage = document.createElement('p');
                     successMessage.className = 'message';
-                    successMessage.textContent = `Thank you, ${name}! Your message has been sent. We'll get back to you at malavaparish@gmail.com.`;
+                    successMessage.textContent = `Thank you, ${sanitize(name)}! Your message has been sent. We'll get back to you at malavaparish@gmail.com.`;
                     successMessage.style.color = '#2c3e50';
                     form.appendChild(successMessage);
                     setTimeout(() => successMessage.remove(), 5000);
@@ -681,6 +766,60 @@
                 setTimeout(() => errorMessage.remove(), 5000);
             }
         });
+
+        // Sanitize Input
+        function sanitize(str) {
+            return str.replace(/[<>&"]/g, '');
+        }
+
+        // Fetch Daily Readings from EWTN API
+        async function fetchReadings() {
+            const container = document.getElementById('readings-container');
+            try {
+                const today = new Date();
+                const apiDate = today.toISOString().split('T')[0];
+                const refResponse = await fetch(`https://www.ewtn.com/se/readings/readingsservice.svc/day/${apiDate}/en`);
+                if (!refResponse.ok) throw new Error('Failed to fetch reading references');
+                const refData = await refResponse.json();
+                const readings = refData.ReadingGroups[0].Readings;
+                const references = readings.map(reading => reading.Citations[0].Reference);
+                const types = readings.map(reading => reading.Type);
+                const payload = {
+                    References: references,
+                    Language: 'en'
+                };
+                const textResponse = await fetch('https://www.ewtn.com/se/readings/readingsservice.svc/books', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Referer': 'https://www.ewtn.com/daily-readings/'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                if (!textResponse.ok) throw new Error('Failed to fetch reading texts');
+                const textData = await textResponse.json();
+                container.innerHTML = '';
+                textData.forEach((verse, index) => {
+                    const readingDiv = document.createElement('div');
+                    readingDiv.className = 'reading-item';
+                    readingDiv.innerHTML = `
+                        <article>
+                            <h3>${types[index] || 'Reading'}</h3>
+                            <p><strong>${references[index]}</strong><br>${verse.Text}</p>
+                        </article>
+                    `;
+                    container.appendChild(readingDiv);
+                });
+            } catch (error) {
+                console.error('Error fetching readings:', error);
+                container.innerHTML = `
+                    <p>Sorry, we couldn't load today's readings. Please try again later or visit 
+                    <a href="https://www.ewtn.com/daily-readings" target="_blank">EWTN Daily Readings</a>.</p>
+                `;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchReadings);
     </script>
 </body>
 </html>
