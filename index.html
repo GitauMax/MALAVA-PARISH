@@ -637,9 +637,9 @@
     </header>
     <section id="home" class="welcome">
         <div class="slideshow">
-            <img src="img/church1.jpg" srcset="img/church1-480w.jpg 480w, img/church1-800w.jpg 800w" sizes="(max-width: 768px) 480px, 800px" alt="Church Image 1" class="active" loading="lazy" width="1920" height="1080">
-            <img src="img/church2.jpg" srcset="img/church2-480w.jpg 480w, img/church2-800w.jpg 800w" sizes="(max-width: 768px) 480px, 800px" alt="Church Image 2" loading="lazy" width="1920" height="1080">
-            <img src="img/church3.jpg" srcset="img/church3-480w.jpg 480w, img/church3-800w.jpg 800w" sizes="(max-width: 768px) 480px, 800px" alt="Church Image 3" loading="lazy" width="1920" height="1080">
+            <img src="img/church 1.jpg" srcset="img/church1-480w.jpg 480w, img/church1-800w.jpg 800w" sizes="(max-width: 768px) 480px, 800px" alt="Church Image 1" class="active" loading="lazy" width="1920" height="1080">
+            <img src="img/church 2.jpg" srcset="img/church2-480w.jpg 480w, img/church2-800w.jpg 800w" sizes="(max-width: 768px) 480px, 800px" alt="Church Image 2" loading="lazy" width="1920" height="1080">
+            <img src="img/church 3.jpg" srcset="img/church3-480w.jpg 480w, img/church3-800w.jpg 800w" sizes="(max-width: 768px) 480px, 800px" alt="Church Image 3" loading="lazy" width="1920" height="1080">
         </div>
         <h2>Welcome to St. Therese of Lisieux</h2>
         <p>Join our vibrant Catholic community in Malava, Kenya, as we grow in faith, worship, and service. All are welcome to celebrate the love of Christ with us.</p>
@@ -660,7 +660,7 @@
     <section id="priest" class="floating-card priest">
         <h2>Our Parish Priest</h2>
         <figure>
-            <img src="img/groto1.jpg" srcset="img/groto1-300w.jpg 300w, img/groto1-400w.jpg 400w" sizes="(max-width: 768px) 300px, 400px" alt="Fr. Vincent Sanga, Parish Priest" loading="lazy" width="400" height="533">
+            <img src="img/groto 1.jpg" srcset="img/groto1-300w.jpg 300w, img/groto1-400w.jpg 400w" sizes="(max-width: 768px) 300px, 400px" alt="Fr. Vincent Sanga, Parish Priest" loading="lazy" width="400" height="533">
             <figcaption>Fr. Vincent Sanga</figcaption>
         </figure>
     </section>
@@ -899,10 +899,10 @@
 
         // Initialize FullCalendar
         async function initCalendar() {
-            const calendarEl = document.getElementById('calendar');
+            const calendar seventh gradersEl = document.getElementById('calendar');
             if (!calendarEl) return;
             try {
-                const response = await fetch('/data/events.json');
+                const response = await fetch('/img/events.json');
                 if (!response.ok) throw new Error('Failed to fetch events');
                 const events = await response.json();
                 const calendar = new FullCalendar.Calendar(calendarEl, {
