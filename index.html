@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="St. Therese of Lisieux Malava Catholic Parish in Malava, Kenya. Join our vibrant community for worship, fellowship, and service.">
-    <meta name="keywords" content="St. Therese of Lisieux, Malava Catholic Parish, Kenya, Catholic Church, Mass Times, Events Baker">
+    <meta name="keywords" content="St. Therese of Lisieux, Malava Catholic Parish, Kenya, Catholic Church, Mass Times, Events">
     <meta property="og:title" content="St. Therese of Lisieux Malava Catholic Parish">
     <meta property="og:description" content="Join our vibrant Catholic community in Malava for worship, fellowship, and service.">
-    <meta property="og:image" content="https://sttheresemalava.org/img/church-bg1.jpg">
-    <meta property="og:url" content="https://sttheresemalava.org">
+    <meta property="og:image" content="https://yourdomain.com/img/church-bg1.jpg">
+    <meta property="og:url" content="https://yourdomain.com">
     <meta property="og:type" content="website">
     <title>St. Therese of Lisieux Malava Catholic Parish</title>
     <link rel="icon" href="img/logos.png">
-    <link rel="preload" href="img/church1.jpg" as="image">
     <style>
         * {
             margin: 0;
@@ -242,19 +241,26 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .about {
-            text-align: center;
+            text-align: left;
             max-width: 900px;
             margin: 2rem auto;
         }
-        .priest figure {
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        .about aside {
+            flex: 0 0 400px;
+            text-align: center;
+        }
+        .about aside figure {
             background-color: #fff;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
             padding: 1rem;
-            max-width: 400px;
-            margin: 0 auto;
+            transform: translateY(-10px);
         }
-        .priest img {
+        .about aside img {
             width: 100%;
             max-width: 400px;
             aspect-ratio: 9/12;
@@ -264,7 +270,7 @@
             display: block;
             margin: 0 auto;
         }
-        .priest figcaption {
+        .about aside figcaption {
             font-weight: bold;
             font-style: italic;
             font-size: 1.2rem;
@@ -423,15 +429,6 @@
         footer a:hover {
             color: #d4a353;
         }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-        }
         @media (max-width: 768px) {
             header {
                 padding: 0.8rem;
@@ -504,17 +501,26 @@
                 max-width: 100%;
             }
             .about {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
                 margin: 1.5rem 1rem;
             }
-            .priest figure {
+            .about-content {
+                text-align: center;
+            }
+            .about aside {
+                flex: 0 0 auto;
+                max-width: 350px;
+            }
+            .about aside figure {
                 padding: 0.8rem;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            .about aside img {
                 max-width: 350px;
             }
-            .priest img {
-                max-width: 350px;
-            }
-            .priest figcaption {
+            .about aside figcaption {
                 font-size: 1rem;
             }
             .readings {
@@ -585,11 +591,13 @@
             .about {
                 margin: 1rem 0.5rem;
             }
-            .priest figure {
-                padding: 0.6rem;
-                max-width: 300px;
+            .about-content h2 {
+                font-size: 1.8rem;
             }
-            .priest img {
+            .about aside figure {
+                padding: 0.6rem;
+            }
+            .about aside img {
                 max-width: 300px;
             }
             .readings {
@@ -608,7 +616,6 @@
     </style>
 </head>
 <body>
-    <a href="#home" class="sr-only">Skip to content</a>
     <header>
         <div class="logo">
             <img src="img/logos.png" alt="St. Therese of Lisieux Parish Logo" class="logo-img">
@@ -637,9 +644,9 @@
     </header>
     <section id="home" class="welcome">
         <div class="slideshow">
-            <img src="img/church 1.jpg" srcset="img/church1-480w.jpg 480w, img/church1-800w.jpg 800w" sizes="(max-width: 768px) 480px, 800px" alt="Church Image 1" class="active" loading="lazy" width="1920" height="1080">
-            <img src="img/church 2.jpg" srcset="img/church2-480w.jpg 480w, img/church2-800w.jpg 800w" sizes="(max-width: 768px) 480px, 800px" alt="Church Image 2" loading="lazy" width="1920" height="1080">
-            <img src="img/church 3.jpg" srcset="img/church3-480w.jpg 480w, img/church3-800w.jpg 800w" sizes="(max-width: 768px) 480px, 800px" alt="Church Image 3" loading="lazy" width="1920" height="1080">
+            <img src="img/church 1.jpg" alt="Church Image 1" class="active" loading="lazy" width="1920" height="1080">
+            <img src="img/church 2.jpg" alt="Church Image 2" loading="lazy" width="1920" height="1080">
+            <img src="img/church 3.jpg" alt="Church Image 3" loading="lazy" width="1920" height="1080">
         </div>
         <h2>Welcome to St. Therese of Lisieux</h2>
         <p>Join our vibrant Catholic community in Malava, Kenya, as we grow in faith, worship, and service. All are welcome to celebrate the love of Christ with us.</p>
@@ -654,15 +661,16 @@
         <a href="#mass-times" class="navy-btn" aria-label="View Mass Times for in-person services">View Mass Times</a>
     </section>
     <section id="about" class="floating-card about">
-        <h2>About Our Parish</h2>
-        <p>St. Therese of Lisieux Malava Catholic Parish, founded in 1950, is a welcoming community dedicated to spreading the Gospel through worship, education, and charity. Led by our beloved priest, Fr. Vincent Sanga, we serve families, youth, and seniors through various ministries and outreach programs.</p>
-    </section>
-    <section id="priest" class="floating-card priest">
-        <h2>Our Parish Priest</h2>
-        <figure>
-            <img src="img/groto 1.jpg" srcset="img/groto1-300w.jpg 300w, img/groto1-400w.jpg 400w" sizes="(max-width: 768px) 300px, 400px" alt="Fr. Vincent Sanga, Parish Priest" loading="lazy" width="400" height="533">
-            <figcaption>Fr. Vincent Sanga</figcaption>
-        </figure>
+        <div class="about-content">
+            <h2>About Our Parish</h2>
+            <p>St. Therese of Lisieux Malava Catholic Parish, founded in 1950, is a welcoming community dedicated to spreading the Gospel through worship, education, and charity. Led by our beloved priest, Fr. Vincent Sanga, we serve families, youth, and seniors through various ministries and outreach programs.</p>
+        </div>
+        <aside>
+            <figure>
+                <img src="img/groto 1.jpg" alt="Fr. Vincent Sanga, Parish Priest" loading="lazy" width="400" height="533">
+                <figcaption>Fr. Vincent Sanga</figcaption>
+            </figure>
+        </aside>
     </section>
     <section id="readings" class="floating-card readings">
         <h2>Daily Mass Readings</h2>
@@ -699,7 +707,7 @@
     </section>
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
-        <form id="contact-form" action="https://formspree.io/f/your_form_id" method="POST">
+        <form id="contact-form" action="https://formspree.io/f/xxxxxxxx" method="POST">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email</label>
@@ -712,11 +720,11 @@
     <footer>
         <p>St. Therese of Lisieux Malava Catholic Parish</p>
         <p>Malava, Kenya | 0715959430 | malavaparish@gmail.com</p>
-        <p><a href="https://facebook.com/sttheresemalava">Facebook</a> | <a href="https://instagram.com/sttheresemalava">Instagram</a></p>
+        <p><a href="#">Facebook</a> | <a href="#">Instagram</a></p>
         <p><strong>Support Our Parish:</strong> <a href="https://paypal.me/sttheresemalava" target="_blank" class="btn">Donate via PayPal</a></p>
         <p>© 2025 St. Therese of Lisieux Malava Catholic Parish. All rights reserved.</p>
     </footer>
-    <script defer src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
     <script>
         // Navigation and Dropdown
         const hamburger = document.querySelector('.hamburger');
@@ -737,15 +745,6 @@
 
         dropdownToggle.addEventListener('click', (e) => {
             if (window.innerWidth <= 768) {
-                e.preventDefault();
-                dropdownContent.classList.toggle('active');
-                const isExpanded = dropdownContent.classList.contains('active');
-                dropdownToggle.setAttribute('aria-expanded', isExpanded);
-            }
-        });
-
-        dropdownToggle.addEventListener('keydown', (e) => {
-            if (window.innerWidth <= 768 && (e.key === 'Enter' || e.key === ' ')) {
                 e.preventDefault();
                 dropdownContent.classList.toggle('active');
                 const isExpanded = dropdownContent.classList.contains('active');
@@ -801,15 +800,13 @@
         });
 
         // Contact Form Submission
-        const form = document.getElementById('contact-form');
-        const button = form.querySelector('button');
-        form.addEventListener('submit', async (e) => {
+        document.getElementById('contact-form').addEventListener('submit', async function (e) {
             e.preventDefault();
-            button.disabled = true;
-            button.textContent = 'Sending...';
+            const form = e.target;
             const name = document.getElementById('name').value;
             const existingMessage = form.querySelector('.message');
             if (existingMessage) existingMessage.remove();
+
             try {
                 const response = await fetch(form.action, {
                     method: form.method,
@@ -834,9 +831,6 @@
                 errorMessage.style.color = '#e74c3c';
                 form.appendChild(errorMessage);
                 setTimeout(() => errorMessage.remove(), 5000);
-            } finally {
-                button.disabled = false;
-                button.textContent = 'Send Message';
             }
         });
 
@@ -848,14 +842,10 @@
         // Fetch Daily Readings from EWTN API
         async function fetchReadings() {
             const container = document.getElementById('readings-container');
-            const today = new Date().toISOString().split('T')[0];
-            const cached = localStorage.getItem(`readings-${today}`);
-            if (cached) {
-                container.innerHTML = cached;
-                return;
-            }
             try {
-                const refResponse = await fetch(`https://www.ewtn.com/se/readings/readingsservice.svc/day/${today}/en`);
+                const today = new Date();
+                const apiDate = today.toISOString().split('T')[0];
+                const refResponse = await fetch(`https://www.ewtn.com/se/readings/readingsservice.svc/day/${apiDate}/en`);
                 if (!refResponse.ok) throw new Error('Failed to fetch reading references');
                 const refData = await refResponse.json();
                 const readings = refData.ReadingGroups[0].Readings;
@@ -887,7 +877,6 @@
                     `;
                     container.appendChild(readingDiv);
                 });
-                localStorage.setItem(`readings-${today}`, container.innerHTML);
             } catch (error) {
                 console.error('Error fetching readings:', error);
                 container.innerHTML = `
@@ -899,7 +888,7 @@
 
         // Initialize FullCalendar
         async function initCalendar() {
-            const calendar seventh gradersEl = document.getElementById('calendar');
+            const calendarEl = document.getElementById('calendar');
             if (!calendarEl) return;
             try {
                 const response = await fetch('/img/events.json');
