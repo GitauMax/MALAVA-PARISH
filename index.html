@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>St. Therese of Lisieux Malava Catholic Parish</title>
-    <link rel="icon" href="img/cross-icon.png"> <!-- Cross icon in img folder -->
+    <link rel="icon" href="img/cross-icon.png">
     <style>
-        /* Reset default styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Georgia', serif;
             line-height: 1.6;
@@ -21,8 +19,6 @@
             max-width: 100%;
             overflow-x: hidden;
         }
-
-        /* Header */
         header {
             background-color: #2c3e50;
             color: #fff;
@@ -34,14 +30,12 @@
             top: 0;
             z-index: 100;
         }
-
         .logo {
             overflow: hidden;
             max-width: 60%;
             display: flex;
             align-items: center;
         }
-
         .logo-img {
             height: 30px;
             max-width: 30px;
@@ -49,49 +43,35 @@
             margin-right: 0.5rem;
             vertical-align: middle;
         }
-
         .logo h1 {
             font-size: 1.8rem;
             display: inline-block;
             white-space: nowrap;
             text-transform: uppercase;
         }
-
         .marquee {
             display: inline-block;
             animation: marquee 15s linear infinite;
         }
-
         @keyframes marquee {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
-
         @media (prefers-reduced-motion: reduce) {
-            .marquee {
-                animation: none;
-            }
+            .marquee { animation: none; }
         }
-
         nav {
             display: flex;
             align-items: center;
         }
-
         nav ul {
             list-style: none;
             display: flex;
         }
-
         nav ul li {
             margin-left: 1.5rem;
             position: relative;
         }
-
         nav ul li a {
             color: #fff;
             text-decoration: none;
@@ -99,12 +79,9 @@
             display: block;
             padding: 0.5rem;
         }
-
         nav ul li a:hover {
             color: #e0b774;
         }
-
-        /* Dropdown Menu */
         .dropdown-content {
             display: none;
             position: absolute;
@@ -114,25 +91,19 @@
             z-index: 1;
             border-radius: 5px;
         }
-
         .dropdown-content li {
             margin: 0;
         }
-
         .dropdown-content li a {
             padding: 0.5rem 1rem;
             font-size: 1rem;
         }
-
         .dropdown:hover .dropdown-content {
             display: block;
         }
-
         .dropdown-content.active {
             display: block;
         }
-
-        /* Hamburger Menu */
         .hamburger {
             display: none;
             font-size: 2rem;
@@ -142,8 +113,6 @@
             cursor: pointer;
             padding: 0.5rem;
         }
-
-        /* Welcome Section with Slideshow */
         .welcome {
             position: relative;
             color: #fff;
@@ -153,7 +122,6 @@
             background-blend-mode: overlay;
             height: 45vh;
         }
-
         .welcome .slideshow {
             position: absolute;
             top: 0;
@@ -164,8 +132,8 @@
             max-width: 800px;
             margin: 0 auto;
             aspect-ratio: 9/12;
+            background-color: #2c3e50;
         }
-
         .welcome .slideshow img {
             position: absolute;
             top: 0;
@@ -176,21 +144,17 @@
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
-
         .welcome .slideshow img.active {
             opacity: 1;
         }
-
         .welcome h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
-
         .welcome p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
         }
-
         .btn {
             background-color: #e0b774;
             color: #2c3e50;
@@ -200,13 +164,10 @@
             font-weight: bold;
             transition: background-color 0.3s, transform 0.3s;
         }
-
         .btn:hover {
             background-color: #d4a353;
             transform: scale(1.05);
         }
-
-        /* About Section with Aside */
         .about {
             padding: 3rem 2rem;
             background-color: #fff;
@@ -216,23 +177,27 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .about-content {
             flex: 1;
             min-width: 300px;
             text-align: left;
         }
-
         .about-content h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
         }
-
         .about aside {
             flex: 0 0 400px;
             text-align: center;
         }
-
+        .about aside figure {
+            background-color: #fff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            transform: translateY(-10px);
+            background-color: #2c3e50;
+        }
         .about aside img {
             width: 100%;
             max-width: 400px;
@@ -240,11 +205,9 @@
             object-fit: contain;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border: 2px solid #e0b774;
             display: block;
             margin: 0 auto;
         }
-
         .about aside figcaption {
             font-weight: bold;
             font-style: italic;
@@ -252,19 +215,15 @@
             color: #2c3e50;
             margin-top: 0.5rem;
         }
-
-        /* Daily Mass Readings Section */
         .readings {
             padding: 3rem 2rem;
             background-color: #f9f9f9;
             text-align: center;
         }
-
         .readings h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
         }
-
         .readings .reading-item {
             margin: 1rem 0;
             text-align: left;
@@ -272,17 +231,13 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .readings a {
             color: #2c3e50;
             text-decoration: underline;
         }
-
         .readings a:hover {
             color: #e0b774;
         }
-
-        /* Cards Section (Mass Times, Events, Office Hours) */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -290,7 +245,6 @@
             padding: 3rem 2rem;
             background-color: #f9f9f9;
         }
-
         .card {
             background-color: #fff;
             border-radius: 10px;
@@ -298,67 +252,56 @@
             padding: 1.5rem;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
-
         .card h2 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
             color: #2c3e50;
         }
-
         .card ul {
             list-style: none;
             text-align: left;
         }
-
         .card li {
             margin: 0.5rem 0;
             font-size: 1rem;
         }
-
         .event-list {
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
-
         .event {
             background-color: #f9f9f9;
             padding: 1rem;
             border-radius: 5px;
         }
-
         .event h3 {
             font-size: 1.4rem;
             margin-bottom: 0.5rem;
         }
-
-        /* Gallery Section as Slideshow */
         .gallery {
             padding: 3rem 2rem;
             background-color: #fff;
             text-align: center;
         }
-
         .gallery h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
         }
-
         .gallery .slideshow {
             position: relative;
             max-width: 800px;
             margin: 0 auto;
             height: 45vh;
             aspect-ratio: 9/12;
+            background-color: #2c3e50;
         }
-
         .gallery .slideshow img {
-            position: absolute;
+            position:asdabsolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -367,24 +310,19 @@
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
-
         .gallery .slideshow img.active {
             opacity: 1;
         }
-
-        /* Contact Section */
         .contact {
             padding: 3rem 2rem;
             background-color: #f9f9f9;
             text-align: center;
         }
-
         .contact h2 {
             font-size: 2rem;
             margin-bottom: 1.5rem;
             color: #2c3e50;
         }
-
         #contact-form {
             max-width: 500px;
             margin: 0 auto;
@@ -393,7 +331,6 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
         #contact-form label {
             display: block;
             margin: 0.5rem 0 0.2rem;
@@ -402,7 +339,6 @@
             text-transform: uppercase;
             font-size: 0.9rem;
         }
-
         #contact-form input,
         #contact-form textarea {
             width: 100%;
@@ -414,19 +350,16 @@
             background-color: #f9f9f9;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
-
         #contact-form input:focus,
         #contact-form textarea:focus {
             border-color: #e0b774;
             box-shadow: 0 0 5px rgba(224, 183, 116, 0.5);
             outline: none;
         }
-
         #contact-form textarea {
             height: 150px;
             resize: vertical;
         }
-
         #contact-form button {
             width: 100%;
             background-color: #e0b774;
@@ -439,13 +372,10 @@
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
         }
-
         #contact-form button:hover {
             background-color: #d4a353;
             transform: scale(1.05);
         }
-
-        /* Footer */
         footer {
             background-color: #2c3e50;
             color: #fff;
@@ -453,47 +383,23 @@
             padding: 2rem;
             font-size: 1rem;
         }
-
         footer p {
             margin: 0.5rem 0;
         }
-
         footer a {
             color: #e0b774;
             text-decoration: none;
         }
-
         footer a:hover {
             color: #d4a353;
         }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            header {
-                padding: 0.8rem;
-            }
-
-            .logo {
-                max-width: 50%;
-            }
-
-            .logo-img {
-                height: 24px;
-                max-width: 24px;
-            }
-
-            .logo h1 {
-                font-size: 1.2rem;
-            }
-
-            .marquee {
-                animation-duration: 20s;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
+            header { padding: 0.8rem; }
+            .logo { max-width: 50%; }
+            .logo-img { height: 24px; max-width: 24px; }
+            .logo h1 { font-size: 1.2rem; }
+            .marquee { animation-duration: 20s; }
+            .hamburger { display: block; }
             nav ul {
                 display: none;
                 flex-direction: column;
@@ -505,192 +411,68 @@
                 padding: 1rem;
                 text-align: center;
             }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-
+            nav ul.active { display: flex; }
+            nav ul li { margin: 0.5rem 0; }
             .dropdown-content {
                 position: static;
                 box-shadow: none;
                 background-color: #34495e;
                 padding: 1rem 1rem 1rem 2rem;
             }
-
-            .dropdown:hover .dropdown-content {
-                display: none;
-            }
-
-            .welcome {
-                height: 35vh;
-                padding: 3rem 1.5rem;
-            }
-
-            .welcome h2 {
-                font-size: 2rem;
-            }
-
-            .welcome p {
-                font-size: 1rem;
-            }
-
+            .dropdown:hover .dropdown-content { display: none; }
+            .welcome { height: 35vh; padding: 3rem 1.5rem; }
+            .welcome h2 { font-size: 2rem; }
+            .welcome p { font-size: 1rem; }
             .about {
                 flex-direction: column;
                 justify-content: center;
                 text-align: center;
                 padding: 2rem 1.5rem;
             }
-
-            .about-content {
-                text-align: center;
-            }
-
-            .about aside {
-                flex: 0 0 auto;
-                max-width: 350px;
-            }
-
-            .about aside img {
-                max-width: 350px;
-            }
-
-            .about aside figcaption {
-                font-size: 1rem;
-            }
-
-            .readings {
-                padding: 2rem 1.5rem;
-            }
-
-            .readings h2 {
-                font-size: 1.8rem;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-                padding: 2rem 1.5rem;
-                gap: 1rem;
-            }
-
-            .card {
-                padding: 1.2rem;
-            }
-
-            .card h2 {
-                font-size: 1.6rem;
-            }
-
-            .gallery {
-                padding: 2rem 1.5rem;
-            }
-
-            .gallery h2 {
-                font-size: 1.8rem;
-            }
-
-            .gallery .slideshow {
-                height: 35vh;
-            }
-
-            .contact {
-                padding: 2rem 1.5rem;
-            }
-
-            .contact h2 {
-                font-size: 1.8rem;
-            }
-
-            #contact-form {
-                padding: 1.5rem;
-            }
-
-            #contact-form input,
-            #contact-form textarea {
+            .about-content { text-align: center; }
+            .about aside { flex: 0 0 auto; max-width: 350px; }
+            .about aside figure {
                 padding: 0.8rem;
-                font-size: 0.9rem;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             }
-
-            #contact-form button {
-                padding: 0.8rem;
-                font-size: 1rem;
-            }
-
-            footer {
-                padding: 1.5rem;
-                font-size: 0.9rem;
-            }
+            .about aside img { max-width: 350px; }
+            .about aside figcaption { font-size: 1rem; }
+            .readings { padding: 2rem 1.5rem; }
+            .readings h2 { font-size: 1.8rem; }
+            .cards { grid-template-columns: 1fr; padding: 2rem 1.5rem; gap: 1rem; }
+            .card { padding: 1.2rem; }
+            .card h2 { font-size: 1.6rem; }
+            .gallery { padding: 2rem 1.5rem; }
+            .gallery h2 { font-size: 1.8rem; }
+            .gallery .slideshow { height: 35vh; }
+            .contact { padding: 2rem 1.5rem; }
+            .contact h2 { font-size: 1.8rem; }
+            #contact-form { padding: 1.5rem; }
+            #contact-form input, #contact-form textarea { padding: 0.8rem; font-size: 0.9rem; }
+            #contact-form button { padding: 0.8rem; font-size: 1rem; }
+            footer { padding: 1.5rem; font-size: 0.9rem; }
         }
-
         @media (max-width: 480px) {
-            .logo {
-                max-width: 40%;
-            }
-
-            .logo-img {
-                height: 20px;
-                max-width: 20px;
-            }
-
-            .logo h1 {
-                font-size: 1rem;
-            }
-
-            .marquee {
-                animation-duration: 25s;
-            }
-
-            .welcome {
-                padding: 2.5rem 1rem;
-            }
-
-            .welcome h2 {
-                font-size: 1.8rem;
-            }
-
-            .welcome p {
-                font-size: 0.9rem;
-            }
-
-            .about {
-                padding: 1.5rem 1rem;
-            }
-
-            .about-content h2 {
-                font-size: 1.8rem;
-            }
-
-            .about aside img {
-                max-width: 300px;
-            }
-
-            .readings {
-                padding: 1.5rem 1rem;
-            }
-
-            .cards {
-                padding: 1.5rem 1rem;
-            }
-
-            .gallery {
-                padding: 1.5rem 1rem;
-            }
-
-            .contact {
-                padding: 1.5rem 1rem;
-            }
-
-            #contact-form {
-                padding: 1rem;
-            }
+            .logo { max-width: 40%; }
+            .logo-img { height: 20px; max-width: 20px; }
+            .logo h1 { font-size: 1rem; }
+            .marquee { animation-duration: 25s; }
+            .welcome { padding: 2.5rem 1rem; }
+            .welcome h2 { font-size: 1.8rem; }
+            .welcome p { font-size: 0.9rem; }
+            .about { padding: 1.5rem 1rem; }
+            .about-content h2 { font-size: 1.8rem; }
+            .about aside figure { padding: 0.6rem; }
+            .about aside img { max-width: 300px; }
+            .readings { padding: 1.5rem 1rem; }
+            .cards { padding: 1.5rem 1rem; }
+            .gallery { padding: 1.5rem 1rem; }
+            .contact { padding: 1.5rem 1rem; }
+            #contact-form { padding: 1rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="logo">
             <img src="img/cross-icon.png" alt="Parish Logo" class="logo-img">
@@ -714,21 +496,17 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-    </<header>
-
-    <!-- Welcome Section with Slideshow -->
+    </header>
     <section id="home" class="welcome">
         <div class="slideshow">
-             <img src="img/church 1.jpg" alt="Church Image 1" class="active" loading="lazy">
-            <img src="img/church 2.jpg" alt="Church Image 2" loading="lazy">
-            <img src="img/church 3.jpg" alt="Church Image 3" loading="lazy">
+            <img src="img/church-bg1.jpg" alt="Church Image 1" class="active" loading="lazy">
+            <img src="img/church-bg2.jpg" alt="Church Image 2" loading="lazy">
+            <img src="img/church-bg3.jpg" alt="Church Image 3" loading="lazy">
         </div>
         <h2>Welcome to St. Therese of Lisieux</h2>
         <p>Join our vibrant Catholic community in Malava, Kenya, as we grow in faith, worship, and service. All are welcome to celebrate the love of Christ with us.</p>
         <a href="#cards" class="btn">View Mass Times</a>
     </section>
-
-    <!-- About Section with Aside -->
     <section id="about" class="about">
         <div class="about-content">
             <h2>About Our Parish</h2>
@@ -743,8 +521,6 @@
             <!-- TODO: Replace with actual priest image and name in figcaption -->
         </aside>
     </section>
-
-    <!-- Daily Mass Readings Section -->
     <section id="readings" class="readings">
         <h2>Daily Mass Readings</h2>
         <div class="reading-item">
@@ -762,10 +538,7 @@
         <p>View full readings for today at <a href="https://bible.usccb.org/daily-bible-reading" target="_blank">USCCB Daily Readings</a>.</p>
         <!-- TODO: Update with actual daily readings or integrate API -->
     </section>
-
-    <!-- Cards Section (Mass Times, Events, Office Hours) -->
     <section id="cards" class="cards">
-        <!-- Mass Times Card -->
         <div id="mass-times" class="card mass-times">
             <h2>Mass Times</h2>
             <ul>
@@ -777,8 +550,6 @@
             </ul>
             <!-- TODO: Update with actual Mass times -->
         </div>
-
-        <!-- Upcoming Events Card -->
         <div id="events" class="card events">
             <h2>Upcoming Events</h2>
             <div class="event-list">
@@ -795,8 +566,6 @@
             </div>
             <!-- TODO: Update with actual events -->
         </div>
-
-        <!-- Office Hours Card -->
         <div id="office-hours" class="card office-hours">
             <h2>Office Hours</h2>
             <ul>
@@ -808,8 +577,6 @@
             <!-- TODO: Update with actual office hours -->
         </div>
     </section>
-
-    <!-- Gallery Section as Slideshow -->
     <section id="gallery" class="gallery">
         <h2>Parish Gallery</h2>
         <div class="slideshow">
@@ -820,8 +587,6 @@
         </div>
         <!-- TODO: Ensure gallery images are parish-specific -->
     </section>
-
-    <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
         <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
@@ -834,8 +599,6 @@
             <button type="submit">Send Message</button>
         </form>
     </section>
-
-    <!-- Footer -->
     <footer>
         <p>St. Therese of Lisieux Malava Catholic Parish</p>
         <p>Malava, Kenya | 0715959430 | malavaparish@gmail.com</p>
@@ -843,14 +606,11 @@
         <p>© 2025 St. Therese of Lisieux Malava Catholic Parish. All rights reserved.</p>
         <!-- TODO: Replace social media links with actual URLs -->
     </footer>
-
     <script>
-        // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navUl = document.querySelector('nav ul');
         const dropdownToggle = document.querySelector('.dropdown-toggle');
         const dropdownContent = document.querySelector('.dropdown-content');
-
         hamburger.addEventListener('click', () => {
             navUl.classList.toggle('active');
             hamburger.textContent = navUl.classList.contains('active') ? '✖' : '☰';
@@ -858,14 +618,12 @@
                 dropdownContent.classList.remove('active');
             }
         });
-
         dropdownToggle.addEventListener('click', (e) => {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
                 dropdownContent.classList.toggle('active');
             }
         });
-
         document.querySelectorAll('nav ul li a').forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
@@ -875,44 +633,32 @@
                 }
             });
         });
-
-        // Welcome Slideshow
         const welcomeSlides = document.querySelectorAll('.welcome .slideshow img');
         let currentWelcomeSlide = 0;
-
         function showWelcomeSlide(index) {
             welcomeSlides.forEach((slide, i) => {
                 slide.classList.toggle('active', i === index);
             });
         }
-
         function nextWelcomeSlide() {
             currentWelcomeSlide = (currentWelcomeSlide + 1) % welcomeSlides.length;
             showWelcomeSlide(currentWelcomeSlide);
         }
-
         showWelcomeSlide(currentWelcomeSlide);
         setInterval(nextWelcomeSlide, 5000);
-
-        // Gallery Slideshow
         const gallerySlides = document.querySelectorAll('.gallery .slideshow img');
         let currentGallerySlide = 0;
-
         function showGallerySlide(index) {
             gallerySlides.forEach((slide, i) => {
                 slide.classList.toggle('active', i === index);
             });
         }
-
         function nextGallerySlide() {
             currentGallerySlide = (currentGallerySlide + 1) % gallerySlides.length;
             showGallerySlide(currentGallerySlide);
         }
-
         showGallerySlide(currentGallerySlide);
         setInterval(nextGallerySlide, 5000);
-
-        // Contact form submission (Formspree handles server-side)
         document.getElementById('contact-form').addEventListener('submit', function (e) {
             const name = document.getElementById('name').value;
             alert(`Thank you, ${name}! Your message has been sent. We'll get back to you at malavaparish@gmail.com.`);
