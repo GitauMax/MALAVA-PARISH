@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="St. Therese of Lisieux Malava Catholic Parish in Malava, Kenya. Join our vibrant community for worship, fellowship, and service.">
+    <meta name="keywords" content="St. Therese of Lisieux, Malava Catholic Parish, Kenya, Catholic Church, Mass Times, Events">
+    <meta property="og:title" content="St. Therese of Lisieux Malava Catholic Parish">
+    <meta property="og:description" content="Join our vibrant Catholic community in Malava, Kenya for worship, fellowship, and service.">
+    <meta property="og:image" content="https://yourdomain.com/img/church-bg1.jpg">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:type" content="website">
     <title>St. Therese of Lisieux Malava Catholic Parish</title>
     <link rel="icon" href="img/cross-icon.png">
     <style>
@@ -143,9 +150,11 @@
             object-fit: contain;
             opacity: 0;
             transition: opacity 1s ease-in-out;
+            display: none;
         }
         .welcome .slideshow img.active {
             opacity: 1;
+            display: block;
         }
         .welcome h2 {
             font-size: 2.5rem;
@@ -301,7 +310,7 @@
             background-color: #2c3e50;
         }
         .gallery .slideshow img {
-            position:asdabsolute;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -309,9 +318,11 @@
             object-fit: contain;
             opacity: 0;
             transition: opacity 1s ease-in-out;
+            display: none;
         }
         .gallery .slideshow img.active {
             opacity: 1;
+            display: block;
         }
         .contact {
             padding: 3rem 2rem;
@@ -375,6 +386,10 @@
         #contact-form button:hover {
             background-color: #d4a353;
             transform: scale(1.05);
+        }
+        #contact-form .message {
+            margin-top: 1rem;
+            font-size: 1rem;
         }
         footer {
             background-color: #2c3e50;
@@ -479,14 +494,14 @@
             <h1><span class="marquee">ST. THERESE OF LISIEUX MALAVA CATHOLIC PARISH</span></h1>
         </div>
         <nav>
-            <button class="hamburger" aria-label="Toggle menu">☰</button>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#readings">Readings</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Mass & Events</a>
-                    <ul class="dropdown-content">
+                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Mass & Events</a>
+                    <ul class="dropdown-content" role="menu">
                         <li><a href="#mass-times">Mass Times</a></li>
                         <li><a href="#events">Events</a></li>
                         <li><a href="#office-hours">Office Hours</a></li>
@@ -499,9 +514,9 @@
     </header>
     <section id="home" class="welcome">
         <div class="slideshow">
-            <img src="img/logos.png" alt="Church Image 1" class="active" loading="lazy">
-            <img src="img/logos.png" alt="Church Image 2" loading="lazy">
-            <img src="img/logos.png" alt="Church Image 3" loading="lazy">
+            <img src="img/church-bg1.jpg" alt="Church Image 1" class="active" loading="lazy">
+            <img src="img/church-bg2.jpg" alt="Church Image 2" loading="lazy">
+            <img src="img/church-bg3.jpg" alt="Church Image 3" loading="lazy">
         </div>
         <h2>Welcome to St. Therese of Lisieux</h2>
         <p>Join our vibrant Catholic community in Malava, Kenya, as we grow in faith, worship, and service. All are welcome to celebrate the love of Christ with us.</p>
@@ -515,8 +530,8 @@
         </div>
         <aside>
             <figure>
-                <img src="img/logos.png" alt="Fr. John Smith, Parish Priest" loading="lazy">
-                <figcaption>Fr. Vincent Sanga</figcaption>
+                <img src="img/priest.jpg" alt="Fr. John Smith, Parish Priest" loading="lazy">
+                <figcaption>Fr. John Smith</figcaption>
             </figure>
             <!-- TODO: Replace with actual priest image and name in figcaption -->
         </aside>
@@ -580,16 +595,17 @@
     <section id="gallery" class="gallery">
         <h2>Parish Gallery</h2>
         <div class="slideshow">
-            <img src="img/logos.png" alt="Gallery Image 1" class="active" loading="lazy">
-            <img src="img/logos.png" alt="Gallery Image 2" loading="lazy">
-            <img src="img/logos.png" alt="Gallery Image 3" loading="lazy">
-            <img src="img/logos.png" alt="Gallery Image 4" loading="lazy">
+            <img src="img/gallery1.jpg" alt="Gallery Image 1" class="active" loading="lazy">
+            <img src="img/gallery2.jpg" alt="Gallery Image 2" loading="lazy">
+            <img src="img/gallery3.jpg" alt="Gallery Image 3" loading="lazy">
+            <img src="img/gallery4.jpg" alt="Gallery Image 4" loading="lazy">
         </div>
         <!-- TODO: Ensure gallery images are parish-specific -->
     </section>
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
-        <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <form id="contact-form" action="https://formspree.io/f/xxxxxxxx" method="POST">
+            <!-- TODO: Replace 'xxxxxxxx' with your actual Formspree form ID -->
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email</label>
@@ -611,58 +627,134 @@
         const navUl = document.querySelector('nav ul');
         const dropdownToggle = document.querySelector('.dropdown-toggle');
         const dropdownContent = document.querySelector('.dropdown-content');
+
         hamburger.addEventListener('click', () => {
             navUl.classList.toggle('active');
-            hamburger.textContent = navUl.classList.contains('active') ? '✖' : '☰';
-            if (!navUl.classList.contains('active')) {
+            const isExpanded = navUl.classList.contains('active');
+            hamburger.textContent = isExpanded ? '✖' : '☰';
+            hamburger.setAttribute('aria-expanded', isExpanded);
+            if (!isExpanded) {
                 dropdownContent.classList.remove('active');
+                dropdownToggle.setAttribute('aria-expanded', false);
             }
         });
+
         dropdownToggle.addEventListener('click', (e) => {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
                 dropdownContent.classList.toggle('active');
+                const isExpanded = dropdownContent.classList.contains('active');
+                dropdownToggle.setAttribute('aria-expanded', isExpanded);
             }
         });
+
         document.querySelectorAll('nav ul li a').forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
                     navUl.classList.remove('active');
                     hamburger.textContent = '☰';
+                    hamburger.setAttribute('aria-expanded', false);
                     dropdownContent.classList.remove('active');
+                    dropdownToggle.setAttribute('aria-expanded', false);
                 }
             });
         });
+
         const welcomeSlides = document.querySelectorAll('.welcome .slideshow img');
         let currentWelcomeSlide = 0;
+        let welcomeInterval;
+
         function showWelcomeSlide(index) {
             welcomeSlides.forEach((slide, i) => {
                 slide.classList.toggle('active', i === index);
             });
         }
+
         function nextWelcomeSlide() {
             currentWelcomeSlide = (currentWelcomeSlide + 1) % welcomeSlides.length;
             showWelcomeSlide(currentWelcomeSlide);
         }
+
+        function startWelcomeSlideshow() {
+            welcomeInterval = setInterval(nextWelcomeSlide, 5000);
+        }
+
+        function stopWelcomeSlideshow() {
+            clearInterval(welcomeInterval);
+        }
+
         showWelcomeSlide(currentWelcomeSlide);
-        setInterval(nextWelcomeSlide, 5000);
+        startWelcomeSlideshow();
+
         const gallerySlides = document.querySelectorAll('.gallery .slideshow img');
         let currentGallerySlide = 0;
+        let galleryInterval;
+
         function showGallerySlide(index) {
             gallerySlides.forEach((slide, i) => {
                 slide.classList.toggle('active', i === index);
             });
         }
+
         function nextGallerySlide() {
             currentGallerySlide = (currentGallerySlide + 1) % gallerySlides.length;
             showGallerySlide(currentGallerySlide);
         }
+
+        function startGallerySlideshow() {
+            galleryInterval = setInterval(nextGallerySlide, 5000);
+        }
+
+        function stopGallerySlideshow() {
+            clearInterval(galleryInterval);
+        }
+
         showGallerySlide(currentGallerySlide);
-        setInterval(nextGallerySlide, 5000);
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
+        startGallerySlideshow();
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopWelcomeSlideshow();
+                stopGallerySlideshow();
+            } else {
+                startWelcomeSlideshow();
+                startGallerySlideshow();
+            }
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const form = e.target;
             const name = document.getElementById('name').value;
-            alert(`Thank you, ${name}! Your message has been sent. We'll get back to you at malavaparish@gmail.com.`);
+            const existingMessage = form.querySelector('.message');
+            if (existingMessage) existingMessage.remove();
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    form.reset();
+                    const successMessage = document.createElement('p');
+                    successMessage.className = 'message';
+                    successMessage.textContent = `Thank you, ${name}! Your message has been sent. We'll get back to you at malavaparish@gmail.com.`;
+                    successMessage.style.color = '#2c3e50';
+                    form.appendChild(successMessage);
+                    setTimeout(() => successMessage.remove(), 5000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                const errorMessage = document.createElement('p');
+                errorMessage.className = 'message';
+                errorMessage.textContent = 'Sorry, there was an error sending your message. Please try again later.';
+                errorMessage.style.color = '#e74c3c';
+                form.appendChild(errorMessage);
+                setTimeout(() => errorMessage.remove(), 5000);
+            }
         });
     </script>
 </body>
-    </html>
+</html>
