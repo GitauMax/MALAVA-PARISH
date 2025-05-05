@@ -1,825 +1,919 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="St. Therese of Lisieux Malava Catholic Parish in Malava, Kenya. Join our vibrant community for worship, fellowship, and service.">
-    <meta name="keywords" content="St. Therese of Lisieux, Malava Catholic Parish, Kenya, Catholic Church, Mass Times, Events">
-    <meta property="og:title" content="St. Therese of Lisieux Malava Catholic Parish">
-    <meta property="og:description" content="Join our vibrant Catholic community in Malava for worship, fellowship, and service.">
-    <meta property="og:image" content="https://yourdomain.com/img/church-bg1.jpg">
-    <meta property="og:url" content="https://yourdomain.com">
-    <meta property="og:type" content="website">
-    <title>St. Therese of Lisieux Malava Catholic Parish</title>
-    <link rel="icon" href="img/logos.png">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-        header {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            min-height: 80px;
-        }
-        .logo {
-            max-width: 50%;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-        }
-        .logo-img {
-            height: 60px;
-            max-width: 100px;
-            object-fit: contain;
-            margin-right: 0.5rem;
-            vertical-align: middle;
-        }
-        .logo h1 {
-            font-size: 1.8rem;
-            display: inline-block;
-            white-space: nowrap;
-            text-transform: uppercase;
-        }
-        .marquee {
-            display: inline-block;
-            animation: marquee 15s linear infinite;
-        }
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .marquee { animation: none; }
-        }
-        nav {
-            display: flex;
-            align-items: center;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-        nav ul li {
-            margin-left: 1.5rem;
-            position: relative;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1rem;
-            display: block;
-            padding: 0.5rem;
-        }
-        nav ul li a:hover {
-            color: #e0b774;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #2c3e50;
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            border-radius: 5px;
-        }
-        .dropdown-content li {
-            margin: 0;
-        }
-        .dropdown-content li a {
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .dropdown-content.active {
-            display: block;
-        }
-        .hamburger {
-            display: none;
-            font-size: 2rem;
-            background: none;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        .welcome {
-            position: relative;
-            color: #fff;
-            text-align: center;
-            padding: 5rem 2rem;
-            background-color: rgba(0, 0, 0, 0.5);
-            background-blend-mode: overlay;
-            height: 60vh;
-        }
-        .welcome .slideshow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-color: #2c3e50;
-        }
-        .welcome .slideshow img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            display: none;
-        }
-        .welcome .slideshow img.active {
-            opacity: 1;
-            display: block;
-        }
-        .welcome h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .welcome p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        .btn {
-            background-color: #e0b774;
-            color: #2c3e50;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.3s;
-            display: inline-block;
-            margin: 0.5rem;
-        }
-        .btn:hover {
-            background-color: #d4a353;
-            transform: scale(1.05);
-        }
-        .about {
-            padding: 3rem 2rem;
-            background-color: #fff;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .about-content {
-            flex: 1;
-            min-width: 300px;
-            text-align: left;
-        }
-        .about-content h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .about aside {
-            flex: 0 0 400px;
-            text-align: center;
-        }
-        .about aside figure {
-            background-color: #fff;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            padding: 1rem;
-            transform: translateY(-10px);
-        }
-        .about aside img {
-            width: 100%;
-            max-width: 400px;
-            aspect-ratio: 9/12;
-            object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: block;
-            margin: 0 auto;
-        }
-        .about aside figcaption {
-            font-weight: bold;
-            font-style: italic;
-            font-size: 1.2rem;
-            color: #333;
-            margin-top: 0.5rem;
-        }
-        .readings {
-            padding: 3rem 2rem;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
-        .readings h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .readings .reading-item {
-            margin: 1rem 0;
-            text-align: left;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .readings a {
-            color: #2c3e50;
-            text-decoration: underline;
-        }
-        .readings a:hover {
-            color: #e0b774;
-        }
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            padding: 3rem 2rem;
-            background-color: #f9f9f9;
-        }
-        .card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-        .card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-        .card ul {
-            list-style: none;
-            text-align: left;
-        }
-        .card li {
-            margin: 0.5rem 0;
-            font-size: 1rem;
-        }
-        .event-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .event {
-            background-color: #f9f9f9;
-            padding: 1rem;
-            border-radius: 5px;
-        }
-        .event h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-        .contact {
-            padding: 3rem 2rem;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
-        .contact h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-        }
-        #contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        #contact-form label {
-            display: block;
-            margin: 0.5rem 0 0.2rem;
-            font-weight: bold;
-            color: #2c3e50;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-        #contact-form input,
-        #contact-form textarea {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            background-color: #f9f9f9;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        #contact-form input:focus,
-        #contact-form textarea:focus {
-            border-color: #e0b774;
-            box-shadow: 0 0 5px rgba(224, 183, 116, 0.5);
-            outline: none;
-        }
-        #contact-form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        #contact-form button {
-            width: 100%;
-            background-color: #e0b774;
-            color: #2c3e50;
-            padding: 1rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        #contact-form button:hover {
-            background-color: #d4a353;
-            transform: scale(1.05);
-        }
-        #contact-form .message {
-            margin-top: 1rem;
-            font-size: 1rem;
-        }
-        footer {
-            background-color: #2c3e50;
-            color: #fff;
-            text-align: center;
-            padding: 2rem;
-            font-size: 1rem;
-        }
-        footer p {
-            margin: 0.5rem 0;
-        }
-        footer a {
-            color: #e0b774;
-            text-decoration: none;
-        }
-        footer a:hover {
-            color: #d4a353;
-        }
-        @media (max-width: 768px) {
-            header {
-                padding: 0.8rem;
-                min-height: 60px;
-            }
-            .logo {
-                max-width: 40%;
-            }
-            .logo-img {
-                height: 40px;
-                max-width: 80px;
-            }
-            .logo h1 {
-                font-size: 1.2rem;
-            }
-            .marquee {
-                animation-duration: 20s;
-            }
-            .hamburger {
-                display: block;
-            }
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background-color: #2c3e50;
-                padding: 1rem;
-                text-align: center;
-            }
-            nav ul.active {
-                display: flex;
-            }
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-            .dropdown-content {
-                position: static;
-                box-shadow: none;
-                background-color: #34495e;
-                padding: 1rem 1rem 1rem 2rem;
-            }
-            .dropdown:hover .dropdown-content {
-                display: none;
-            }
-            .welcome {
-                height: 40vh;
-                padding: 3rem 1.5rem;
-            }
-            .welcome h2 {
-                font-size: 2rem;
-            }
-            .welcome p {
-                font-size: 1rem;
-            }
-            .about {
-                flex-direction: column;
-                justify-content: center;
-                text-align: center;
-                padding: 2rem 1.5rem;
-            }
-            .about-content {
-                text-align: center;
-            }
-            .about aside {
-                flex: 0 0 auto;
-                max-width: 350px;
-            }
-            .about aside figure {
-                padding: 0.8rem;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-            .about aside img {
-                max-width: 350px;
-            }
-            .about aside figcaption {
-                font-size: 1rem;
-            }
-            .readings {
-                padding: 2rem 1.5rem;
-            }
-            .readings h2 {
-                font-size: 1.8rem;
-            }
-            .cards {
-                grid-template-columns: 1fr;
-                padding: 2rem 1.5rem;
-                gap: 1rem;
-            }
-            .card {
-                padding: 1.2rem;
-            }
-            .card h2 {
-                font-size: 1.6rem;
-            }
-            .contact {
-                padding: 2rem 1.5rem;
-            }
-            .contact h2 {
-                font-size: 1.8rem;
-            }
-            #contact-form {
-                padding: 1.5rem;
-            }
-            #contact-form input,
-            #contact-form textarea {
-                padding: 0.8rem;
-                font-size: 0.9rem;
-            }
-            #contact-form button {
-                padding: 0.8rem;
-                font-size: 1rem;
-            }
-            footer {
-                padding: 1.5rem;
-                font-size: 0.9rem;
-            }
-        }
-        @media (max-width: 480px) {
-            .logo {
-                max-width: 35%;
-            }
-            .logo-img {
-                height: 30px;
-                max-width: 60px;
-            }
-            .logo h1 {
-                font-size: 1rem;
-            }
-            .marquee {
-                animation-duration: 25s;
-            }
-            .welcome {
-                height: 30vh;
-                padding: 2.5rem 1rem;
-            }
-            .welcome h2 {
-                font-size: 1.8rem;
-            }
-            .welcome p {
-                font-size: 0.9rem;
-            }
-            .about {
-                padding: 1.5rem 1rem;
-            }
-            .about-content h2 {
-                font-size: 1.8rem;
-            }
-            .about aside figure {
-                padding: 0.6rem;
-            }
-            .about aside img {
-                max-width: 300px;
-            }
-            .readings {
-                padding: 1.5rem 1rem;
-            }
-            .cards {
-                padding: 1.5rem 1rem;
-            }
-            .contact {
-                padding: 1.5rem 1rem;
-            }
-            #contact-form {
-                padding: 1rem;
-            }
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="St. Therese of Lisieux Malava Catholic Parish in Malava, Kenya. Join our vibrant community for worship, fellowship, and service.">
+ <meta name="keywords" content="St. Therese of Lisieux, Malava Catholic Parish, Kenya, Catholic Church, Mass Times, Events">
+ <meta property="og:title" content="St. Therese of Lisieux Malava Catholic Parish">
+ <meta property="og:description" content="Join our vibrant Catholic community in Malava for worship, fellowship, and service.">
+ <meta property="og:image" content="https://yourdomain.com/img/church-bg1.jpg">
+ <meta property="og:url" content="https://yourdomain.com">
+ <meta property="og:type" content="website">
+ <title>St. Therese of Lisieux Malava Catholic Parish</title>
+ <link rel="icon" href="img/logos.png">
+ <style>
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ body {
+ font-family: 'Georgia', serif;
+ line-height: 1.6;
+ color: #333;
+ background-color: #f9f9f9;
+ max-width: 100%;
+ overflow-x: hidden;
+ }
+ header {
+ background-color: #2c3e50;
+ color: #fff;
+ padding: 1rem;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ position: sticky;
+ top: 0;
+ z-index: 100;
+ min-height: 80px;
+ }
+ .logo {
+ max-width: 50%;
+ display: flex;
+ align-items: center;
+ overflow: hidden;
+ }
+ .logo-img {
+ height: 60px;
+ max-width: 100px;
+ object-fit: contain;
+ margin-right: 0.5rem;
+ vertical-align: middle;
+ }
+ .logo h1 {
+ font-size: 1.8rem;
+ display: inline-block;
+ white-space: nowrap;
+ text-transform: uppercase;
+ }
+ .marquee {
+ display: inline-block;
+ animation: marquee 15s linear infinite;
+ }
+ @keyframes marquee {
+ 0% { transform: translateX(100%); }
+ 100% { transform: translateX(-100%); }
+ }
+ @media (prefers-reduced-motion: reduce) {
+ .marquee { animation: none; }
+ }
+ nav {
+ display: flex;
+ align-items: center;
+ }
+ nav ul {
+ list-style: none;
+ display: flex;
+ }
+ nav ul li {
+ margin-left: 1.5rem;
+ position: relative;
+ }
+ nav ul li a {
+ color: #fff;
+ text-decoration: none;
+ font-size: 1.1rem;
+ display: block;
+ padding: 0.5rem;
+ }
+ nav ul li a:hover {
+ color: #e0b774;
+ }
+ .nav-donate {
+ background-color: #e0b774;
+ color: #2c3e50;
+ padding: 0.5rem 1rem;
+ border-radius: 5px;
+ transition: background-color 0.3s;
+ }
+ .nav-donate:hover {
+ background-color: #d4a353;
+ color: #2c3e50;
+ }
+ .dropdown-content {
+ display: none;
+ position: absolute;
+ background-color: #2c3e50;
+ min-width: 160px;
+ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+ z-index: 1;
+ border-radius: 5px;
+ }
+ .dropdown-content li {
+ margin: 0;
+ }
+ .dropdown-content li a {
+ padding: 0.5rem 1rem;
+ font-size: 1rem;
+ }
+ .dropdown:hover .dropdown-content {
+ display: block;
+ }
+ .dropdown-content.active {
+ display: block;
+ }
+ .hamburger { 
+ display: none;
+ font-size: 2rem;
+ background: none;
+ border: none;
+ color: #fff;
+ cursor: pointer;
+ padding: 0.5rem;
+ }
+ .welcome {
+ position: relative;
+ color: #fff;
+ text-align: center;
+ padding: 5rem 2rem;
+ background-color: rgba(0, 0, 0, 0.5);
+ background-blend-mode: overlay;
+ height: 60vh;
+ }
+ .welcome .slideshow {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ z-index: -1;
+ background-color: #2c3e50;
+ }
+ .welcome .slideshow img {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ object-position: center;
+ opacity: 0;
+ transition: opacity 1s ease-in-out;
+ display: none;
+ }
+ .welcome .slideshow img.active {
+ opacity: 1;
+ display: block;
+ }
+ .welcome h2 {
+ font-size: 2.5rem;
+ margin-bottom: 1rem;
+ }
+ .welcome p {
+ font-size: 1.2rem;
+ margin-bottom: 2rem;
+ }
+ .btn {
+ background-color: #e0b774;
+ color: #2c3e50;
+ padding: 0.8rem 1.5rem;
+ text-decoration: none;
+ border-radius: 5px;
+ font-weight: bold;
+ transition: background-color 0.3s, transform 0.3s;
+ display: inline-block;
+ margin: 0.5rem;
+ }
+ .btn:hover {
+ background-color: #d4a353;
+ transform: scale(1.05);
+ }
+ .live-stream {
+ padding: 3rem 2rem;
+ background-color: #fff;
+ text-align: center;
+ }
+ .live-stream h2 {
+ font-size: 2rem;
+ margin-bottom: 1rem;
+ color: #2c3e50;
+ }
+ .video-container {
+ position: relative;
+ padding-bottom: 56.25%;
+ height: 0;
+ max-width: 800px;
+ margin: 0 auto;
+ }
+ .video-container iframe {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ border-radius: 10px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+ .live-stream p {
+ margin-top: 1rem;
+ font-size: 1rem;
+ }
+ .about {
+ padding: 3rem 2rem;
+ background-color: #fff;
+ display: flex;
+ flex-wrap: wrap;
+ gap: 2rem;
+ justify-content: space-between;
+ align-items: center;
+ }
+ .about-content {
+ flex: 1;
+ min-width: 300px;
+ text-align: left;
+ }
+ .about-content h2 {
+ font-size: 2rem;
+ margin-bottom: 1rem;
+ }
+ .about aside {
+ flex: 0 0 400px;
+ text-align: center;
+ }
+ .about aside figure {
+ background-color: #fff;
+ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+ border-radius: 10px;
+ padding: 1rem;
+ transform: translateY(-10px);
+ }
+ .about aside img {
+ width: 100%;
+ max-width: 400px;
+ aspect-ratio: 9/12;
+ object-fit: contain;
+ border-radius: 10px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ display: block;
+ margin: 0 auto;
+ }
+ .about aside figcaption {
+ font-weight: bold;
+ font-style: italic;
+ font-size: 1.2rem;
+ color: #333;
+ margin-top: 0.5rem;
+ }
+ .readings {
+ padding: 3rem 2rem;
+ background-color: #f9f9f9;
+ text-align: center;
+ }
+ .readings h2 {
+ font-size: 2rem;
+ margin-bottom: 1rem;
+ }
+ .readings .reading-item {
+ margin: 1rem 0;
+ text-align: left;
+ max-width: 600px;
+ margin-left: auto;
+ margin-right: auto;
+ }
+ .readings a {
+ color: #2c3e50;
+ text-decoration: underline;
+ }
+ .readings a:hover {
+ color: #e0b774;
+ }
+ .cards {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 1.5rem;
+ padding: 3rem 2rem;
+ background-color: #f9f9f9;
+ }
+ .card {
+ background-color: #fff;
+ border-radius: 10px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ padding: 1.5rem;
+ transition: transform 0.3s, box-shadow 0.3s;
+ }
+ .card:hover {
+ transform: translateY(-10px);
+ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+ }
+ .card h2 {
+ font-size: 1.8rem;
+ margin-bottom: 1rem;
+ color: #2c3e50;
+ }
+ .card ul {
+ list-style: none;
+ text-align: left;
+ }
+ .card li {
+ margin: 0.5rem 0;
+ font-size: 1rem;
+ }
+ #calendar {
+ max-width: 600px;
+ margin: 0 auto;
+ font-family: 'Georgia', serif;
+ }
+ .fc-button {
+ background-color: #e0b774 !important;
+ color: #2c3e50 !important;
+ border: none !important;
+ border-radius: 5px !important;
+ }
+ .fc-button:hover {
+ background-color: #d4a353 !important;
+ }
+ .fc-event {
+ background-color: #2c3e50;
+ color: #fff;
+ border: none;
+ border-radius: 3px;
+ }
+ .fc-daygrid-event-dot {
+ border-color: #e0b774;
+ }
+ .contact {
+ padding: 3rem 2rem;
+ background-color: #f9f9f9;
+ text-align: center;
+ }
+ .contact h2 {
+ font-size: 2rem;
+ margin-bottom: 1.5rem;
+ color: #2c3e50;
+ }
+ #contact-form {
+ max-width: 500px;
+ margin: 0 auto;
+ background-color: #fff;
+ padding: 2rem;
+ border-radius: 10px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+ #contact-form label {
+ display: block;
+ margin: 0.5rem 0 0.2rem;
+ font-weight: bold;
+ color: #2c3e50;
+ text-transform: uppercase;
+ font-size: 0.9rem;
+ }
+ #contact-form input,
+ #contact-form textarea {
+ width: 100%;
+ padding: 1rem;
+ margin-bottom: 1rem;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ font-size: 1rem;
+ background-color: #f9f9f9;
+ transition: border-color 0.3s, box-shadow 0.3s;
+ }
+ #contact-form input:focus,
+ #contact-form textarea:focus {
+ border-color: #e0b774;
+ box-shadow: 0 0 5px rgba(224, 183, 116, 0.5);
+ outline: none;
+ }
+ #contact-form textarea {
+ height: 150px;
+ resize: vertical;
+ }
+ #contact-form button {
+ width: 100%;
+ background-color: #e0b774;
+ color: #2c3e50;
+ padding: 1rem;
+ border: none;
+ border-radius: 5px;
+ font-size: 1.1rem;
+ font-weight: bold;
+ cursor: pointer;
+ transition: background-color 0.3s, transform 0.3s;
+ }
+ #contact-form button:hover {
+ background-color: #d4a353;
+ transform: scale(1.05);
+ }
+ #contact-form .message {
+ margin-top: 1rem;
+ font-size: 1rem;
+ }
+ footer {
+ background-color: #2c3e50;
+ color: #fff;
+ text-align: center;
+ padding: 2rem;
+ font-size: 1rem;
+ }
+ footer p {
+ margin: 0.5rem 0;
+ }
+ footer a {
+ color: #e0b774;
+ text-decoration: none;
+ }
+ footer a:hover {
+ color: #d4a353;
+ }
+ @media (max-width: 768px) {
+ header {
+ padding: 0.8rem;
+ min-height: 60px;
+ }
+ .logo {
+ max-width: 40%;
+ }
+ .logo-img {
+ height: 40px;
+ max-width: 80px;
+ }
+ .logo h1 {
+ font-size: 1.2rem;
+ }
+ .marquee {
+ animation-duration: 20s;
+ }
+ .nav-donate {
+ margin: 0.5rem auto;
+ display: inline-block;
+ }
+ .hamburger {
+ display: block;
+ }
+ nav ul {
+ display: none;
+ flex-direction: column;
+ position: absolute;
+ top: 60px;
+ left: 0;
+ width: 100%;
+ background-color: #2c3e50;
+ padding: 1rem;
+ text-align: center;
+ }
+ nav ul.active {
+ display: flex;
+ }
+ nav ul li {
+ margin: 0.5rem 0;
+ }
+ .dropdown-content {
+ position: static;
+ box-shadow: none;
+ background-color: #34495e;
+ padding: 1rem 1rem 1rem 2rem;
+ }
+ .dropdown:hover .dropdown-content {
+ display: none;
+ }
+ .welcome {
+ height: 40vh;
+ padding: 3rem 1.5rem;
+ }
+ .welcome h2 {
+ font-size: 2rem;
+ }
+ .welcome p {
+ font-size: 1rem;
+ }
+ .live-stream {
+ padding: 2rem 1.5rem;
+ }
+ .live-stream h2 {
+ font-size: 1.8rem;
+ }
+ .about {
+ flex-direction: column;
+ justify-content: center;
+ text-align: center;
+ padding: 2rem 1.5rem;
+ }
+ .about-content {
+ text-align : center;
+ }
+ .about aside {
+ flex: 0 0 auto;
+ max-width: 350px;
+ }
+ .about aside figure {
+ padding: 0.8rem;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ }
+ .about aside img {
+ max-width: 350px;
+ }
+ .about aside figcaption {
+ font-size: 1rem;
+ }
+ .readings {
+ padding: 2rem 1.5rem;
+ }
+ .readings h2 {
+ font-size: 1.8rem;
+ }
+ .cards {
+ grid-template-columns: 1fr;
+ padding: 2rem 1.5rem;
+ gap: 1rem;
+ }
+ .card {
+ padding: 1.2rem;
+ }
+ .card h2 {
+ font-size: 1.6rem;
+ }
+ .contact {
+ padding: 2rem 1.5rem;
+ }
+ .contact h2 {
+ font-size: 1.8rem;
+ }
+ #contact-form {
+ padding: 1.5rem;
+ }
+ #contact-form input,
+ #contact-form textarea {
+ padding: 0.8rem;
+ font-size: 0.9rem;
+ }
+ #contact-form button {
+ padding: 0.8rem;
+ font-size: 1rem;
+ }
+ footer {
+ padding: 1.5rem;
+ font-size: 0.9rem;
+ }
+ }
+ @media (max-width: 480px) {
+ .logo {
+ max-width: 35%;
+ }
+ .logo-img {
+ height: 30px;
+ max-width: 60px;
+ }
+ .logo h1 {
+ font-size: 1rem;
+ }
+ .marquee {
+ animation-duration: 25s;
+ }
+ .welcome {
+ height: 30vh;
+ padding: 2.5rem 1rem;
+ }
+ .welcome h2 {
+ font-size: 1.8rem;
+ }
+ .welcome p {
+ font-size: 0.9rem;
+ }
+ .live-stream {
+ padding: 1.5rem 1rem;
+ }
+ .about {
+ padding: 1.5rem 1rem;
+ }
+ .about-content h2 {
+ font-size: 1.8rem;
+ }
+ .about aside figure {
+ padding: 0.6rem;
+ }
+ .about aside img {
+ max-width: 300px;
+ }
+ .readings {
+ padding: 1.5rem 1rem;
+ }
+ .cards {
+ padding: 1.5rem 1rem;
+ }
+ .contact {
+ padding: 1.5rem 1rem;
+ }
+ #contact-form {
+ padding: 1rem;
+ }
+ }
+ </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="img/logos.png" alt="St. Therese of Lisieux Parish Logo" class="logo-img">
-            <h1><span class="marquee">ST. THERESE OF LISIEUX MALAVA CATHOLIC PARISH</span></h1>
-        </div>
-        <nav>
-            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#readings">Readings</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Mass & Events</a>
-                    <ul class="dropdown-content" role="menu">
-                        <li><a href="#mass-times" role="menuitem">Mass Times</a></li>
-                        <li><a href="#events" role="menuitem">Events</a></li>
-                        <li><a href="#office-hours" role="menuitem">Office Hours</a></li>
-                    </ul>
-                </li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="home" class="welcome">
-        <div class="slideshow">
-            <img src="img/church 1.jpg" alt="Church Image 1" class="active" loading="lazy" width="1920" height="1080">
-            <img src="img/church 2.jpg" alt="Church Image 2" loading="lazy" width="1920" height="1080">
-            <img src="img/church 3.jpg" alt="Church Image 3" loading="lazy" width="1920" height="1080">
-        </div>
-        <h2>Welcome to St. Therese of Lisieux</h2>
-        <p>Join our vibrant Catholic community in Malava, Kenya, as we grow in faith, worship, and service. All are welcome to celebrate the love of Christ with us.</p>
-       awaii
-        <a href="#cards" class="btn">View Mass Times</a>
-        <a href="gallery.html" class="btn">View Gallery</a>
-    </section>
-    <section id="about" class="about">
-        <div class="about-content">
-            <h2>About Our Parish</h2>
-            <p>St. Therese of Lisieux Malava Catholic Parish, founded in 1950, is a welcoming community dedicated to spreading the Gospel through worship, education, and charity. Led by our beloved priest, Fr. Vincent Sanga, we serve families, youth, and seniors through various ministries and outreach programs.</p>
-        </div>
-        <aside>
-            <figure>
-                <img src="img/groto 1.jpg" alt="Fr. Vincent Sanga, Parish Priest" loading="lazy" width="400" height="533">
-                <figcaption>Fr. Vincent Sanga</figcaption>
-            </figure>
-        </aside>
-    </section>
-    <section id="readings" class="readings">
-        <h2>Daily Mass Readings</h2>
-        <div id="readings-container" aria-live="polite">
-            <p>Loading readings...</p>
-        </div>
-        <p>View full readings for today at <a href="https://www.ewtn.com/daily-readings" target="_blank" aria-label="Visit EWTN for full daily readings">EWTN Daily Readings</a>.</p>
-        <p>Issues with readings? <a href="#contact">Let us know</a>.</p>
-    </section>
-    <section id="cards" class="cards">
-        <div id="mass-times" class="card mass-times">
-            <h2>Mass Times</h2>
-            <ul>
-                <li><strong>Sunday:</strong> 8:00 AM, 10:30 AM, 5:00 PM</li>
-                <li><strong>Weekday:</strong> 7:30 AM (Monday–Friday)</li>
-                <li><strong>Saturday Vigil:</strong> 5:00 PM</li>
-                <li><strong>Confession:</strong> Saturday 3:30–4:30 PM or by appointment</li>
-                <li><strong>Adoration:</strong> First Friday 6:00 PM</li>
-            </ul>
-        </div>
-        <div id="events" class="card events">
-            <h2>Upcoming Events</h2>
-            <div class="event-list">
-                <div class="event">
-                    <h3>Parish Picnic</h3>
-                    <p><strong>Date:</strong> June 15, 2025</p>
-                    <p>Join us for a day of fellowship, food, and fun!</p>
-                </div>
-                <div class="event">
-                    <h3>Bible Study</h3>
-                    <p><strong>Date:</strong> Every Wednesday at 7:00 PM</p>
-                    <p>Deepen your faith with our weekly group.</p>
-                </div>
-            </div>
-        </div>
-        <div id="office-hours" class="card office-hours">
-            <h2>Office Hours</h2>
-            <ul>
-                <li><strong>Monday–Friday:</strong> 9:00 AM–4:00 PM</li>
-                <li><strong>Saturday:</strong> 10:00 AM–2:00 PM</li>
-                <li><strong>Sunday:</strong> Closed</li>
-                <li><strong>Contact:</strong> 0715959430</li>
-            </ul>
-        </div>
-    </section>
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <form id="contact-form" action="https://formspree.io/f/xxxxxxxx" method="POST">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-    <footer>
-        <p>St. Therese of Lisieux Malava Catholic Parish</p>
-        <p>Malava, Kenya | 0715959430 | malavaparish@gmail.com</p>
-        <p><a href="#">Facebook</a> | <a href="#">Instagram</a></p>
-        <p>© 2025 St. Therese of Lisieux Malava Catholic Parish. All rights reserved.</p>
-    </footer>
-    <script>
-        // Navigation and Dropdown
-        const hamburger = document.querySelector('.hamburger');
-        const navUl = document.querySelector('nav ul');
-        const dropdownToggle = document.querySelector('.dropdown-toggle');
-        const dropdownContent = document.querySelector('.dropdown-content');
+ <header>
+ <div class="logo">
+ <img src="img/logos.png" alt="St. Therese of Lisieux Parish Logo" class="logo-img">
+ <h1><span class="marquee">ST. THERESE OF LISIEUX MALAVA CATHOLIC PARISH</span></h1>
+ </div>
+ <nav>
+ <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+ <ul>
+ <li><a href="#home">Home</a></li>
+ <li><a href="#live-stream">Live Stream</a></li>
+ <li><a href="#about">About</a></li>
+ <li><a href="#readings">Readings</a></li>
+ <li class="dropdown">
+ <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Mass & Events</a>
+ <ul class="dropdown-content" role="menu">
+ <li><a href="#mass-times" role="menuitem">Mass Times</a></li>
+ <li><a href="#events" role="menuitem">Events</a></li>
+ <li><a href="#office-hours" role="menuitem">Office Hours</a></li>
+ </ul>
+ </li>
+ <li><a href="gallery.html">Gallery</a></li>
+ <li><a href="#contact">Contact</a></li>
+ <li><a href="https://paypal.me/sttheresemalava" class="nav-donate" target="_blank" aria-label="Donate to the parish">Donate</a></li>
+ </ul>
+ </nav>
+ </header>
+ <section id="home" class="welcome">
+ <div class="slideshow">
+ <img src="img/church 1.jpg" alt="Church Image 1" class="active" loading="lazy" width="1920" height="1080">
+ <img src="img/church 2.jpg" alt="Church Image 2" loading="lazy" width="1920" height="1080">
+ <img src="img/church 3.jpg" alt="Church Image 3" loading="lazy" width="1920" height="1080">
+ </div>
+ <h2>Welcome to St. Therese of Lisieux</h2>
+ <p>Join our vibrant Catholic community in Malava, Kenya, as we grow in faith, worship, and service. All are welcome to celebrate the love of Christ with us.</p>
+ <a href="#cards" class="btn">View Mass Times</a>
+ <a href="gallery.html" class="btn">View Gallery</a>
+ </section>
+ <section id="live-stream" class="live-stream">
+ <h2>Live Mass</h2>
+ <div class="video-container">
+ <iframe src="https://www.youtube.com/embed/live_stream_id" title="Live Mass Stream from St. Therese of Lisieux Malava" frameborder="0" allowfullscreen aria-label="Live Mass stream"></iframe>
+ </div>
+ <p>No stream active? Check our <a href="#mass-times">Mass Times</a> for in-person services.</p>
+ </section>
+ <section id="about" class="about">
+ <div class="about-content">
+ <h2>About Our Parish</h2>
+ <p>St. Therese of Lisieux Malava Catholic Parish, founded in 1950, is a welcoming community dedicated to spreading the Gospel through worship, education, and charity. Led by our beloved priest, Fr. Vincent Sanga, we serve families, youth, and seniors through various ministries and outreach programs.</p>
+ </div>
+ <aside>
+ <figure>
+ <img src="img/groto 1.jpg" alt="Fr. Vincent Sanga, Parish Priest" loading="lazy" width="400" height="533">
+ <figcaption>Fr. Vincent Sanga</figcaption>
+ </figure>
+ </aside>
+ </section>
+ <section id="readings" class="readings">
+ <h2>Daily Mass Readings</h2>
+ <div id="readings-container" aria-live="polite">
+ <p>Loading readings...</p>
+ </div>
+ <p>View full readings for today at <a href="https://www.ewtn.com/daily-readings" target="_blank" aria-label="Visit EWTN for full daily readings">EWTN Daily Readings</a>.</p>
+ <p>Issues with readings? <a href="#contact">Let us know</a>.</p>
+ </section>
+ <section id="cards" class="cards">
+ <div id="mass-times" class="card mass-times">
+ <h2>Mass Times</h2>
+ <ul>
+ <li><strong>Sunday:</strong> 8:00 AM, 10:30 AM, 5:00 PM</li>
+ <li><strong>Weekday:</strong> 7:30 AM (Monday–Friday)</li>
+ <li><strong>Saturday Vigil:</strong> 5:00 PM</li>
+ <li><strong>Confession:</strong> Saturday 3:30–4:30 PM or by appointment</li>
+ <li><strong>Adoration:</strong> First Friday 6:00 PM</li>
+ </ul>
+ </div>
+ <div id="events" class="card events">
+ <h2>Upcoming Events</h2>
+ <div id="calendar"></div>
+ </div>
+ <div id="office-hours" class="card office-hours">
+ <h2>Office Hours</h2>
+ <ul>
+ <li><strong>Monday–Friday:</strong> 9:00 AM–4:00 PM</li>
+ <li><strong>Saturday:</strong> 10:00 AM–2:00 PM</li>
+ <li><strong>Sunday:</strong> Closed</li>
+ <li><strong>Contact:</strong> 0715959430</li>
+ </ul>
+ </div>
+ </section>
+ <section id="contact" class="contact">
+ <h2>Contact Us</h2>
+ <form id="contact-form" action="https://formspree.io/f/xxxxxxxx" method="POST">
+ <label for="name">Name</label>
+ <input type="text" id="name" name="name" required>
+ <label for="email">Email</label>
+ <input type="email" id="email" name="email" required>
+ <label for="message">Message</label>
+ <textarea id="message" name="message" required></textarea>
+ <button type="submit">Send Message</button>
+ </form>
+ </section>
+ <footer>
+ <p>St. Therese of Lisieux Malava Catholic Parish</p>
+ <p>Malava, Kenya | 0715959430 | malavaparish@gmail.com</p>
+ <p><a href="#">Facebook</a> | <a href="#">Instagram</a></p>
+ <p><strong>Support Our Parish:</strong> <a href="https://paypal.me/sttheresemalava" target="_blank" class="btn">Donate via PayPal</a></p>
+ <p><strong>M-Pesa:</strong> Paybill 123456, Account: St. Therese Malava</p>
+ <p>© 2025 St. Therese of Lisieux Malava Catholic Parish. All rights reserved.</p>
+ </footer>
+ <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+ <script>
+ // Navigation and Dropdown
+ const hamburger = document.querySelector('.hamburger');
+ const navUl = document.querySelector('nav ul');
+ const dropdownToggle = document.querySelector('.dropdown-toggle');
+ const dropdownContent = document.querySelector('.dropdown-content');
 
-        hamburger.addEventListener('click', () => {
-            navUl.classList.toggle('active');
-            const isExpanded = navUl.classList.contains('active');
-            hamburger.textContent = isExpanded ? '✖' : '☰';
-            hamburger.setAttribute('aria-expanded', isExpanded);
-            if (!isExpanded) {
-                dropdownContent.classList.remove('active');
-                dropdownToggle.setAttribute('aria-expanded', false);
-            }
-        });
+ hamburger.addEventListener('click', () => {
+ navUl.classList.toggle('active');
+ const isExpanded = navUl.classList.contains('active');
+ hamburger.textContent = isExpanded ? '✖' : '☰';
+ hamburger.setAttribute('aria-expanded', isExpanded);
+ if (!isExpanded) {
+ dropdownContent.classList.remove('active');
+ dropdownToggle.setAttribute('aria-expanded', false);
+ }
+ });
 
-        dropdownToggle.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                dropdownContent.classList.toggle('active');
-                const isExpanded = dropdownContent.classList.contains('active');
-                dropdownToggle.setAttribute('aria-expanded', isExpanded);
-            }
-        });
+ dropdownToggle.addEventListener('click', (e) => {
+ if (window.innerWidth <= 768) {
+ e.preventDefault();
+ dropdownContent.classList.toggle('active');
+ const isExpanded = dropdownContent.classList.contains('active');
+ dropdownToggle.setAttribute('aria-expanded', isExpanded);
+ }
+ });
 
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    navUl.classList.remove('active');
-                    hamburger.textContent = '☰';
-                    hamburger.setAttribute('aria-expanded', false);
-                    dropdownContent.classList.remove('active');
-                    dropdownToggle.setAttribute('aria-expanded', false);
-                }
-            });
-        });
+ document.querySelectorAll('nav ul li a').forEach(link => {
+ link.addEventListener('click', () => {
+ if (window.innerWidth <= 768) {
+ navUl.classList.remove('active');
+ hamburger.textContent = '☰';
+ hamburger.setAttribute('aria-expanded', false);
+ dropdownContent.classList.remove('active');
+ dropdownToggle.setAttribute('aria-expanded', false);
+ }
+ });
+ });
 
-        // Slideshow
-        const welcomeSlides = document.querySelectorAll('.welcome .slideshow img');
-        let currentWelcomeSlide = 0;
-        let welcomeInterval;
+ // Slideshow
+ const welcomeSlides = document.querySelectorAll('.welcome .slideshow img');
+ let currentWelcomeSlide = 0;
+ let welcomeInterval;
 
-        function showWelcomeSlide(index) {
-            welcomeSlides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-        }
+ function showWelcomeSlide(index) {
+ welcomeSlides.forEach((slide, i) => {
+ slide.classList.toggle('active', i === index);
+ });
+ }
 
-        function nextWelcomeSlide() {
-            currentWelcomeSlide = (currentWelcomeSlide + 1) % welcomeSlides.length;
-            showWelcomeSlide(currentWelcomeSlide);
-        }
+ function nextWelcomeSlide() {
+ currentWelcomeSlide = (currentWelcomeSlide + 1) % welcomeSlides.length;
+ showWelcomeSlide(currentWelcomeSlide);
+ }
 
-        function startWelcomeSlideshow() {
-            welcomeInterval = setInterval(nextWelcomeSlide, 5000);
-        }
+ function startWelcomeSlideshow() {
+ welcomeInterval = setInterval(nextWelcomeSlide, 5000);
+ }
 
-        function stopWelcomeSlideshow() {
-            clearInterval(welcomeInterval);
-        }
+ function stopWelcomeSlideshow() {
+ clearInterval(welcomeInterval);
+ }
 
-        showWelcomeSlide(currentWelcomeSlide);
-        startWelcomeSlideshow();
+ showWelcomeSlide(currentWelcomeSlide);
+ startWelcomeSlideshow();
 
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                stopWelcomeSlideshow();
-            } else {
-                startWelcomeSlideshow();
-            }
-        });
+ document.addEventListener('visibilitychange', () => {
+ if (document.hidden) {
+ stopWelcomeSlideshow();
+ } else {
+ startWelcomeSlideshow();
+ }
+ });
 
-        // Contact Form Submission
-        document.getElementById('contact-form').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const form = e.target;
-            const name = document.getElementById('name').value;
-            const existingMessage = form.querySelector('.message');
-            if (existingMessage) existingMessage.remove();
+ // Contact Form Submission
+ document.getElementById('contact-form').addEventListener('submit', async function (e) {
+ e.preventDefault();
+ const form = e.target;
+ const name = document.getElementById('name').value;
+ const existingMessage = form.querySelector('.message');
+ if (existingMessage) existingMessage.remove();
 
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    form.reset();
-                    const successMessage = document.createElement('p');
-                    successMessage.className = 'message';
-                    successMessage.textContent = `Thank you, ${sanitize(name)}! Your message has been sent. We'll get back to you at malavaparish@gmail.com.`;
-                    successMessage.style.color = '#2c3e50';
-                    form.appendChild(successMessage);
-                    setTimeout(() => successMessage.remove(), 5000);
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                const errorMessage = document.createElement('p');
-                errorMessage.className = 'message';
-                errorMessage.textContent = 'Sorry, there was an error sending your message. Please try again later.';
-                errorMessage.style.color = '#e74c3c';
-                form.appendChild(errorMessage);
-                setTimeout(() => errorMessage.remove(), 5000);
-            }
-        });
+ try {
+ const response = await fetch(form.action, {
+ method: form.method,
+ body: new FormData(form),
+ headers: { 'Accept': 'application/json' }
+ });
+ if (response.ok) {
+ form.reset();
+ const successMessage = document.createElement('p');
+ successMessage.className = 'message';
+ successMessage.textContent = `Thank you, ${sanitize(name)}! Your message has been sent. We'll get back to you at malavaparish@gmail.com.`;
+ successMessage.style.color = '#2c3e50';
+ form.appendChild(successMessage);
+ setTimeout(() => successMessage.remove(), 5000);
+ } else {
+ throw new Error('Form submission failed');
+ }
+ } catch (error) {
+ const errorMessage = document.createElement('p');
+ errorMessage.className = 'message';
+ errorMessage.textContent = 'Sorry, there was an error sending your message. Please try again later.';
+ errorMessage.style.color = '#e74c3c';
+ form.appendChild(errorMessage);
+ setTimeout(() => errorMessage.remove(), 5000);
+ }
+ });
 
-        // Sanitize Input
-        function sanitize(str) {
-            return str.replace(/[<>&"]/g, '');
-        }
+ // Sanitize Input
+ function sanitize(str) {
+ return str.replace(/[<>&"]/g, '');
+ }
 
-        // Fetch Daily Readings from EWTN API
-        async function fetchReadings() {
-            const container = document.getElementById('readings-container');
-            try {
-                const today = new Date();
-                const apiDate = today.toISOString().split('T')[0];
-                const refResponse = await fetch(`https://www.ewtn.com/se/readings/readingsservice.svc/day/${apiDate}/en`);
-                if (!refResponse.ok) throw new Error('Failed to fetch reading references');
-                const refData = await refResponse.json();
-                const readings = refData.ReadingGroups[0].Readings;
-                const references = readings.map(reading => reading.Citations[0].Reference);
-                const types = readings.map(reading => reading.Type);
-                const payload = {
-                    References: references,
-                    Language: 'en'
-                };
-                const textResponse = await fetch('https://www.ewtn.com/se/readings/readingsservice.svc/books', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Referer': 'https://www.ewtn.com/daily-readings/'
-                    },
-                    body: JSON.stringify(payload)
-                });
-                if (!textResponse.ok) throw new Error('Failed to fetch reading texts');
-                const textData = await textResponse.json();
-                container.innerHTML = '';
-                textData.forEach((verse, index) => {
-                    const readingDiv = document.createElement('div');
-                    readingDiv.className = 'reading-item';
-                    readingDiv.innerHTML = `
-                        <article>
-                            <h3>${types[index] || 'Reading'}</h3>
-                            <p><strong>${references[index]}</strong><br>${verse.Text}</p>
-                        </article>
-                    `;
-                    container.appendChild(readingDiv);
-                });
-            } catch (error) {
-                console.error('Error fetching readings:', error);
-                container.innerHTML = `
-                    <p>Sorry, we couldn't load today's readings. Please try again later or visit 
-                    <a href="https://www.ewtn.com/daily-readings" target="_blank">EWTN Daily Readings</a>.</p>
-                `;
-            }
-        }
+ // Fetch Daily Readings from EWTN API
+ async function fetchReadings() {
+ const container = document.getElementById('readings-container');
+ try {
+ const today = new Date();
+ const apiDate = today.toISOString().split('T')[0];
+ const refResponse = await fetch(`https://www.ewtn.com/se/readings/readingsservice.svc/day/${apiDate}/en`);
+ if (!refResponse.ok) throw new Error('Failed to fetch reading references');
+ const refData = await refResponse.json();
+ const readings = refData.ReadingGroups[0].Readings;
+ const references = readings.map(reading => reading.Citations[0].Reference);
+ const types = readings.map(reading => reading.Type);
+ const payload = {
+ References: references,
+ Language: 'en'
+ };
+ const textResponse = await fetch('https://www.ewtn.com/se/readings/readingsservice.svc/books', {
+ method: 'POST',
+ headers: {
+ 'Content-Type': 'application/json',
+ 'Referer': 'https://www.ewtn.com/daily-readings/'
+ },
+ body: JSON.stringify(payload)
+ });
+ if (!textResponse.ok) throw new Error('Failed to fetch reading texts');
+ const textData = await textResponse.json();
+ container.innerHTML = '';
+ textData.forEach((verse, index) => {
+ const readingDiv = document.createElement('div');
+ readingDiv.className = 'reading-item';
+ readingDiv.innerHTML = `
+ <article>
+ <h3>${types[index] || 'Reading'}</h3>
+ <p><strong>${references[index]}</strong><br>${verse.Text}</p>
+ </article>
+ `;
+ container.appendChild(readingDiv);
+ });
+ } catch (error) {
+ console.error('Error fetching readings:', error);
+ container.innerHTML = `
+ <p>Sorry, we couldn't load today's readings. Please try again later or visit 
+ <a href="https://www.ewtn.com/daily-readings" target="_blank">EWTN Daily Readings</a>.</p>
+ `;
+ }
+ }
 
-        document.addEventListener('DOMContentLoaded', fetchReadings);
-    </script>
+ // Initialize FullCalendar
+ async function initCalendar() {
+ const calendarEl = document.getElementById('calendar');
+ if (!calendarEl) return;
+ try {
+ const response = await fetch('/data/events.json');
+ if (!response.ok) throw new Error('Failed to fetch events');
+ const events = await response.json();
+ const calendar = new FullCalendar.Calendar(calendarEl, {
+ initialView: 'dayGridMonth',
+ events: events,
+ eventClick: function(info) {
+ alert(`${info.event.title}\n${info.event.start.toLocaleString()}\n${info.event.extendedProps.description || ''}`);
+ },
+ height: 'auto',
+ headerToolbar: {
+ left: 'prev,next',
+ center: 'title',
+ right: 'dayGridMonth,timeGridWeek'
+ }
+ });
+ calendar.render();
+ } catch (error) {
+ console.error('Error loading calendar:', error);
+ calendarEl.innerHTML = '<p>Sorry, we couldn’t load the events calendar. Please try again later.</p>';
+ }
+ }
+
+ document.addEventListener('DOMContentLoaded', () => {
+ fetchReadings();
+ initCalendar();
+ });
+ </script>
 </body>
 </html>
