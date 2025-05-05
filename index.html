@@ -18,6 +18,8 @@
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         /* Header */
@@ -138,6 +140,7 @@
             border: none;
             color: #fff;
             cursor: pointer;
+            padding: 0.5rem;
         }
 
         /* Welcome Section with Slideshow */
@@ -148,7 +151,7 @@
             padding: 5rem 2rem;
             background-color: rgba(0, 0, 0, 0.5);
             background-blend-mode: overlay;
-            height: 50vh;
+            height: 45vh;
         }
 
         .welcome .slideshow {
@@ -158,20 +161,23 @@
             width: 100%;
             height: 100%;
             z-index: -1;
+            max-width: 800px;
+            margin: 0 auto;
+            aspect-ratio: 9/12;
         }
 
-        .welcome .slideshow div {
+        .welcome .slideshow img {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
+            object-fit: contain;
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
 
-        .welcome .slideshow div.active {
+        .welcome .slideshow img.active {
             opacity: 1;
         }
 
@@ -230,8 +236,8 @@
         .about aside img {
             width: 100%;
             max-width: 400px;
-            aspect-ratio: 9/16;
-            object-fit: cover; /* Use 'contain' if no cropping desired */
+            aspect-ratio: 9/12;
+            object-fit: contain;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border: 2px solid #e0b774;
@@ -280,7 +286,7 @@
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
             padding: 3rem 2rem;
             background-color: #f9f9f9;
         }
@@ -289,7 +295,7 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
+            padding: 1.5rem;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
@@ -311,7 +317,7 @@
 
         .card li {
             margin: 0.5rem 0;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .event-list {
@@ -327,7 +333,7 @@
         }
 
         .event h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 0.5rem;
         }
 
@@ -347,23 +353,22 @@
             position: relative;
             max-width: 800px;
             margin: 0 auto;
-            height: 50vh;
-            aspect-ratio: 16/9;
+            height: 45vh;
+            aspect-ratio: 9/12;
         }
 
-        .gallery .slideshow div {
+        .gallery .slideshow img {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #ccc; /* Fallback for missing images */
+            object-fit: contain;
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
 
-        .gallery .slideshow div.active {
+        .gallery .slideshow img.active {
             opacity: 1;
         }
 
@@ -446,6 +451,7 @@
             color: #fff;
             text-align: center;
             padding: 2rem;
+            font-size: 1rem;
         }
 
         footer p {
@@ -477,11 +483,11 @@
             }
 
             .logo h1 {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
 
             .marquee {
-                animation-duration: 20s; /* Slower for mobile */
+                animation-duration: 20s;
             }
 
             .hamburger {
@@ -516,21 +522,27 @@
             }
 
             .dropdown:hover .dropdown-content {
-                display: none; /* Prevent hover on mobile */
+                display: none;
             }
 
             .welcome {
-                height: 40vh;
+                height: 35vh;
+                padding: 3rem 1.5rem;
             }
 
-            .welcome .slideshow div {
-                background-size: contain;
+            .welcome h2 {
+                font-size: 2rem;
+            }
+
+            .welcome p {
+                font-size: 1rem;
             }
 
             .about {
                 flex-direction: column;
                 justify-content: center;
                 text-align: center;
+                padding: 2rem 1.5rem;
             }
 
             .about-content {
@@ -550,12 +562,46 @@
                 font-size: 1rem;
             }
 
+            .readings {
+                padding: 2rem 1.5rem;
+            }
+
+            .readings h2 {
+                font-size: 1.8rem;
+            }
+
             .cards {
                 grid-template-columns: 1fr;
+                padding: 2rem 1.5rem;
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1.2rem;
+            }
+
+            .card h2 {
+                font-size: 1.6rem;
+            }
+
+            .gallery {
+                padding: 2rem 1.5rem;
+            }
+
+            .gallery h2 {
+                font-size: 1.8rem;
             }
 
             .gallery .slideshow {
-                height: 40vh;
+                height: 35vh;
+            }
+
+            .contact {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact h2 {
+                font-size: 1.8rem;
             }
 
             #contact-form {
@@ -564,8 +610,18 @@
 
             #contact-form input,
             #contact-form textarea {
-                padding: 1.2rem;
-                font-size: 1.1rem;
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            #contact-form button {
+                padding: 0.8rem;
+                font-size: 1rem;
+            }
+
+            footer {
+                padding: 1.5rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -580,15 +636,55 @@
             }
 
             .logo h1 {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             .marquee {
-                animation-duration: 25s; /* Even slower for small screens */
+                animation-duration: 25s;
+            }
+
+            .welcome {
+                padding: 2.5rem 1rem;
+            }
+
+            .welcome h2 {
+                font-size: 1.8rem;
+            }
+
+            .welcome p {
+                font-size: 0.9rem;
+            }
+
+            .about {
+                padding: 1.5rem 1rem;
+            }
+
+            .about-content h2 {
+                font-size: 1.8rem;
             }
 
             .about aside img {
                 max-width: 300px;
+            }
+
+            .readings {
+                padding: 1.5rem 1rem;
+            }
+
+            .cards {
+                padding: 1.5rem 1rem;
+            }
+
+            .gallery {
+                padding: 1.5rem 1rem;
+            }
+
+            .contact {
+                padding: 1.5rem 1rem;
+            }
+
+            #contact-form {
+                padding: 1rem;
             }
         }
     </style>
@@ -597,6 +693,7 @@
     <!-- Header -->
     <header>
         <div class="logo">
+            <img src="img/cross-icon.png" alt="Parish Logo" class="logo-img">
             <h1><span class="marquee">ST. THERESE OF LISIEUX MALAVA CATHOLIC PARISH</span></h1>
         </div>
         <nav>
@@ -617,14 +714,14 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-    </header>
+    </<header>
 
     <!-- Welcome Section with Slideshow -->
     <section id="home" class="welcome">
         <div class="slideshow">
-            <div style="background-image: url('img/church 1.jpg');" class="active" loading="lazy"></div>
-            <div style="background-image: url('img/church 2.jpg');" loading="lazy"></div>
-            <div style="background-image: url('img/church 3.jpg');" loading="lazy"></div>
+             <img src="img/church 1.jpg" alt="Church Image 1" class="active" loading="lazy">
+            <img src="img/church 2.jpg" alt="Church Image 2" loading="lazy">
+            <img src="img/church 3.jpg" alt="Church Image 3" loading="lazy">
         </div>
         <h2>Welcome to St. Therese of Lisieux</h2>
         <p>Join our vibrant Catholic community in Malava, Kenya, as we grow in faith, worship, and service. All are welcome to celebrate the love of Christ with us.</p>
@@ -635,13 +732,13 @@
     <section id="about" class="about">
         <div class="about-content">
             <h2>About Our Parish</h2>
-            <p>St. Therese of Lisieux Malava Catholic Parish, founded in 1950, is a welcoming community dedicated to spreading the Gospel through worship, education, and charity. Led by our beloved priest, Fr. Vincent Sanga, we serve families, youth, and seniors through various ministries and outreach programs.</p>
+            <p>St. Therese of Lisieux Malava Catholic Parish, founded in 1950, is a welcoming community dedicated to spreading the Gospel through worship, education, and charity. Led by our beloved pastor, Fr. John Smith, we serve families, youth, and seniors through various ministries and outreach programs.</p>
             <!-- TODO: Replace 'Fr. John Smith' with actual priest name and update history -->
         </div>
         <aside>
             <figure>
                 <img src="img/priest.jpg" alt="Fr. John Smith, Parish Priest" loading="lazy">
-                <figcaption>Fr. Vincent Sanga</figcaption>
+                <figcaption>Fr. John Smith</figcaption>
             </figure>
             <!-- TODO: Replace with actual priest image and name in figcaption -->
         </aside>
@@ -716,10 +813,10 @@
     <section id="gallery" class="gallery">
         <h2>Parish Gallery</h2>
         <div class="slideshow">
-            <div style="background-image: url('img/chapel 1.jpg');" class="active" loading="lazy"></div>
-            <div style="background-image: url('img/church 8.jpg');" loading="lazy"></div>
-            <div style="background-image: url('img/chapel 2.jpg');" loading="lazy"></div>
-            <div style="background-image: url('img/church 9.jpg');" loading="lazy"></div>
+            <img src="img/gallery1.jpg" alt="Gallery Image 1" class="active" loading="lazy">
+            <img src="img/gallery2.jpg" alt="Gallery Image 2" loading="lazy">
+            <img src="img/gallery3.jpg" alt="Gallery Image 3" loading="lazy">
+            <img src="img/gallery4.jpg" alt="Gallery Image 4" loading="lazy">
         </div>
         <!-- TODO: Ensure gallery images are parish-specific -->
     </section>
@@ -780,7 +877,7 @@
         });
 
         // Welcome Slideshow
-        const welcomeSlides = document.querySelectorAll('.welcome .slideshow div');
+        const welcomeSlides = document.querySelectorAll('.welcome .slideshow img');
         let currentWelcomeSlide = 0;
 
         function showWelcomeSlide(index) {
@@ -798,7 +895,7 @@
         setInterval(nextWelcomeSlide, 5000);
 
         // Gallery Slideshow
-        const gallerySlides = document.querySelectorAll('.gallery .slideshow div');
+        const gallerySlides = document.querySelectorAll('.gallery .slideshow img');
         let currentGallerySlide = 0;
 
         function showGallerySlide(index) {
@@ -822,4 +919,4 @@
         });
     </script>
 </body>
-</html>
+    </html>
