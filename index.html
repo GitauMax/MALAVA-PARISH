@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>St. Therese of Lisieux Malava Catholic Parish</title>
-    <link rel="icon" href="img/favicon-32×32.png"> <!-- Cross icon in img folder -->
+    <link rel="icon" href="img/cross-icon.png"> <!-- Cross icon in img folder -->
     <style>
         /* Reset default styles */
         * {
@@ -164,7 +164,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
             opacity: 0;
@@ -207,14 +207,14 @@
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
 
         .about-content {
             flex: 1;
             min-width: 300px;
-            text-align: center;
+            text-align: left;
         }
 
         .about-content h2 {
@@ -223,14 +223,14 @@
         }
 
         .about aside {
-            flex: 0 0 450px;
+            flex: 0 0 400px;
             text-align: center;
         }
 
         .about aside img {
             width: 100%;
             max-width: 400px;
-            aspect-ratio: 16/9;
+            aspect-ratio: 9/16;
             object-fit: cover; /* Use 'contain' if no cropping desired */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -331,7 +331,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Gallery Section */
+        /* Gallery Section as Slideshow */
         .gallery {
             padding: 3rem 2rem;
             background-color: #fff;
@@ -343,44 +343,28 @@
             margin-bottom: 1rem;
         }
 
-        .gallery-container {
+        .gallery .slideshow {
             position: relative;
             max-width: 800px;
             margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .gallery-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .gallery-item {
-            flex: 0 0 100%;
             height: 50vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #ccc; /* Fallback for missing images */
             aspect-ratio: 16/9;
         }
 
-        .gallery-nav {
-            margin-top: 1rem;
+        .gallery .slideshow div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #ccc; /* Fallback for missing images */
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
 
-        .gallery-nav button {
-            background-color: #2c3e50;
-            color: #fff;
-            border: none;
-            padding: 0.5rem 1rem;
-            margin: 0 0.5rem;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .gallery-nav button:hover {
-            background-color: #e0b774;
+        .gallery .slideshow div.active {
+            opacity: 1;
         }
 
         /* Contact Section */
@@ -543,12 +527,13 @@
                 background-size: contain;
             }
 
-            .welcome h2 {
-                font-size: 2rem;
-            }
-
             .about {
                 flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .about-content {
                 text-align: center;
             }
 
@@ -569,9 +554,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .gallery-item {
+            .gallery .slideshow {
                 height: 40vh;
-                background-size: contain;
             }
 
             #contact-form {
@@ -613,7 +597,6 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <img src="img/android-chrome-192×192.png" alt="Parish Logo" class="logo-img">
             <h1><span class="marquee">ST. THERESE OF LISIEUX MALAVA CATHOLIC PARISH</span></h1>
         </div>
         <nav>
@@ -657,8 +640,8 @@
         </div>
         <aside>
             <figure>
-                <img src="img/chapel 1.jpg" alt="Fr. VINCENT SANGA, Parish Priest" loading="lazy">
-                <figcaption>Fr. VINCENT SANGA</figcaption>
+                <img src="img/priest.jpg" alt="Fr. John Smith, Parish Priest" loading="lazy">
+                <figcaption>Fr. Vincent Sanga</figcaption>
             </figure>
             <!-- TODO: Replace with actual priest image and name in figcaption -->
         </aside>
@@ -729,20 +712,14 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section as Slideshow -->
     <section id="gallery" class="gallery">
         <h2>Parish Gallery</h2>
-        <div class="gallery-container">
-            <div class="gallery-track">
-                <div class="gallery-item" style="background-image: url('img/gallery1.jpg');" loading="lazy"></div>
-                <div class="gallery-item" style="background-image: url('img/gallery2.jpg');" loading="lazy"></div>
-                <div class="gallery-item" style="background-image: url('img/gallery3.jpg');" loading="lazy"></div>
-                <div class="gallery-item" style="background-image: url('img/gallery4.jpg');" loading="lazy"></div>
-            </div>
-        </div>
-        <div class="gallery-nav">
-            <button class="gallery-prev">❮ Prev</button>
-            <button class="gallery-next">Next ❯</button>
+        <div class="slideshow">
+            <div style="background-image: url('img/chapel 1.jpg');" class="active" loading="lazy"></div>
+            <div style="background-image: url('img/church 8.jpg');" loading="lazy"></div>
+            <div style="background-image: url('img/chapel 2.jpg');" loading="lazy"></div>
+            <div style="background-image: url('img/church 9.jpg');" loading="lazy"></div>
         </div>
         <!-- TODO: Ensure gallery images are parish-specific -->
     </section>
@@ -803,44 +780,40 @@
         });
 
         // Welcome Slideshow
-        const slides = document.querySelectorAll('.slideshow div');
-        let currentSlide = 0;
+        const welcomeSlides = document.querySelectorAll('.welcome .slideshow div');
+        let currentWelcomeSlide = 0;
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
+        function showWelcomeSlide(index) {
+            welcomeSlides.forEach((slide, i) => {
                 slide.classList.toggle('active', i === index);
             });
         }
 
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
+        function nextWelcomeSlide() {
+            currentWelcomeSlide = (currentWelcomeSlide + 1) % welcomeSlides.length;
+            showWelcomeSlide(currentWelcomeSlide);
         }
 
-        showSlide(currentSlide);
-        setInterval(nextSlide, 5000);
+        showWelcomeSlide(currentWelcomeSlide);
+        setInterval(nextWelcomeSlide, 5000);
 
-        // Gallery Carousel
-        const galleryTrack = document.querySelector('.gallery-track');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const prevButton = document.querySelector('.gallery-prev');
-        const nextButton = document.querySelector('.gallery-next');
-        let currentGalleryIndex = 0;
+        // Gallery Slideshow
+        const gallerySlides = document.querySelectorAll('.gallery .slideshow div');
+        let currentGallerySlide = 0;
 
-        function updateGallery() {
-            const offset = -currentGalleryIndex * 100;
-            galleryTrack.style.transform = `translateX(${offset}%)`;
+        function showGallerySlide(index) {
+            gallerySlides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
         }
 
-        prevButton.addEventListener('click', () => {
-            currentGalleryIndex = (currentGalleryIndex - 1 + galleryItems.length) % galleryItems.length;
-            updateGallery();
-        });
+        function nextGallerySlide() {
+            currentGallerySlide = (currentGallerySlide + 1) % gallerySlides.length;
+            showGallerySlide(currentGallerySlide);
+        }
 
-        nextButton.addEventListener('click', () => {
-            currentGalleryIndex = (currentGalleryIndex + 1) % galleryItems.length;
-            updateGallery();
-        });
+        showGallerySlide(currentGallerySlide);
+        setInterval(nextGallerySlide, 5000);
 
         // Contact form submission (Formspree handles server-side)
         document.getElementById('contact-form').addEventListener('submit', function (e) {
