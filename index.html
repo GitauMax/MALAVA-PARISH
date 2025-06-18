@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="St. Therese of Lisieux Malava Catholic Parish in Malava, Kenya. Join our vibrant community for worship, fellowship, parish groups, and spiritual growth.">
-    <meta name="keywords" content="St. Therese of Lisieux, Malava Catholic Parish, Kenya, Catholic Church, Mass Times, Parish Groups, Events, Prayer Requests, Catechesis">
+    <meta name="keywords" content="St. Therese of Lisieux, Malava Catholic Parish, Kenya, Catholic Church, Mass Times, Parish Groups, Events, Prayer Requests">
     <meta name="author" content="St. Therese of Lisieux Malava Catholic Parish">
     <meta property="og:title" content="St. Therese of Lisieux Malava Catholic Parish">
     <meta property="og:description" content="Join our vibrant Catholic community in Malava for worship, fellowship, parish groups, and spiritual growth.">
@@ -297,22 +297,18 @@
         .youth-groups .search-filter {
             display: flex;
             justify-content: center;
-            gap: 1rem;
             margin-bottom: 1.5rem;
         }
-        .youth-groups input, .youth-groups select {
+        .youth-groups input {
             padding: 0.8rem;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1rem;
-            flex: 1;
+            width: 100%;
+            max-width: 400px;
         }
         .announcements {
             background-color: #F5F5F5;
-        }
-        .announcements .announcement-item {
-            margin: 1rem 0;
-            text-align: left;
         }
         .announcements .centered-btn {
             display: block;
@@ -360,20 +356,6 @@
         .prayer-requests button:hover {
             background-color: #D4A353;
             transform: scale(1.05);
-        }
-        .resources {
-            background-color: #F5F5F5;
-        }
-        .resources .resource-item {
-            margin: 1rem 0;
-            text-align: left;
-        }
-        .resources a {
-            color: #1A2526;
-            text-decoration: underline;
-        }
-        .resources a:hover {
-            color: #F4C430;
         }
         .readings {
             background-color: #fff;
@@ -442,14 +424,17 @@
             font-size: 1rem;
         }
         #calendar {
-            max-width: 600px;
+            max-width: 300px;
             margin: 0 auto;
+            font-size: 0.8rem;
         }
         .fc-button {
             background-color: #F4C430 !important;
             color: #fff !important;
             border: none !important;
             border-radius: 5px !important;
+            font-size: 0.7rem !important;
+            padding: 0.3rem 0.5rem !important;
         }
         .fc-button:hover {
             background-color: #D4A353 !important;
@@ -460,19 +445,24 @@
             border: none;
             border-radius: 3px;
             cursor: pointer;
+            font-size: 0.7rem;
+        }
+        .fc-daygrid-event {
+            padding: 0.2rem;
         }
         .event-filter {
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
         .event-filter select {
-            padding: 0.8rem;
+            padding: 0.6rem;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 1rem;
+            font-size: 0.8rem;
             flex: 1;
+            max-width: 200px;
         }
         .contact {
             padding: 3rem 0;
@@ -629,37 +619,18 @@
         footer {
             background-color: #1A2526;
             color: #fff;
-            padding: 3rem 0;
+            padding: 1rem 0;
             font-size: 1rem;
+            text-align: center;
         }
         footer .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
         }
-        footer h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        footer ul {
-            list-style: none;
-        }
-        footer ul li {
-            margin: 0.5rem 0;
-        }
-        footer a {
-            color: #F4C430;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        footer a:hover {
-            color: #D4A353;
-        }
-        footer .social a {
-            margin-right: 1rem;
-            font-size: 1.5rem;
+        footer .btn {
+            margin: 0;
         }
         @media (max-width: 768px) {
             header {
@@ -737,9 +708,12 @@
                 font-size: 1.2rem;
                 padding: 0.8rem 1.5rem;
             }
-            footer .container {
-                grid-template-columns: 1fr;
-                text-align: center;
+            #calendar {
+                max-width: 250px;
+            }
+            .event-filter select {
+                font-size: 0.7rem;
+                padding: 0.5rem;
             }
         }
         @media (max-width: 480px) {
@@ -781,6 +755,16 @@
             #contact-form {
                 padding: 1.5rem;
             }
+            #calendar {
+                max-width: 200px;
+            }
+            .fc-button {
+                font-size: 0.6rem !important;
+                padding: 0.2rem 0.4rem !important;
+            }
+            .fc-event {
+                font-size: 0.6rem;
+            }
         }
     </style>
 </head>
@@ -809,7 +793,7 @@
                     </li>
                     <li><a href="#announcements">Announcements</a></li>
                     <li><a href="#prayer-requests">Prayer Requests</a></li>
-                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="resources.html">Resources</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -863,41 +847,32 @@
             <div class="floating-card">
                 <h2>Parish Groups</h2>
                 <div class="search-filter">
-                    <input type="text" id="group-search" placeholder="Search by group or deanery" aria-label="Search groups">
-                    <select id="deanery-filter" aria-label="Filter by deanery">
-                        <option value="all">All Deaneries</option>
-                        <option value="malava">Malava Deanery</option>
-                        <option value="kakamega">Kakamega Deanery</option>
-                    </select>
+                    <input type="text" id="group-search" placeholder="Search by group name" aria-label="Search groups">
                 </div>
                 <div class="group-grid" id="group-grid">
-                    <div class="group-item" data-name="CMAK" data-deanery="malava">
+                    <div class="group-item" data-name="CMAK">
                         <h3>CMAK (Catholic Men Association)</h3>
-                        <p><strong>Deanery:</strong> Malava</p>
                         <p><strong>Leader:</strong> Peter Wanjala</p>
                         <p><strong>Contact:</strong> cmak@malavaparish.org</p>
                         <p><strong>Activities:</strong> Men’s fellowship, community service, spiritual retreats</p>
                         <button class="btn join-group" data-group="CMAK">Join Group</button>
                     </div>
-                    <div class="group-item" data-name="CWA" data-deanery="malava">
+                    <div class="group-item" data-name="CWA">
                         <h3>CWA (Catholic Women Association)</h3>
-                        <p><strong>Deanery:</strong> Malava</p>
                         <p><strong>Leader:</strong> Mary Atieno</p>
                         <p><strong>Contact:</strong> cwa@malavaparish.org</p>
                         <p><strong>Activities:</strong> Women’s empowerment, charity work, prayer groups</p>
                         <button class="btn join-group" data-group="CWA">Join Group</button>
                     </div>
-                    <div class="group-item" data-name="Legio" data-deanery="malava">
+                    <div class="group-item" data-name="Legio">
                         <h3>Legio (Legion of Mary)</h3>
-                        <p><strong>Deanery:</strong> Malava</p>
                         <p><strong>Leader:</strong> Joseph Mungai</p>
                         <p><strong>Contact:</strong> legio@malavaparish.org</p>
                         <p><strong>Activities:</strong> Evangelization, Rosary prayers, home visits</p>
                         <button class="btn join-group" data-group="Legio">Join Group</button>
                     </div>
-                    <div class="group-item" data-name="PMC" data-deanery="malava">
+                    <div class="group-item" data-name="PMC">
                         <h3>PMC (Pontifical Missionary Childhood)</h3>
-                        <p><strong>Deanery:</strong> Malava</p>
                         <p><strong>Leader:</strong> Grace Nyongesa</p>
                         <p><strong>Contact:</strong> pmc@malavaparish.org</p>
                         <p><strong>Activities:</strong> Children’s catechesis, mission support, choir</p>
@@ -923,17 +898,7 @@
         <div class="container">
             <div class="floating-card">
                 <h2>Parish Announcements</h2>
-                <div class="announcement-item">
-                    <h3>Weekly Bulletin</h3>
-                    <p>Join us for our annual parish feast on October 1, 2025, celebrating St. Therese of Lisieux.</p>
-                    <a href="#events" class="navy-btn">RSVP</a>
-                    <a href="pdf/weekly-announcements.pdf" class="navy-btn centered-btn" download>Week’s Announcements</a>
-                </div>
-                <div class="announcement-item">
-                    <h3>Youth Retreat</h3>
-                    <p>Upcoming youth retreat on November 15-16, 2025. Register now!</p>
-                    <a href="#events" class="navy-btn">RSVP</a>
-                </div>
+                <a href="pdf/weekly-announcements.pdf" class="navy-btn centered-btn" download>Week’s Announcements</a>
             </div>
         </div>
     </section>
@@ -943,29 +908,13 @@
                 <h2>Prayer Requests</h2>
                 <p>Share your prayer intentions with our community. All requests are moderated.</p>
                 <form id="prayer-form" action="https://formspree.io/f/xxxxxxxx" method="POST">
+                    <input type="hidden" name="_cc" value="fr.vincent@malavaparish.org">
                     <label for="prayer-name">Name (Optional)</label>
                     <input type="text" id="prayer-name" name="name">
                     <label for="prayer-request">Prayer Request</label>
                     <textarea id="prayer-request" name="prayer" required></textarea>
                     <button type="submit">Submit Prayer</button>
                 </form>
-            </div>
-        </div>
-    </section>
-    <section id="resources" class="section resources">
-        <div class="container">
-            <div class="floating-card">
-                <h2>Catechesis & Resources</h2>
-                <div class="resource-item">
-                    <h3>Bible Study Guides</h3>
-                    <p>Explore our weekly Bible study guides for youth and adults.</p>
-                    <a href="https://www.catholic.org/bible" target="_blank" class="navy-btn">Access Guides</a>
-                </div>
-                <div class="resource-item">
-                    <h3>Sermon Archive</h3>
-                    <p>Listen to past homilies from Fr. Vincent Sanga.</p>
-                    <a href="#contact" class="navy-btn">Request Access</a>
-                </div>
             </div>
         </div>
     </section>
@@ -1020,8 +969,6 @@
                 <textarea id="message-text" name="message" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
-            <p>Subscribe to our newsletter for updates on events and groups!</p>
-            <a href="#" class="btn" onclick="alert('Newsletter signup coming soon!')">Subscribe</a>
         </div>
     </section>
     <!-- Modals -->
@@ -1029,21 +976,11 @@
         <div class="modal-content">
             <button class="close" aria-label="Close modal">×</button>
             <h3>Join a Parish Group</h3>
-            <form id="join-group-form" action="https://formspree.io/f/xxxxxxxx" method="POST">
-                <label for="group-name">Group</label>
-                <select id="group-name" name="group" required>
-                    <option value="CMAK">CMAK (Catholic Men Association)</option>
-                    <option value="CWA">CWA (Catholic Women Association)</option>
-                    <option value="Legio">Legio (Legion of Mary)</option>
-                    <option value="PMC">PMC (Pontifical Missionary Childhood)</option>
-                </select>
-                <label for="join-name">Name</label>
-                <input type="text" id="join-name" name="name" required>
-                <label for="join-email">Email</label>
-                <input type="email" id="join-email" name="email" required>
-                <label for="join-message">Message (Optional)</label>
-                <textarea id="join-message" name="message"></textarea>
-                <button type="submit">Submit Request</button>
+            <form id="join-group-whatsapp">
+                <input type="hidden" id="whatsapp-group" name="group">
+                <label for="whatsapp-name">Your Name</label>
+                <input type="text" id="whatsapp-name" name="name" required>
+                <button type="submit">Send WhatsApp Message</button>
             </form>
         </div>
     </div>
@@ -1064,40 +1001,9 @@
     </div>
     <footer>
         <div class="container">
-            <div>
-                <h3>About Us</h3>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#priest-image">Our Priest</a></li>
-                    <li><a href="#youth-groups">Parish Groups</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#live-stream">Live Mass</a></li>
-                    <li><a href="#mass-times">Mass Times</a></li>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Contact Us</h3>
-                <p>St. Therese of Lisieux Malava Catholic Parish</p>
-                <p>Malava, Kenya</p>
-                <p>0715959430 | malavaparish@gmail.com</p>
-            </div>
-            <div>
-                <h3>Support Our Parish</h3>
-                <p><a href="#" class="btn" onclick="showMpesaDetails()">Donate via Mpesa</a></p>
-                <h3>Follow Us</h3>
-                <p class="social">
-                    <a href="#" target="_blank">Facebook</a>
-                    <a href="#" target="_blank">Instagram</a>
-                </p>
-            </div>
+            <p>© 2025 St. Therese of Lisieux Malava Catholic Parish. All rights reserved.</p>
+            <a href="#" class="btn" onclick="showMpesaDetails()">Donate via Mpesa</a>
         </div>
-        <p style="text-align: center; margin-top: 2rem;">© 2025 St. Therese of Lisieux Malava Catholic Parish. All rights reserved.</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
     <script>
@@ -1179,7 +1085,7 @@
             }
         });
 
-        // Form Submission (Contact, Prayer, Group Join, Event RSVP)
+        // Form Submission (Contact, Prayer, Event RSVP)
         function handleFormSubmission(formId, successMessage, validate = null) {
             const form = document.getElementById(formId);
             if (!form) return;
@@ -1207,7 +1113,7 @@
                         successEl.style.color = '#1A2526';
                         form.appendChild(successEl);
                         setTimeout(() => successEl.remove(), 5000);
-                        if (formId === 'join-group-form' || formId === 'event-rsvp-form') {
+                        if (formId === 'event-rsvp-form') {
                             closeModal();
                         }
                     } else {
@@ -1240,9 +1146,33 @@
         }
 
         handleFormSubmission('contact-form', 'Thank you, {name}! Your message has been sent. We’ll get back to you at malavaparish@gmail.com.', validateContactForm);
-        handleFormSubmission('prayer-form', 'Thank you, {name}! Your prayer request has been submitted.');
-        handleFormSubmission('join-group-form', 'Thank you, {name}! Your request to join the group has been submitted.');
+        handleFormSubmission('prayer-form', 'Thank you, {name}! Your prayer request has been sent to Fr. Vincent.');
         handleFormSubmission('event-rsvp-form', 'Thank you, {name}! Your RSVP has been recorded.');
+
+        // WhatsApp Join Group
+        document.querySelectorAll('.join-group').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const group = btn.getAttribute('data-group');
+                document.getElementById('whatsapp-group').value = group;
+                openModal('join-group-modal');
+            });
+        });
+
+        const whatsappForm = document.getElementById('join-group-whatsapp');
+        whatsappForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('whatsapp-name').value.trim();
+            const group = document.getElementById('whatsapp-group').value;
+            if (!name) {
+                alert('Please enter your name.');
+                return;
+            }
+            const message = encodeURIComponent(`Hello, I’m interested in joining ${group}. My name is ${name}.`);
+            const whatsappUrl = `https://wa.me/+254715959430?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+            closeModal();
+            whatsappForm.reset();
+        });
 
         // Modal Handling
         function openModal(modalId) {
@@ -1271,40 +1201,21 @@
             }
         });
 
-        // Group Join Modal
-        document.querySelectorAll('.join-group').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const group = btn.getAttribute('data-group');
-                const select = document.getElementById('group-name');
-                if (select) {
-                    select.value = group;
-                }
-                openModal('join-group-modal');
-            });
-        });
-
-        // Group Search and Filter
+        // Group Search
         const groupSearch = document.getElementById('group-search');
-        const deaneryFilter = document.getElementById('deanery-filter');
         const groupGrid = document.getElementById('group-grid');
 
         function filterGroups() {
             const searchTerm = groupSearch.value.toLowerCase();
-            const deanery = deaneryFilter.value;
             const groups = groupGrid.querySelectorAll('.group-item');
 
             groups.forEach(group => {
                 const name = group.getAttribute('data-name').toLowerCase();
-                const groupDeanery = group.getAttribute('data-deanery');
-                const matchesSearch = name.includes(searchTerm);
-                const matchesDeanery = deanery === 'all' || groupDeanery === deanery;
-
-                group.style.display = matchesSearch && matchesDeanery ? 'block' : 'none';
+                group.style.display = name.includes(searchTerm) ? 'block' : 'none';
             });
         }
 
         groupSearch.addEventListener('input', filterGroups);
-        deaneryFilter.addEventListener('change', filterGroups);
 
         // Event Calendar and RSVP Modal
         async function initCalendar() {
@@ -1401,4 +1312,4 @@
         });
     </script>
 </body>
-                                                               </html>
+</html>
