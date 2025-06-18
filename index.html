@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="St. Therese of Lisieux Malava Catholic Parish in Malava, Kenya. Join our vibrant community for worship, fellowship, youth activities, and spiritual growth.">
-    <meta name="keywords" content="St. Therese of Lisieux, Malava Catholic Parish, Kenya, Catholic Church, Mass Times, Youth Groups, Events, Prayer Requests, Catechesis">
+    <meta name="description" content="St. Therese of Lisieux Malava Catholic Parish in Malava, Kenya. Join our vibrant community for worship, fellowship, parish groups, and spiritual growth.">
+    <meta name="keywords" content="St. Therese of Lisieux, Malava Catholic Parish, Kenya, Catholic Church, Mass Times, Parish Groups, Events, Prayer Requests, Catechesis">
     <meta name="author" content="St. Therese of Lisieux Malava Catholic Parish">
     <meta property="og:title" content="St. Therese of Lisieux Malava Catholic Parish">
-    <meta property="og:description" content="Join our vibrant Catholic community in Malava for worship, fellowship, youth activities, and spiritual growth.">
+    <meta property="og:description" content="Join our vibrant Catholic community in Malava for worship, fellowship, parish groups, and spiritual growth.">
     <meta property="og:image" content="https://yourdomain.com/img/church-bg1.jpg">
     <meta property="og:url" content="https://yourdomain.com">
     <meta property="og:type" content="website">
@@ -84,18 +84,6 @@
         }
         nav ul li a:hover {
             color: #F4C430;
-        }
-        .nav-auth {
-            background-color: #F4C430;
-            color: #1A2526;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-weight: 700;
-            transition: background-color 0.3s;
-        }
-        .nav-auth:hover {
-            background-color: #D4A353;
-            color: #1A2526;
         }
         .dropdown-content {
             display: none;
@@ -185,6 +173,7 @@
             transition: background-color 0.3s, transform 0.3s;
             display: inline-block;
             margin: 0.5rem;
+            cursor: pointer;
         }
         .btn:hover {
             background-color: #D4A353;
@@ -245,11 +234,12 @@
             background-color: #fff;
         }
         .priest-image {
+            background-color: #F5F5F5;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #F5F5F5;
+            padding: 2rem 0;
         }
         .priest-image figure {
             margin: 1rem 0;
@@ -271,16 +261,38 @@
         .priest-image figcaption {
             font-weight: 600;
             font-style: italic;
-            font-size: 1.2rem;
-            color: #333;
-            margin-top: 0.5rem;
+            font-size: 1.4rem;
+            color: #1A2526;
+            margin-top: 1rem;
+            text-align: center;
+            line-height: 1.4;
+            opacity: 1;
+            z-index: 1;
         }
         .youth-groups {
             background-color: #fff;
         }
-        .youth-groups .group-item {
-            margin: 1rem 0;
+        .group-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .group-item {
+            background-color: #F5F5F5;
+            border-radius: 5px;
+            padding: 1.5rem;
             text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .group-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .group-item h3 {
+            font-size: 1.5rem;
+            color: #1A2526;
+            margin-bottom: 0.5rem;
         }
         .youth-groups .search-filter {
             display: flex;
@@ -293,6 +305,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1rem;
+            flex: 1;
         }
         .announcements {
             background-color: #F5F5F5;
@@ -300,6 +313,11 @@
         .announcements .announcement-item {
             margin: 1rem 0;
             text-align: left;
+        }
+        .announcements .centered-btn {
+            display: block;
+            margin: 1.5rem auto;
+            text-align: center;
         }
         .prayer-requests {
             background-color: #fff;
@@ -360,9 +378,29 @@
         .readings {
             background-color: #fff;
         }
-        .readings .reading-item {
-            margin: 1rem 0;
+        .readings ul {
+            list-style: none;
             text-align: left;
+            margin: 1rem 0;
+        }
+        .readings ul li {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .readings ul li strong {
+            color: #1A2526;
+            font-weight: 600;
+        }
+        .readings blockquote {
+            text-align: center;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: #1A2526;
+            margin: 2rem auto;
+            padding: 1rem 2rem;
+            border-left: 4px solid #F4C430;
+            max-width: 600px;
+            line-height: 1.6;
         }
         .readings a {
             color: #1A2526;
@@ -421,6 +459,20 @@
             color: #fff;
             border: none;
             border-radius: 3px;
+            cursor: pointer;
+        }
+        .event-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .event-filter select {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            flex: 1;
         }
         .contact {
             padding: 3rem 0;
@@ -489,14 +541,90 @@
             margin-top: 1rem;
             font-size: 1rem;
         }
-        .language-toggle {
-            margin: 1rem 0;
-            text-align: center;
+        #contact-form .error {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: -0.5rem;
+            margin-bottom: 1rem;
+            display: none;
         }
-        .language-toggle select {
-            padding: 0.5rem;
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+        }
+        .modal-content {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative;
+            margin: 2rem auto;
+        }
+        .modal-content h3 {
+            font-size: 1.8rem;
+            color: #1A2526;
+            margin-bottom: 1rem;
+        }
+        .modal-content .close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: #1A2526;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .modal-content form label {
+            display: block;
+            margin: 0.5rem 0 0.2rem;
+            font-weight: 600;
+            color: #1A2526;
+            font-size: 0.9rem;
+        }
+        .modal-content form input,
+        .modal-content form select,
+        .modal-content form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1rem;
+            background-color: #F5F5F5;
+        }
+        .modal-content form button {
+            width: 100%;
+            background-color: #F4C430;
+            color: #fff;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .modal-content form button:hover {
+            background-color: #D4A353;
+            transform: scale(1.05);
+        }
+        .modal-content .event-details {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .modal-content .event-details p {
+            margin: 0.5rem 0;
         }
         footer {
             background-color: #1A2526;
@@ -594,9 +722,20 @@
             .priest-image figure {
                 max-width: 350px;
             }
+            .priest-image figcaption {
+                font-size: 1.2rem;
+                margin-top: 0.8rem;
+            }
+            .group-grid {
+                grid-template-columns: 1fr;
+            }
             .cards {
                 grid-template-columns: 1fr;
                 padding: 2rem 1rem;
+            }
+            .readings blockquote {
+                font-size: 1.2rem;
+                padding: 0.8rem 1.5rem;
             }
             footer .container {
                 grid-template-columns: 1fr;
@@ -628,6 +767,14 @@
             .priest-image figure {
                 max-width: 300px;
             }
+            .priest-image figcaption {
+                font-size: 1rem;
+                margin-top: 0.5rem;
+            }
+            .readings blockquote {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
             .contact h2 {
                 font-size: 1.8rem;
             }
@@ -650,7 +797,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#live-stream">Live Stream</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#youth-groups">Youth Groups</a></li>
+                    <li><a href="#youth-groups">Parish Groups</a></li>
                     <li><a href="#readings">Readings</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Mass & Events</a>
@@ -664,7 +811,6 @@
                     <li><a href="#prayer-requests">Prayer Requests</a></li>
                     <li><a href="#resources">Resources</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#login" class="nav-auth" aria-label="Log in or register">Log In / Register</a></li>
                 </ul>
             </nav>
         </div>
@@ -672,30 +818,35 @@
     <section id="home" class="welcome">
         <div class="slideshow">
             <img src="img/church1.jpg" alt="Church Image 1" class="active" loading="lazy" width="1920" height="1080">
-            <img src="img/church2.jpg" alt="Church Image 2" loading="lazy" width="1920" height="320">
-            <img src="img/church3.jpg" alt="Church Image 3" loading="lazy" width="1920" height="600">
+            <img src="img/church2.jpg" alt="Church Image 2" loading="lazy" width="1920" height="1080">
+            <img src="img/church3.jpg" alt="Church Image 3" loading="lazy" width="1920" height="1080">
         </div>
         <div class="container">
             <h2>Welcome to St. Therese</h2>
             <p>Join our vibrant Catholic community in Malava, Kenya, for worship, education, and charity.</p>
-            <a href="#youth-groups" class="btn">Join Our Youth Groups</a>
+            <a href="#youth-groups" class="btn">Join Our Groups</a>
             <a href="gallery.html" class="btn">View Gallery</a>
-            <div class="language-toggle">
-                <label for="language">Select Language: </label>
-                <select id="language" onchange="alert('Multilingual support coming soon!')">
-                    <option value="en">English</option>
-                    <option value="sw">Swahili</option>
-                </select>
+        </div>
+    </section>
+    <section id="priest-image" class="section priest-image">
+        <div class="container">
+            <div class="floating-card">
+                <h2>Our Parish Priest</h2>
+                <figure>
+                    <img src="img/groto1.jpg" alt="Fr. Vincent Sanga, Parish Priest" loading="lazy" width="400" height="400">
+                    <figcaption>Fr. Vincent Sanga</figcaption>
+                </figure>
             </div>
         </div>
     </section>
-    <section id="login" class="floating-card">
+    <section id="about" class="section about">
         <div class="container">
-            <h2>Welcome, Guest!</h2>
-            <p>Your Parish: St. Therese of Lisieux Malava</p>
-            <p>Join our community to access personalized event updates and youth groups group activities.<p>
-            <a href="#login" class="btn">Log In / Register</a>
-            <p><a href="#login" class="navy-btn">Log Out</a></p>
+            <div class="floating-card">
+                <h2>About Our Parish</h2>
+                <p>St. Therese of Lisieux Malava Catholic Parish, founded in 1950, is a welcoming community in the Archdiocese of Kakamega, serving families, youth, and seniors through worship, education, and charity. Led by our beloved priest, Fr. Vincent Sanga, we offer various ministries and outreach programs.</p>
+                <p><strong>Location:</strong> Malava, Kakamega County, Kenya</p>
+                <p><strong>Contact:</strong> 0715959430 | malavaparish@gmail.com</p>
+            </div>
         </div>
     </section>
     <section id="live-stream" class="floating-card live-stream">
@@ -707,46 +858,51 @@
             <a href="#mass-times" class="navy-btn" aria-label="View Mass Times for in-person services">View Mass Times</a>
         </div>
     </section>
-    <section id="about" class="section about">
-        <div class="container">
-            <div class="floating-card">
-                <h2>About Our Parish</h2>
-                <p>St. Therese of Lisieux Malava Catholic Parish, founded in 190,1950 is a welcoming community in Malava, Kenya, dedicated to the Archdiocese of Kakamega, serving families, youth and seniors through worship, education, and charity. Led by our beloved priest, Fr. Vincent Sanga, we serve families, youth, and seniors through various ministries and outreach programs.</p>
-                <p><strong>Location:</strong> Malava, Kakamega County, Kenya</p>
-                <p><strong>Contact:</strong> 0715959430 | |malavapar@gmail.com</p>
-            </div>
-        </div>
-    </section>
-    <section id="priest-image" class="section priest-image">
-        <div class="container">
-            <div class="floating-card">
-                <h2>Our Parish Priest</h2>
-                <figure>
-                    <img src="img/groto1.jpg" alt="Fr. Vincent Sanga, Parish Priest" loading="lazy" width="400" height="400">
-                    <figcaption>cap>Fr. Vincent Sanga</figcaption>
-                </figure>
-            </div>
-        </div>
-    </section>
     <section id="youth-groups" class="section youth-groups">
         <div class="container">
             <div class="floating-card">
-                <h2>Youth Groups</h2>
+                <h2>Parish Groups</h2>
                 <div class="search-filter">
-                    <input type="text" id="youth-search" placeholder="Search by parish or deanery" aria-label="Search youth groups">
+                    <input type="text" id="group-search" placeholder="Search by group or deanery" aria-label="Search groups">
                     <select id="deanery-filter" aria-label="Filter by deanery">
-                        <option value="">All Deaneries</option>
+                        <option value="all">All Deaneries</option>
                         <option value="malava">Malava Deanery</option>
                         <option value="kakamega">Kakamega Deanery</option>
                     </select>
                 </div>
-                <div class="group-item">
-                    <h3>Malava Youth Group</h3>
-                    <p><strong>Deanery:</strong> Malava</p>
-                    <p><strong>Youth Leader:</strong> John Okoth</p>
-                    <p><strong>Contact:</strong> youth@malavaparish.org</p>
-                    <p><strong>Activities:</strong> Bible study, community service, choir</p>
-                    <a href="#login" class="btn">Join Group</a>
+                <div class="group-grid" id="group-grid">
+                    <div class="group-item" data-name="CMAK" data-deanery="malava">
+                        <h3>CMAK (Catholic Men Association)</h3>
+                        <p><strong>Deanery:</strong> Malava</p>
+                        <p><strong>Leader:</strong> Peter Wanjala</p>
+                        <p><strong>Contact:</strong> cmak@malavaparish.org</p>
+                        <p><strong>Activities:</strong> Men’s fellowship, community service, spiritual retreats</p>
+                        <button class="btn join-group" data-group="CMAK">Join Group</button>
+                    </div>
+                    <div class="group-item" data-name="CWA" data-deanery="malava">
+                        <h3>CWA (Catholic Women Association)</h3>
+                        <p><strong>Deanery:</strong> Malava</p>
+                        <p><strong>Leader:</strong> Mary Atieno</p>
+                        <p><strong>Contact:</strong> cwa@malavaparish.org</p>
+                        <p><strong>Activities:</strong> Women’s empowerment, charity work, prayer groups</p>
+                        <button class="btn join-group" data-group="CWA">Join Group</button>
+                    </div>
+                    <div class="group-item" data-name="Legio" data-deanery="malava">
+                        <h3>Legio (Legion of Mary)</h3>
+                        <p><strong>Deanery:</strong> Malava</p>
+                        <p><strong>Leader:</strong> Joseph Mungai</p>
+                        <p><strong>Contact:</strong> legio@malavaparish.org</p>
+                        <p><strong>Activities:</strong> Evangelization, Rosary prayers, home visits</p>
+                        <button class="btn join-group" data-group="Legio">Join Group</button>
+                    </div>
+                    <div class="group-item" data-name="PMC" data-deanery="malava">
+                        <h3>PMC (Pontifical Missionary Childhood)</h3>
+                        <p><strong>Deanery:</strong> Malava</p>
+                        <p><strong>Leader:</strong> Grace Nyongesa</p>
+                        <p><strong>Contact:</strong> pmc@malavaparish.org</p>
+                        <p><strong>Activities:</strong> Children’s catechesis, mission support, choir</p>
+                        <button class="btn join-group" data-group="PMC">Join Group</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -770,12 +926,13 @@
                 <div class="announcement-item">
                     <h3>Weekly Bulletin</h3>
                     <p>Join us for our annual parish feast on October 1, 2025, celebrating St. Therese of Lisieux.</p>
-                    <a href="#contact" class="navy-btn">Contact for Details</a>
+                    <a href="#events" class="navy-btn">RSVP</a>
+                    <a href="pdf/weekly-announcements.pdf" class="navy-btn centered-btn" download>Week’s Announcements</a>
                 </div>
                 <div class="announcement-item">
                     <h3>Youth Retreat</h3>
                     <p>Upcoming youth retreat on November 15-16, 2025. Register now!</p>
-                    <a href="#login" class="navy-btn">RSVP</a>
+                    <a href="#events" class="navy-btn">RSVP</a>
                 </div>
             </div>
         </div>
@@ -817,24 +974,30 @@
             <div id="mass-times" class="card mass-times">
                 <h2>Mass Times</h2>
                 <ul>
-                    <li><strong>Sunday:</strong> 8:00 AM, 0:30 AM, 5:00 PM</li>
+                    <li><strong>Sunday:</strong> 8:00 AM, 10:30 AM, 5:00 PM</li>
                     <li><strong>Weekday:</strong> 7:30 AM (Monday–Friday)</li>
-                    <li><strong>Saturday:</strong> Vigil: 5:00 PM</li>
+                    <li><strong>Saturday Vigil:</strong> 5:00 PM</li>
                     <li><strong>Confession:</strong> Saturday 3:30–4:30 PM or by appointment</li>
                     <li><strong>Adoration:</strong> First Friday 6:00 PM</li>
                 </ul>
             </div>
             <div id="events" class="card events">
                 <h2>Upcoming Events</h2>
+                <div class="event-filter">
+                    <select id="event-category-filter" aria-label="Filter by category">
+                        <option value="all">All Categories</option>
+                        <option value="liturgical">Liturgical</option>
+                        <option value="youth">Youth</option>
+                        <option value="community">Community</option>
+                    </select>
+                </div>
                 <div id="calendar"></div>
-                <p><strong>Categories:</strong> Liturgical, Youth, Community</p>
-                <a href="#login" class="navy-btn">RSVP for Events</a>
             </div>
             <div id="office-hours" class="card office-hours">
                 <h2>Office Hours</h2>
                 <ul>
                     <li><strong>Monday–Friday:</strong> 9:00 AM–4:00 PM</li>
-                    <li><strong>Saturday:</strong> 10:00 AM–2:00 PM</li>
+                    <li><strong>Saturday:</strong> 10:00 AM–1:00 PM</li>
                     <li><strong>Sunday:</strong> Closed</li>
                     <li><strong>Contact:</strong> 0715959430</li>
                 </ul>
@@ -844,28 +1007,69 @@
     <section id="contact" class="section contact">
         <div class="container">
             <h2>Contact Us</h2>
-            <p>Interested in volunteering? Include your interest in the message below!</p>
+            <p>Interested in volunteering or joining our groups? Include your interest in the message below! Please provide either an email or phone number.</p>
             <form id="contact-form" action="https://formspree.io/f/xxxxxxxx" method="POST">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
+                <label for="email">Email (or provide phone number below)</label>
+                <input type="email" id="email" name="email" placeholder="e.g., example@domain.com">
+                <label for="phone">Phone Number (or provide email above)</label>
+                <input type="tel" id="phone" name="phone" placeholder="e.g., +254712345678">
+                <p id="contact-error" class="error">Please provide either an email or a phone number.</p>
+                <label for="message-text">Message</label>
+                <textarea id="message-text" name="message" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
-            <p>Sign up for our newsletter to stay updated!</p>
-            <a href="#contact" class="btn">Join Newsletter</a>
+            <p>Subscribe to our newsletter for updates on events and groups!</p>
+            <a href="#" class="btn" onclick="alert('Newsletter signup coming soon!')">Subscribe</a>
         </div>
     </section>
+    <!-- Modals -->
+    <div id="join-group-modal" class="modal">
+        <div class="modal-content">
+            <button class="close" aria-label="Close modal">×</button>
+            <h3>Join a Parish Group</h3>
+            <form id="join-group-form" action="https://formspree.io/f/xxxxxxxx" method="POST">
+                <label for="group-name">Group</label>
+                <select id="group-name" name="group" required>
+                    <option value="CMAK">CMAK (Catholic Men Association)</option>
+                    <option value="CWA">CWA (Catholic Women Association)</option>
+                    <option value="Legio">Legio (Legion of Mary)</option>
+                    <option value="PMC">PMC (Pontifical Missionary Childhood)</option>
+                </select>
+                <label for="join-name">Name</label>
+                <input type="text" id="join-name" name="name" required>
+                <label for="join-email">Email</label>
+                <input type="email" id="join-email" name="email" required>
+                <label for="join-message">Message (Optional)</label>
+                <textarea id="join-message" name="message"></textarea>
+                <button type="submit">Submit Request</button>
+            </form>
+        </div>
+    </div>
+    <div id="event-rsvp-modal" class="modal">
+        <div class="modal-content">
+            <button class="close" aria-label="Close modal">×</button>
+            <h3 id="event-title">Event Details</h3>
+            <div id="event-details" class="event-details"></div>
+            <form id="event-rsvp-form" action="https://formspree.io/f/xxxxxxxx" method="POST">
+                <input type="hidden" id="rsvp-event-title" name="event-title">
+                <label for="rsvp-name">Name</label>
+                <input type="text" id="rsvp-name" name="name" required>
+                <label for="rsvp-email">Email</label>
+                <input type="email" id="rsvp-email" name="email" required>
+                <button type="submit">RSVP</button>
+            </form>
+        </div>
+    </div>
     <footer>
         <div class="container">
             <div>
                 <h3>About Us</h3>
                 <ul>
-                    <li><a href="#about">Our Parish</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#priest-image">Our Priest</a></li>
-                    <li><a href="#youth-groups">Youth Groups</a></li>
+                    <li><a href="#youth-groups">Parish Groups</a></li>
                 </ul>
             </div>
             <div>
@@ -881,11 +1085,11 @@
                 <h3>Contact Us</h3>
                 <p>St. Therese of Lisieux Malava Catholic Parish</p>
                 <p>Malava, Kenya</p>
-                <p>0715959430 | malavapar@gmail.com</p>
+                <p>0715959430 | malavaparish@gmail.com</p>
             </div>
             <div>
                 <h3>Support Our Parish</h3>
-                <p><a href="https://paypal.me/sttheresemalava" target="_blank" class="btn">Donate via PayPal</a></p>
+                <p><a href="#" class="btn" onclick="showMpesaDetails()">Donate via Mpesa</a></p>
                 <h3>Follow Us</h3>
                 <p class="social">
                     <a href="#" target="_blank">Facebook</a>
@@ -897,6 +1101,11 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
     <script>
+        // Mpesa Donation Details
+        function showMpesaDetails() {
+            alert('To contribute via Mpesa:\nPayBill: 123456\nAccount: StThereseMalava\nThank you for supporting our parish!');
+        }
+
         // Navigation and Dropdown
         const hamburger = document.querySelector('.hamburger');
         const navUl = document.querySelector('nav ul');
@@ -923,7 +1132,7 @@
             }
         });
 
-        document.querySelectorAll('nav ul li a').forEach(link => {
+        document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
                     navUl.classList.remove('active');
@@ -970,14 +1179,19 @@
             }
         });
 
-        // Form Submission (Contact and Prayer Requests)
-        function handleFormSubmission(formId, successMessage) {
-            document.getElementById(formId).addEventListener('submit', async function (e) {
+        // Form Submission (Contact, Prayer, Group Join, Event RSVP)
+        function handleFormSubmission(formId, successMessage, validate = null) {
+            const form = document.getElementById(formId);
+            if (!form) return;
+            form.addEventListener('submit', async function (e) {
                 e.preventDefault();
-                const form = e.target;
                 const name = form.querySelector('input[name="name"]')?.value || 'Guest';
                 const existingMessage = form.querySelector('.message');
                 if (existingMessage) existingMessage.remove();
+
+                if (validate && !validate(form)) {
+                    return;
+                }
 
                 try {
                     const response = await fetch(form.action, {
@@ -993,13 +1207,16 @@
                         successEl.style.color = '#1A2526';
                         form.appendChild(successEl);
                         setTimeout(() => successEl.remove(), 5000);
+                        if (formId === 'join-group-form' || formId === 'event-rsvp-form') {
+                            closeModal();
+                        }
                     } else {
                         throw new Error('Form submission failed');
                     }
                 } catch (error) {
                     const errorEl = document.createElement('p');
                     errorEl.className = 'message';
-                    errorEl.textContent = 'Sorry, there was an error sending your message. Please try again later.';
+                    errorEl.textContent = 'Sorry, there was an error sending your request. Please try again later.';
                     errorEl.style.color = '#e74c3c';
                     form.appendChild(errorEl);
                     setTimeout(() => errorEl.remove(), 5000);
@@ -1007,16 +1224,134 @@
             });
         }
 
-        handleFormSubmission('contact-form', 'Thank you, {name}! Your message has been sent. We’ll get back to you at malavaparish@gmail.com.');
-        handleFormSubmission('prayer-form', 'Thank you, {name}! Your prayer request has been submitted.');
+        // Contact Form Validation
+        function validateContactForm(form) {
+            const email = form.querySelector('#email').value.trim();
+            const phone = form.querySelector('#phone').value.trim();
+            const errorEl = form.querySelector('#contact-error');
 
-        // Youth Group Search and Filter (Simulated)
-        document.getElementById('youth-search')?.addEventListener('input', (e) => {
-            alert('Search functionality coming soon!');
+            if (!email && !phone) {
+                errorEl.style.display = 'block';
+                return false;
+            }
+
+            errorEl.style.display = 'none';
+            return true;
+        }
+
+        handleFormSubmission('contact-form', 'Thank you, {name}! Your message has been sent. We’ll get back to you at malavaparish@gmail.com.', validateContactForm);
+        handleFormSubmission('prayer-form', 'Thank you, {name}! Your prayer request has been submitted.');
+        handleFormSubmission('join-group-form', 'Thank you, {name}! Your request to join the group has been submitted.');
+        handleFormSubmission('event-rsvp-form', 'Thank you, {name}! Your RSVP has been recorded.');
+
+        // Modal Handling
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+            });
+            document.body.style.overflow = 'auto';
+        }
+
+        document.querySelectorAll('.close').forEach(btn => {
+            btn.addEventListener('click', closeModal);
         });
-        document.getElementById('deanery-filter')?.addEventListener('change', (e) => {
-            alert('Deanery filter coming soon!');
+
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                closeModal();
+            }
         });
+
+        // Group Join Modal
+        document.querySelectorAll('.join-group').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const group = btn.getAttribute('data-group');
+                const select = document.getElementById('group-name');
+                if (select) {
+                    select.value = group;
+                }
+                openModal('join-group-modal');
+            });
+        });
+
+        // Group Search and Filter
+        const groupSearch = document.getElementById('group-search');
+        const deaneryFilter = document.getElementById('deanery-filter');
+        const groupGrid = document.getElementById('group-grid');
+
+        function filterGroups() {
+            const searchTerm = groupSearch.value.toLowerCase();
+            const deanery = deaneryFilter.value;
+            const groups = groupGrid.querySelectorAll('.group-item');
+
+            groups.forEach(group => {
+                const name = group.getAttribute('data-name').toLowerCase();
+                const groupDeanery = group.getAttribute('data-deanery');
+                const matchesSearch = name.includes(searchTerm);
+                const matchesDeanery = deanery === 'all' || groupDeanery === deanery;
+
+                group.style.display = matchesSearch && matchesDeanery ? 'block' : 'none';
+            });
+        }
+
+        groupSearch.addEventListener('input', filterGroups);
+        deaneryFilter.addEventListener('change', filterGroups);
+
+        // Event Calendar and RSVP Modal
+        async function initCalendar() {
+            const calendarEl = document.getElementById('calendar');
+            if (!calendarEl) return;
+            try {
+                const response = await fetch('/img/events.json');
+                if (!response.ok) throw new Error('Failed to fetch events');
+                const events = await response.json();
+                const calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    events: events,
+                    eventClick: function(info) {
+                        const event = info.event;
+                        document.getElementById('event-title').textContent = event.title;
+                        document.getElementById('rsvp-event-title').value = event.title;
+                        document.getElementById('event-details').innerHTML = `
+                            <p><strong>Date:</strong> ${event.start.toLocaleDateString()}</p>
+                            <p><strong>Time:</strong> ${event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+                            <p><strong>Description:</strong> ${event.extendedProps.description || 'No description available'}</p>
+                            <p><strong>Category:</strong> ${event.extendedProps.category || 'General'}</p>
+                        `;
+                        openModal('event-rsvp-modal');
+                    },
+                    height: 'auto',
+                    headerToolbar: {
+                        left: 'prev,next',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek'
+                    }
+                });
+                calendar.render();
+
+                // Event Category Filter
+                const categoryFilter = document.getElementById('event-category-filter');
+                categoryFilter.addEventListener('change', () => {
+                    const category = categoryFilter.value;
+                    calendar.getEvents().forEach(event => {
+                        const eventCategory = event.extendedProps.category || 'general';
+                        event.setProp('display', category === 'all' || eventCategory.toLowerCase() === category ? 'auto' : 'none');
+                    });
+                });
+            } catch (error) {
+                console.error('Error loading calendar:', error);
+                calendarEl.innerHTML = '<p>Sorry, we couldn’t load the events calendar. Please try again later.</p>';
+            }
+        }
 
         // Fetch Daily Readings from EWTN API
         async function fetchReadings() {
@@ -1044,17 +1379,12 @@
                 });
                 if (!textResponse.ok) throw new Error('Failed to fetch reading texts');
                 const textData = await textResponse.json();
-                container.innerHTML = '';
+                container.innerHTML = '<ul></ul><blockquote>“The Word of God is living and active, guiding us to live in faith and love.” – Hebrews 4:12</blockquote>';
+                const ul = container.querySelector('ul');
                 textData.forEach((verse, index) => {
-                    const readingDiv = document.createElement('div');
-                    readingDiv.className = 'reading-item';
-                    readingDiv.innerHTML = `
-                        <article>
-                            <h3>${types[index] || 'Reading'}</h3>
-                            <p><strong>${references[index]}</strong><br>${verse.Text}</p>
-                        </article>
-                    `;
-                    container.appendChild(readingDiv);
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong>${types[index] || 'Reading'}: ${references[index]}</strong><br>${DOMPurify.sanitize(verse.Text)}`;
+                    ul.appendChild(li);
                 });
             } catch (error) {
                 console.error('Error fetching readings:', error);
@@ -1065,38 +1395,10 @@
             }
         }
 
-        // Initialize FullCalendar
-        async function initCalendar() {
-            const calendarEl = document.getElementById('calendar');
-            if (!calendarEl) return;
-            try {
-                const response = await fetch('/img/events.json');
-                if (!response.ok) throw new Error('Failed to fetch events');
-                const events = await response.json();
-                const calendar = new FullCalendar.Calendar(calendarEl, {
-                    initialView: 'dayGridMonth',
-                    events: events,
-                    eventClick: function(info) {
-                        alert(`${info.event.title}\n${info.event.start.toLocaleString()}\n${info.event.extendedProps.description || ''}`);
-                    },
-                    height: 'auto',
-                    headerToolbar: {
-                        left: 'prev,
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek'
-                    }
-                });
-                calendar.render();
-            } catch (error) {
-                console.error('Error loading calendar:', error);
-                calendarEl.innerHTML = '<p>Sorry, we couldn’t load the events calendar. Please try again later.</p>';
-            }
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
             fetchReadings();
             initCalendar();
         });
     </script>
 </body>
-</html>
+                                                               </html>
